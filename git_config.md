@@ -45,7 +45,7 @@ $ git remote -v        // Connaitre l'URL
 3. Commit 
 
     ```
-    $ git commit -m_        // Commit > Local, 
+    $ git commit -m_        // Commit est local
                             // m: commentaires 
                             // Commiter tous les fichiers listés dans _git status_ dans les colonnes 
                             // «Changes to be committed » et « Changed but not updated » (vert ou rouge)
