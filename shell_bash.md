@@ -115,7 +115,7 @@ echo "Les back quotes `` demandent à bash d\'executer ce qui se trouve a l'inte
 
 #### Opérations mathematiques 
 
-En bash, les bariables sont des chaînes de carcatères. Pour manipuler des nombres, il faut utiliser des commandes.
+En bash, les bariables sont des chaînes de carcatères. Pour manipuler des nombres, il faut utiliser des commandes (let...).
 
 ```bash
 let "a = 5"
@@ -124,12 +124,34 @@ let "c = a + b"
 
 echo "$a + $b = $c"
 ```
-#### Variable d'environement
+#### Variables d'environement/Globales 
 
 Les variables d'environnement peuvent être utilisées dans n'importe quel programme.
 
 ```bash 
 $ env
+
+ORBIT_SOCKETDIR=/tmp/orbit-mateo21
+GLADE_PIXMAP_PATH=:/usr/share/glade3/pixmaps
+TERM=xterm
+SHELL=/bin/bash # Indique quel type de shell est en cours d'utilisation (sh, bash, ksh…)
+GTK_MODULES=canberra-gtk-module
+USER=celia
+PATH=/home/celia/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin: /usr/bin:/sbin:/bin:/usr/games
+GDM_XSERVER_LOCATION=local # Une liste des répertoires qui contiennent des exécutables sans "./"
+PWD=/home/celia # Le dossier dans lequel vous vous trouvez 
+EDITOR=nano # L'éditeur de texte par défaut
+SHLVL=1
+HOME=/home/celia # La position de votre dossier home 
+OLDPWD=/home/celia # Le dossier dans lequel vous vous trouviez auparavant
+
+[ ... ]
+```
+
+#### Définir une nouvelle variable d'environnement 
+
+```bash
+export #dans le .bashrc.
 ```
 
 #### Exécuter depuis n'importe quel répertoire sans "./"
@@ -145,3 +167,94 @@ Ajouter le script à l'un de ces répertoires spéciaux puis l'exécuter sans le
 ```bash
 test_shell_bash.sh # Sans le './'
 ```
+
+### Les tableaux 
+
+```bash
+tableau=(1 2 1)
+echo "{tableau[2]} = ${tableau[2]}" # Il faut entourer la variable d'accolades
+tableau[5]=727 # La numérotation n'a pas besoin d'être continue
+echo ${tableau[*]} #Afficher l'ensemble du contenu du tableau 
+```
+
+### Les conditions 
+
+```bash
+read x 
+# ./file.sh 5
+# x=$1
+if [ $x -gt 0 ] # [ test ] et non [test] 
+                # -ge GreaterorEqual
+then 
+        echo "Nombre positif" # Après deux tablulations"
+elif [ $x -lt 0 ] # le LowerorEqual
+then 
+        echo "Nombre negatif" 
+else
+        echo "Nombre égale à 0"
+fi
+```
+
+```bash
+
+echo "Fichier $0, Nombre de paramètres $#"
+
+if [ $1 != $2 ] 
+then
+        echo "Les 2 paramètres sont identiques !" 
+elif [ $1 == $2 ]  
+then 
+        echo "Les 2 paramètres sont différents !"
+        # " « eq » : Vérifie si les nombres sont égaux"
+        # " « == » : Compare deux chaînes de caractères"
+elif [ -z $1 ]
+then
+        echo "Vérifie si la chaîne est vide"
+elif [ -n $1 ]
+then 
+        echo "Vérifie si la chaîne est non vide"
+
+fi
+```
+
+`&&` : signifie « et »
+
+`||` : signifie « ou »
+
+Inverser un test : `if [ ! -e fichier ] # -e si le fichier existe`
+
+#### Case
+
+```bash
+case $1 in
+        "Chien" | "Chat" | "Souris")
+                echo "C'est un mammifère"
+                ;;
+        "Moineau" | "Pigeon")
+                echo "C'est un oiseau"
+                ;;
+        *)
+                echo "Je ne sais pas ce que c'est"
+                ;;
+esac
+```
+
+### Boucles
+
+For :
+```bash 
+for fichier in $tableau # ou for fichier in `ls`
+do
+        echo "Fichier trouvé : $fichier"
+done
+```
+While :
+```bash 
+while [ -z $reponse ] || [ $reponse != 'oui' ]
+do
+        read -p 'Dites oui : ' reponse
+done
+
+```
+
+
