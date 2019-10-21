@@ -69,8 +69,8 @@ $ git remote -v        // Connaitre l'URL
 
     ```
     $ git status      // Etat du repertoire
-    $ git log -n 2_   // Lister les 2 derniers commits
+    $ git log -n 2    // Lister les 2 derniers commits
     $ git log --stat  // Résumer plus court des commits
-    $ git diff       // Affiche un diff etre le (working directory) et l’index (staging area) ou dans le repository. 
+    $ git diff        // Affiche un diff etre le (working directory) et l’index (staging area) ou dans le repository. 
                       // Dès qu’on fait _git add_ sur un fichier modifié, il n’apparait plus dans le diff
     ```
