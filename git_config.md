@@ -38,17 +38,17 @@ $ git remote -v        // Connaitre l'URL
 
     ```
     $ git add fic1 fic2 
-    $ git add --all      // Recommader à -git add folder/*
+    $ git add --all      // Recommader à : git add folder/*
     $ git add *.html        
     ```
 
 3. Commit 
 
     ```
-    $ git commit -m_        // Commit est local
+    $ git commit -m         // Commit est local
                             // m: commentaires 
                             // Commiter tous les fichiers listés dans _git status_ dans les colonnes 
-                            // «Changes to be committed » et « Changed but not updated » (vert ou rouge)
+                            // «Changes to be committed» et «Changed but not updated» (vert ou rouge)
 
     $ git commit fic1 fic2  // Pour indiquer lors du commit quels fichiers précis doivent être «commités»
     ```
@@ -58,12 +58,12 @@ $ git remote -v        // Connaitre l'URL
     ```
     $ git push origin master_                             // Les envoyer sur le serveur
     $ git branch --set-upstream-to=origin/master master_
-    $ git push_ 
+    $ git push
     ```
 
 5. Pull:
 
-    `$ git pull_   // Récupérer du serveur`
+    `$ git pull   // Récupérer du serveur`
 
 6. Affichage:
 
@@ -71,6 +71,6 @@ $ git remote -v        // Connaitre l'URL
     $ git status      // Etat du repertoire
     $ git log -n 2_   // Lister les 2 derniers commits
     $ git log --stat  // Résumer plus court des commits
-    $ git diff_       // Affiche un diff etre le (working directory) et l’index (staging area) ou dans le repository. 
+    $ git diff       // Affiche un diff etre le (working directory) et l’index (staging area) ou dans le repository. 
                       // Dès qu’on fait _git add_ sur un fichier modifié, il n’apparait plus dans le diff
     ```
