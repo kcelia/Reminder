@@ -10,7 +10,7 @@
 
 Exit without saving: `:q!`
 
-Exit with saving :  `:wq`
+Exit with saving :  `INSET` + ... + `ECHAP` + `:wq`
 
 Deux environnements très différents sont disponibles sous Linux :
 
@@ -130,4 +130,18 @@ Les variables d'environnement peuvent être utilisées dans n'importe quel progr
 
 ```bash 
 $ env
+```
+
+#### Exécuter depuis n'importe quel répertoire sans "./"
+
+Le PATH est une variable système qui indique où sont les programmes exécutables sur l'ordinateur. 
+
+```bash
+echo $PATH # lister de ces répertoires « spéciaux ».4
+```
+
+Ajouter le script à l'un de ces répertoires spéciaux puis l'exécuter sans le './'.
+
+```bash
+test_shell_bash.sh # Sans le './'
 ```
