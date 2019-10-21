@@ -4,13 +4,9 @@
 - **Minilangage** de programmation intégré à tous les systèmes **Linux**.
 - Il gère et automatise des tâches répétitives et de gèrer l'invite de commandes.
 - Rien à installer, rien à compiler. Toutes les commandes que l'on utilise dans les scripts shell sont des commandes du système (ls, cut, grep, sort…).
-- Toutefois, pour programmer, il va vous falloir **utiliser** un __*éditeur de texte*__ (nano, __vim__, emacs)
+- Toutefois, pour programmer, il va vous falloir **utiliser** un __*éditeur de texte*__ (nano, __Vim__, emacs)
 
-**vim** : est une version améliorée de l'un des plus anciens éditeurs en console : **vi**
-
-Exit without saving: `:q!`
-
-Exit with saving :  `INSET` + ... + `ECHAP` + `:wq`
+**Vim** : est une version améliorée de l'un des plus anciens éditeurs en console : **Vi**
 
 Deux environnements très différents sont disponibles sous Linux :
 
@@ -45,9 +41,9 @@ Ajouter à la première ligne:
 ```bash 
 #!/bin/bash/
 ``` 
-Pour indiquer que le shell est executable. 
+Pour indiquer que le script est écrit en bash, appelée le *sha-bang*.
 
-**!#** : Le hashtag, est appelé *sha-bang*.
+**!#** : Un signal qui indique avec quel interpréteur de shell il faut lire le script.
 
 **/bin/bash** : peut être remplacé par */bin/sh* ou */bin/ksh*/
 
@@ -126,7 +122,7 @@ echo "$a + $b = $c"
 ```
 #### Variables d'environement/Globales 
 
-Les variables d'environnement peuvent être utilisées dans n'importe quel programme.
+Les variables d'environnement peuvent être utilisées dans n'importe quel programme/script.
 
 ```bash 
 $ env
