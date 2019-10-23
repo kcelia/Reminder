@@ -283,4 +283,53 @@ L'argument | description | exemple
 -f | suivi du nom du fichier de configuration de awk | 
 -v | définit une variable, qui sera utilisée par la suite dans le programme | ***var***  
 
+#### Variable **awk**
 
+Variable | Description 
+---|--
+$0 | L'enregistrement complet (une ligne d'un fichier) est référencé par $0
+$1, $2, ..., $NF | Dans un enregistrement les champs sont référencés par $1, $2, ..., $NF (dernier champ)
+
+#### Les actions
+1. Traitement des numériques:
+    - **cos(x), exp(x), int(x), log(x), sqr(x)**
+1. Traitement des chaines de caractères
+    - **gsub(expression-régulière,nouvelle-chaine,chaine-de-caractères)** dans chaine-de-caractères tous les caractères décrits par l'expression régulière sont remplacés par nouvelle-chaine. gsub et équivalent à gensub. 
+
+    - **gsub(/a/,"ai",oi")** Remplace la chaine oi par ai 
+index(chaine-de-caractères,caractère-à-rechercher) donne la première occurence du caractère-à-rechercher dans la chaine chaine-de-caractères 
+
+    - **n=index("patate","ta")** n=3 
+    - **length(chaine-de-caractères)** renvoie la longueur de la chaine-de-caractères 
+
+    - **n=length("patate")** n=6 
+
+    - **match(chaine-de-caractères,expression-régulière)** renvoie l'indice de la position de la chaîne chaine-de-caractères, repositionne RSTART et RLENGTH 
+
+    - **n=match("PO1235D",/[0-9][0-9]/)** n=3, RSTART=3 et RLENGTH=4 
+
+    - **printf(format,valeur)** permet d'envoyer des affichages (sorties) formatées, la syntaxe est identique de la même fonction en C 
+
+    - **printf("La variable i est égale à %7,2f",i)** sortie du chiffre i avec 7 caractères (éventuellement caractères vides devant) et 2 chiffres après la virgule. 
+    - **printf("La ligne est %s",$0) > "fichier.int"** Redirection de la sortie vers un fichier avec >, on peut utiliser aussi la redirection >>. Veillez à ne pas oublier les "" autour du nom du fichier. 
+    - **split(chaine-de-caractères,tableau,séparateur)** scinde la chaîne chaine-de-caractères dans un tableau, le séparateur de champ est le troisième argument 
+    - **n=split("zorro est arrivé",tab," ")** tab[1]="zorro", tab[2]="est", tab[3]="arrivé", n=3 correspond au nombre d'éléments dans le tableau 
+    - **sprintf(format,valeur)** printf permet d'afficher à l'écran alors que sprintf renvoie la sortie vers une chaîne de caractères. 
+    - **machaine=sprintf("J'ai %d patates",i)** machaine="J'ai 3 patates" (si i=3) 
+    - **substr(chaine-de-caractères,pos,long)** Extrait une chaine de longueur long dans la chaîne chaine-de-caractères à partir de la position pos et l'affecte à une chaîne. 
+    - **machaine=substr("Zorro est arrivé",5,3)** machaine="o e" 
+    - **sub(expression-régulière,nouvelle-chaine,chaine-de-caractères)** idem que gsub sauf que seul la première occurence est remplacée (gsub=globale sub) 
+    - **system(chaine-de-caractères)** permet de lancer des commandes d'autres programmes 
+    - **commande=sprintf("ls | grep toto")** Exécution de la commande UNIX "ls |grep toto" 
+system(commande) 
+    - **tolower(chaine-de-caracteres)** retourne la chaîne de caractères convertie en minuscule 
+    - **toupper(chaine-de-caracteres)** retourne la chaîne de caractères convetie en majuscule
+
+
+Exemple: 
+
+```bash 
+echo `awk -F":" '{print $NF}' /etc/passwd`
+```
+
+Il n'y a pas de critères, donc l'action s'applique à toutes les lignes du fichier /etc/passwd. L'action consiste à afficher le dernier de champ du fichier.
