@@ -239,7 +239,9 @@ esac
 
 For :
 ```bash 
-for fichier in $tableau # ou for fichier in `ls`
+for fichier in $tableau 
+# for fichier in `ls`
+# for name in $(ls ${dir_input}.txt)
 do
         echo "Fichier trouvé : $fichier"
 done
@@ -260,4 +262,25 @@ do
         echo $i
 done
 ```
+
+### Grep
+
+Chercher un mot dans un fichier.
+`grep -c $mot $file` retourne `1` si le fichier contient le mot. Sinon, 0.
+
+### Awk
+
+**awk** est une commande très puissante, qui permet une recherche de chaînes et l'exécution d'actions sur les lignes sélectionnées, de récuperer de l'information, générer des rapports, transformer des données entre autres. 
+
+Un programme awk possède la structure suivante: **Critère de sélection d'une chaîne {action}**. Quand il n'y a pas de critère c'est que l'action s'applique à toutes les lignes du fichier. 
+
+
+> Syntaxe : `awk [-F] [-v var=valeur] -f fichier-config fichier`
+
+L'argument | description | exemple
+---|---| ---
+-F | suivi du séparateur de champ | **-F:** (":" comme séparateur de champ)
+-f | suivi du nom du fichier de configuration de awk | 
+-v | définit une variable, qui sera utilisée par la suite dans le programme | ***var***  
+
 
