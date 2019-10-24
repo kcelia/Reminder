@@ -74,3 +74,7 @@ $ git remote -v        // Connaitre l'URL
     $ git diff        // Affiche un diff etre le (working directory) et l’index (staging area) ou dans le repository. 
                       // Dès qu’on fait _git add_ sur un fichier modifié, il n’apparait plus dans le diff
     ```
+
+## Branch 
+
+#TODO
