@@ -1,4 +1,4 @@
-### Tensorflow:
+### Tensorflow: (ancienne version)
 
 * Un outil open source d’apprentissage automatique développé par Google Brain en 2015.
 * API front-end de développement d’applications.
