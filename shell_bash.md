@@ -6,7 +6,19 @@
 - Rien à installer, rien à compiler. Toutes les commandes que l'on utilise dans les scripts shell sont des commandes du système (ls, cut, grep, sort…).
 - Toutefois, pour programmer, il va vous falloir **utiliser** un __*éditeur de texte*__ (nano, __Vim__, emacs)
 
-**Vim** : est une version améliorée de l'un des plus anciens éditeurs en console : **Vi**
+## Vim
+
+**Vim** est une version améliorée de l'un des plus anciens éditeurs en console : **Vi**
+
+On débute avec le mode **interactif** avec _Vim_.
+
+Le mode interactif ne permet pas de rentrer du texte mais de faire des opérations sur du texte. Appuyez sur "i" pour passer en mode insertion et rentrer ainsi du texte.
+
+Exit without saving: `:q!`
+
+Exit with saving :  `INSET` + ... + `ECHAP` + `:wq`
+
+Supprimer 3 lignes dans Vim : 3dd
 
 Deux environnements très différents sont disponibles sous Linux :
 
@@ -286,9 +298,29 @@ L'argument | description | exemple
 #### Variable **awk**
 
 Variable | Description 
----|--
-$0 | L'enregistrement complet (une ligne d'un fichier) est référencé par $0
-$1, $2, ..., $NF | Dans un enregistrement les champs sont référencés par $1, $2, ..., $NF (dernier champ)
+---------|------------
+$0 | l'enregistrement complet (une ligne d'un fichier) est référencé par $0
+$1, $2, ..., $NF | dans un enregistrement les champs sont référencés par $1, $2, ..., $NF (dernier champ)
+ARGC | nombre d'arguments de la ligne de commande néant 
+ARGIND | index du tableau ARGV du fichier courant 
+ARGV | tableau des arguments de la ligne de commande néant 
+CONVFMT | format de conversion pour les nombres "%.6g" 
+ENVIRON | tableau contenant les valeurs de l'environnement courant 
+ERRNO | contient une chaîne décrivant une erreur "" 
+FIELIWIDTHS | variable expérimentale à ne pas utiliser 
+FILENAME | nom du fichier d'entrée néant 
+FNR | numéro d'enregistrement dans le fichier courant néant 
+FS | contrôle le séparateur des champs d'entrée " " 
+IGNORECASE | contrôle les expressions régulières et les opérations sur les chaînes de caractères 0 
+NF | nombre de champs dans l'enregistrement courant néant 
+NR | nombre d'enregistrements lus jusqu'alors néant 
+OFMT | format de sortie des nombres (nombre après la virgule) "%.6g" 
+OFS | séparateur des champs de sortie " " 
+ORS | séparateur des enregistrements de sortie 
+RLENGTH | néant longueur de la chaîne sélectionnée par le critère "\n" 
+RS | contrôle le séparateur des enregistrements d'entrée "\n" 
+RSTART | début de la chaîne sélectionnée par le critère néant 
+SUBSEP | séparateur d'indiçage "\034"
 
 #### Les actions
 1. Traitement des numériques:
@@ -333,3 +365,170 @@ echo `awk -F":" '{print $NF}' /etc/passwd`
 ```
 
 Il n'y a pas de critères, donc l'action s'applique à toutes les lignes du fichier /etc/passwd. L'action consiste à afficher le dernier de champ du fichier.
+
+### Critères de sélection
+
+Un critère peut être une expression régulière, une expression ayant une valeur chaîne de caractères, une expression arithmétique, une combinaison des expressions précédentes. 
+
+Le critère est inséré entre les chaînes BEGIN et END, avec la syntaxe suivante: 
+> `awk -F":" 'BEGIN{instructions} critères END{instructions}'`
+
+- BEGIN peut être suivi d'instruction comme une ligne de commentaire ou pour définir le séparateur. 
+    > BEGIN { print"Vérification d'un fichier"; FS=":"}
+
+- END indiquera que la commande a achevé son travail. Le END n'est pas obligatoire, de même que le BEGIN. 
+    > END {print "travail terminé"} 
+
+1. Expression réguliere 
+
+> expression ~ /expression régulière/{instructions}
+
+> expression !~/expression régulière/ {instructions}
+
+Soit le fichier "adresse":
+
+gwenael | 0298452223 | 0638431234 | 50 
+
+marcel  | 0466442312 | 0638453211 | 31 
+
+judith  | 0154674487 | 0645227937 | 23 
+
+L'exemple suivant vérifie que dans le fichier le numéro de téléphone domicile (champ 2) et le numéro de portable (champ 3) sont bien des nombres. 
+
+> 
+    # Instruction d'affichage + définition du séparateur de champ
+    awk 'BEGIN { print "On vérifie les numéros de téléphone; 
+                FS="|"} 
+
+            # Si succès, on affichera un msg d'erreur
+            # $2 = 2° champ d'une ligne (enregistrement)
+            # On recherche ceux qui ne contiennent pas de chiffre "!"
+            $2 !~ /^[0-9][0-9]*$/ { print "Erreur, ligne n°"NR":\n"$0} 
+
+            $3 !~ /^[0-9][0-9]*$/ { print "Erreur, ligne n°"NR":\n"$0} 
+            
+            # END indiquant la fin du travail
+            END { print "Vérification terminé"} 
+    
+    ' adresse 
+
+            
+
+>
+    awk 'BEGIN { print "test de l'absence de mot de passe";                     
+                FS=":"}
+
+        # Pour toutes les lignes contenant 7 champs 
+        NF==7 {
+        if ($2=="") 
+        # Si 2° champ = vide, on affiche ($1=login) qui n'a pas de mdp 
+        { print $1 "n'a pas de mot de passe"} 
+
+        else # Sinon, on affiche le nom de l'user possédant un mdp 
+        { print $1 " a un mot de passe"} 
+        }
+        END{ print"C'est fini") 
+    
+    ' /etc/passwd
+
+Quand l'une des variables de champ est modifée, $0 est modifié. ATTENTION le séparateur ne sera pas celui définit par FS mais celui définit par OFS (output field separator). 
+> 
+    awk 'BEGIN { print"les user de GID 22 basculeront vers GID 24"; 
+                FS=":"; 
+                OFS=":"} 
+
+        # Si le groupe n'est pas users on fait rien 
+        $4 != 22 {print $0} 
+
+        # Si le groupe est 22, on lui réaffecte 24 
+        $4 ==22 {$4=24; print $0} 
+
+        END {print" C'est fini"}
+    ' /etc/passwd > passwd.essai
+
+
+> 
+    awk 'BEGIN { print "Verification du fichier /etc/passwd pour ...";
+                print "- les utilisateurs avec UID = 0 " ;
+                print "- les utilisateurs avec UID >= 60000" ;
+                FS=":"}
+        $3 == 0 { print "UID 0 ligne "NR" :\n"$0 }
+        $3 >= 60000  { print "UID >= 60000 ligne "NR" :\n"$0 }
+        END { print "Fin" }
+    ' /etc/passwd 
+
+> 
+    awk 'BEGIN { print "Verification du fichier /etc/group";
+                print "le groupe 20 s'appelle t-il bien users ? " ;
+                FS=":"}
+        $1 == "users" && $3 ==20 { 
+            print "groupe "$1" a le GID "$3" !" }
+        END { print "Fin" }
+    ' /etc/group 
+
+
+
+## Bashrc
+Le shell (bash ou autre) est personnalisable via un fichier de configuration, lu à chaque ouverture de console par l'utilisateur $USER.
+
+***shell BASH*** ==> ***.bashrc*** situé dans le dossier /home/$USER/.bashrc. 
+
+***shell CSH***  ==> ***.cshrc*** situé dans le dossier /home/$USER/.cshrc. 
+
+S'il n'est pas lu, vérifier que le fichier soit exécutable, et vérifier aussi la présence de **.bash_profile** qui doit contenir :
+
+```bash
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi
+```
+Accéder au bashrc : `vim ~/.bashrc`
+
+Après modification du fichier **.bashrc**, il faut relancer bash ou recharger le fichier :
+`source ~/.bashrc`
+
+### Alias
+
+```bash 
+alias nom_de_votre_alias='commande de votre alias'
+```
+
+Exemple: 
+```bash 
+alias agu='sudo apt-get update'
+alias agg='sudo apt-get upgrade'
+alias agd='sudo apt-get dist-upgrade'
+alias miseàjour='agu && agg && agd'
+```
+
+
+## Environnement bash
+Le fichier /etc/bash.bashrc est lu au démarrage de votre terminal.
+
+Modifiez le fichier /etc/bash.bashrc
+```
+export http_proxy=http://"proxy_ip":"port_number"
+```
+où "proxy_ip" et "port_number" seront adaptés à votre situation
+
+## Pour désactiver le proxy http/https:
+
+```
+$ unset http_proxy
+$ unset https_proxy
+```
+ou
+
+```
+$ export http_proxy=''
+$ export https_proxy=''
+```
+vérifier avec 
+
+`$ printenv` ou `$ printenv https_proxy`
+
+More [proxy_terminal](https://doc.ubuntu-fr.org/proxy_terminal)
