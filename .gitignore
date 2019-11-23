@@ -1,6 +1,7 @@
 *.pyc
 *.zip
 *.h5
+*.py
 */
 __pycache__/
 ipynb__checkpoints/
