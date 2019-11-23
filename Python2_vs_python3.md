@@ -49,4 +49,10 @@ Code |Python 2 | Python 3
 i = 1; [i for i in range(4)]; print(i)| 4 | 1 
 
 
+- Exceptions
 
+Python 2               |           Python 3
+---|---
+raise IOError, "file error"   |  raise IOError("file error")
+raise "Erreur 404"            |   raise Exception("Erreur 404!")
+raise TypeError, msg, tb      |   raise TypeError.with_traceback(tb)
