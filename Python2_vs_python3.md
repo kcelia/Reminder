@@ -6,6 +6,7 @@ Python : Un langage "portable" et "interprété"
 Il y a une rupture de compatibilité entre la branche Python 2 et Python 3. En voici quelques exemples :
 
 - Print devient une fonction 
+
 Python 2 | Python 3 
 ---------|----------
 Print "a"| print("a") 
