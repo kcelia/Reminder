@@ -3,5 +3,7 @@
 *.h5
 *.py
 */
+*.jpeg
+*.jpg
 __pycache__/
 ipynb__checkpoints/
