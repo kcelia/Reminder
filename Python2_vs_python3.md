@@ -5,11 +5,16 @@ Python : Un langage "portable" et "interprété"
 
 Il y a une rupture de compatibilité entre la branche Python 2 et Python 3. En voici quelques exemples :
 
-Code | Python 2 | Python 3 | Explication
------|----------|----------|------------
-Print| print "a" | print("a") | print devient une fonction 
-Print| print "\n".join([x, y])| print(x, y, sep="\n")| -
-Print| print "une ligne " | print("une ligne", end="") | -
-3/2| 1 | 1.5 | Python3 dissocie la division réelle et division entière
-3//2| 1 | 1 | -
+- Print devient une fonction 
+Python 2 | Python 3 
+---------|----------
+Print "a" | print("a") 
+print "\n".join([x, y])| print(x, y, sep="\n")
+print "une ligne " | print("une ligne", end="")
+- Python3 dissocie la division réelle et division entière
+
+Code |Python 2 | Python 3 
+-----|---------|----------
+3/2| 1 | 1.5 
+3//2| 1 | 1 
 
