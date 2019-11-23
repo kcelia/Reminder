@@ -8,4 +8,8 @@ Il y a une rupture de compatibilité entre la branche Python 2 et Python 3. En v
 Code | Python 2 | Python 3 | Explication
 -----|----------|----------|------------
 Print| print "a" | print("a") | print devient une fonction 
-Print | print "\n".join([x, y])|  print(x, y, sep="\n")| -
+Print| print "\n".join([x, y])| print(x, y, sep="\n")| -
+Print| print "une ligne " | print("une ligne", end="") | -
+3/2| 1 | 1.5 | Python3 dissocie la division réelle et division entière
+3//2| 1 | 1 | -
+
