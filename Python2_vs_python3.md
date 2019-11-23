@@ -16,7 +16,37 @@ print "une ligne " | print("une ligne", end="")
 - Python3 dissocie la division réelle et division entière
 
 Code |Python 2 | Python 3 
------|---------|----------
+-----|---------|---------
 3/2| 1 | 1.5 
 3//2| 1 | 1 
+
+- Range 
+
+Code |Python 2 | Python 3 
+-----|---------|----------
+Range(1000000)| Prend beaucoup de place| Range est implémenté sous forme d'itérateur
+xrange(10000000) | OK | Erreur
+type(range(7))| list | range | le nouveau type range (itérateur) apparaît
+
+- Opérateur : Les opérateurs douteuses sont impossibles.
+
+Code | Python 2 | Python 3 
+------|---|---------
+1 <> 2 | OK | Erreur (1 =! 2)
+1 < '124' | Résultat quelconque | Erreur 
+
+- Round : Python3 utilise 'l'arrondu du banquier'. Il arrondi pair le plus proche pour avoir une moyenne correcte sur l'ensemble.
+
+Code |Python 2 | Python 3 
+-----|---------|---------
+round(16.5)| 16 | 16
+round(17.5)|17 | 18
+
+- List de compréhension : En python3, les variables de LdC ne fuient pas.
+
+Code |Python 2 | Python 3 
+-----|---------|---------
+i = 1; [i for i in range(4)]; print(i)| 4 | 1 
+
+
 
