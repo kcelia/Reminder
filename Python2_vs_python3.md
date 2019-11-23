@@ -8,9 +8,10 @@ Il y a une rupture de compatibilité entre la branche Python 2 et Python 3. En v
 - Print devient une fonction 
 Python 2 | Python 3 
 ---------|----------
-Print "a" | print("a") 
-print "\n".join([x, y])| print(x, y, sep="\n")
+Print "a"| print("a") 
+print "\n".join([x, y]) | print(x, y, sep="\n")
 print "une ligne " | print("une ligne", end="")
+
 - Python3 dissocie la division réelle et division entière
 
 Code |Python 2 | Python 3 
