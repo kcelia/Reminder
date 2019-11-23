@@ -180,7 +180,8 @@ TypeError: unhashable type: 'dict'
 Mutable Vs Immutable 
 
 1. Mutable - Appending Performance
-Les objects mutables sont plus efficace lorsque l'object est fréquemment modifié (iterable object)
+
+Les objects mutables sont plus efficace lorsque l'object est fréquemment modifié (iterable object).
 
 List 
 
