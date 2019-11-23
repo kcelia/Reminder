@@ -7,7 +7,7 @@ Un objet mutable est un objet modifiable, tel que : List, Dict et instances de n
 
 Un object immutable est un object non modifiable, tel que : bool, int, str, bytes, tuple, range et frozenset. Pour créer un object immutable, il faut hériter d'un object immutable de base.
 
-<!> modification != réassignation.
+### Concepts
 
 1. Modification:
 
@@ -22,7 +22,7 @@ List
 >>> id(values)
 4340729544
 ```
-Fonction with List
+Fonction with List/array
 ```Python
 # List has a specific function that allows us to modify it
 >>> def append_42(values):
@@ -46,15 +46,7 @@ Traceback (most recent call last):
   File "", line 1, in 
 TypeError: 'tuple' object does not support item assignment
 ```
-Int
-```Python
->>> a = 60
->>> id(a)
 
->>> a = 66
->>> id(a)
-
-```
 Function with Tuple 
 ```python 
 # Tuple hasn't a specific function that allows us to modify it
@@ -119,7 +111,15 @@ Tuple
 4340764557
 # The old value is lost
 ```
+Int
+```Python
+>>> a = 60
+>>> id(a)
 
+>>> a = 66
+>>> id(a)
+
+```
 
 3. Égalité et identité
 
@@ -149,14 +149,14 @@ Hash == Condensat => object immutable.
 Les objets hashables vont notamment servir pour les clefs des dictionnaires. Deux valeurs égales partageront un même hash.
 Le condensat est généralement un nombre de taille fixe (64 bits par exemple), il existe donc un nombre limité de hashs pour un nombre infini de valeurs. Les collisions dépendent des algorithmes de hashage. 
 
-
-
 ```Python
 >>> hash(10)
 >>> hash('toto')
 >>> hash((1, 2, 3))
 
-# les listes ne sont pas hashables. Car le hash doit correspondre à une valeur. Or, en modifiant une liste, le condensat calculé auparavant deviendrait invalide. Il est donc impossible de hasher les listes (de même pour les dictionnaires et les ensembles (set)).
+# les listes ne sont pas hashables. Car le hash doit correspondre à une valeur. 
+# Or, en modifiant une liste, le condensat calculé auparavant deviendrait invalide. 
+# Il est donc impossible de hasher les listes (de même pour les dictionnaires et les ensembles (set)).
 
 >>> hash([1, 2, 3])
 Traceback (most recent call last):
