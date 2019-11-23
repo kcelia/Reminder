@@ -59,6 +59,7 @@ raise TypeError, msg, tb      |   raise TypeError.with_traceback(tb)
 
 
 - Changement de certains nom de modules
+
 Python 2               |           Python 3
 ---|---
 cPickle          |  pickle
