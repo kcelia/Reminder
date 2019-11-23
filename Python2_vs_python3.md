@@ -56,3 +56,22 @@ Python 2               |           Python 3
 raise IOError, "file error"   |  raise IOError("file error")
 raise "Erreur 404"            |   raise Exception("Erreur 404!")
 raise TypeError, msg, tb      |   raise TypeError.with_traceback(tb)
+
+
+- Changement de certains nom de modules
+Python 2               |           Python 3
+---|---
+cPickle          |  pickle
+thread           |   _thread...
+
+- Réorganisation : De nombreux objets ont été renommés et déplacés:
+
+Python 2               |           Python 3
+---|---
+xrange()                  |   range()
+reduce()                  |   functools.reduce()
+HTMLParser                 |  html.parser
+cStringIO.StringIO()       |  io.StringIO...
+
+
+
