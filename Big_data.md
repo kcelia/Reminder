@@ -371,9 +371,14 @@ Ajouter des nœuds au cluster pour augmenter sa capacité de calcul | Augmenter 
 
 1. Concepts BI 
 
-Terme| Définition 
------|---------
-Workflow| Il s'agit de formaliser les traitements à réaliser, le cheminement à suivre et les acteurs concernés pour accomplir un travail précis.
+Terme        | Définition 
+-------------|--------------
+Workflow     | Il s'agit de formaliser les traitements à réaliser, le cheminement à suivre et les acteurs concernés pour accomplir un travail précis
+Manifacturing | Mise en production des données
+Data ingestion |	Data ingestion refers to insertion of data into a database or table (loading data). Usually do not cover transformations or policy rules
+Data integration | Means make the data useful and common thru the process it is needed (ETL - cleansing and standardization in order to integrate the data to the process)
+
+
 
 ### Data Gouvernance Agency
 
