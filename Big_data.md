@@ -330,8 +330,9 @@ Exemple | Supt de stockage | Garanti | Avantage
 --------|--------------------|--------|--------| 
 HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la lecture séquentielles + Système de permissions qui control la modification et la supression | peu coûteux (disque dure) + Passage à l'échelle
 
+--------
 
-Commentaires : 
+# Commentaires : 
 
 1. Data Lake/Master dataset : contient des données de natures très variées (des fichiers de logs, des images, des fichiers binaires, etc). 
     Caractériques :
@@ -387,8 +388,6 @@ Zettabyte (1,000 exabytes)
 1. Json (JavaScript Object Notation): Constitue le standard actuel pour les échanges de données sur le Web.
 
 1.
-
-
 Critère | Structurée | Semi-structurée | Non structurée 
 --------|------------|-----------------|----
 Exemple | Basé sur les tables de BDR (SQL) | Basée sur XML ou RDF| Basé sur des caractères et des données binaire (Word PDF, Texte, Logs)
@@ -396,6 +395,7 @@ Flexibilité | Moins flexible| Plus que les DS et moins que les DNS | Trés flex
 Mise à l'echelle| Difficile | Plus simple que les DS | Très facile
 Schéma | Oui | Oui | Non
 
+1. Concepts BI 
 
 
 # Frameworks big data
@@ -515,8 +515,6 @@ Les contraintes du calcul distribué :
 - Tolérence aux pannes
 - Optimisaion des transferts (disque et web)
 
-
-
 ### Map
 Les données d'entrée sont divisées en blocs plus petits. Chaque bloc est ensuite assigné à un Mapper pour traitement.
 Par exemple, si un fichier contient 100 enregistrements à traiter, 100 Mappers peuvent s'exécuter ensemble et traiter un enregistrement chacun, ou 50 Mappers peuvent s'exécuter ensemble et traiter deux enregistrements chacun, et ainsi de suite. Le framework Hadoop décide du nombre de Mappers à utiliser en fonction du volume de données à traiter et de la taille des blocs de mémoire disponibles sur chaque serveur Mapper.
@@ -561,15 +559,6 @@ Hadoop, initié en 2006. Il rejoint la fondation Apache en 2008
 
 Google File System, un système de fichiers distribués propriétaire developpé par Google et permettant de stocker de gros volumes de données de manière fiable sur des clusters.
 
-
- # Autre Framework BIG DATA:
-
-
-- Giraph: une solution pour faire des calculs sur graphes.
-
-- HBase : une base de données NoSQL reposant sur HDFS. Nous détaillerons aussi ce type de base de données dans un prochain cours.
-
-- Tez : un cadre pour l'écriture et l'exécution de traitements modélisés sous la forme de graphes dirigés acycliques (DAG) et qui facilite l'enchaînement des traitements.
 
 
 
