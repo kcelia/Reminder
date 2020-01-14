@@ -101,5 +101,6 @@ Apache Drill est un framework logiciel, version open-source de Dremel de Google.
  
 Drill supporte des bases NoSQL et des systèmes de fichiers distribués comme HBase, MongoDB, MapR-DB, HDFS, MapR-FS, Amazon S3, Azure Blob Storage, Google Cloud Storage, Swift, NAS et des fichiers locaux. 
 
+- Pour l exploration de fichier log meconnu
 
 
