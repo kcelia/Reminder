@@ -32,9 +32,43 @@ Les modules :
 - Pig (Processing)
 - Giraph
 - Tez
-- Flame (Ingestion)
+- Flame (Ingestion + build DataWarehouse)
 
 ...
+
+## Hadoop
+
+> The Hadoop ecosystem is a set of tools for ingesting and processing data
+- Apache Zookeeper
+- YARN
+- Apache Flume (build Datawarehouse)
+- Apache Sqoop
+- Apache Oozie
+
+> Hadoop de la fondation Apach
+
+    2002 : Hadoop, écrit en Java. Hadoop s'inspire de Google Labs avec le Google File System (GFS) et MapRedue.
+    2008 : Rejoint la fondation Apach.
+
+Un framework Java libre, distribue les grandes quantités de données collectées à travers plusieurs *nœuds*, un cluster de serveurs x86, (il n’est donc pas nécessaire d’acquérir et de maintenir un hardware spécifique et coûteux). Hadoop est également **capable d’indexer** et de **suivre** **ces** **données** big data, ce qui facilite grandement leur traitement et leur analyse par rapport à ce qui était possible auparavant.
+Il se compose de système de stockage **HDFS** (Hadoop Distributed File System), et d'un outil de traitement appelé **MapReduce**.
+
+Hadoop est **résilient** aux pannes ou aux défaillances du système, car les _données sont écrites sur le disque après chaque opération_.
+
+Hadoop Streaming. C'est un outil distribué avec Hadoop qui permet l'exécution d'un programme écrit dans d'autres langages, comme par exemple Python, C, C++...
+
+A small cluster in Hadoop can mesure in Terabytes.
+
+Incovenient :
+- Ecrire sur disque entre deux étapes (map ou reduce)
+- Jeu d'instruction limité.
+
+
+### Data Pipline (Workflow for Hadoop)
+
+Ingestion | processing | Analyse
+----------|------------|----------|
+Flame     | Spark, Pig (etl), Hbase | Hive, Drill,Mahout
 
 ## Tez
 
