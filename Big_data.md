@@ -5,6 +5,7 @@ File Systèm:
 - Compact Disc File System (CDFS)
 
 Each file in the LFS is includes by an inode, blocks of data. 
+
 # Base de données **Relationnelle** 
 
 - Les BDRs étaient une **référence** jusqu'au année 70 ;
