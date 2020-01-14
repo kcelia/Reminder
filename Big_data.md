@@ -337,26 +337,26 @@ HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la
 
 1. Petit rappel 
 
-Terme    | Définition
----------|--------------------------------------------------------------------
-Relation | Table
-n-uplet  | Tuple/Enregistrement/Vecteur/Ligne d'une table/représente un objet
-Attribut | Colonne
-Schéma   | Ensemble des attributs d'une relation
-Domaine  | Ensemble des valeurs que peuvent prendre les attributs
+    Terme    | Définition
+    ---------|--------------------------------------------------------------------
+    Relation | Table
+    n-uplet  | Tuple/Enregistrement/Vecteur/Ligne d'une table/représente un objet
+    Attribut | Colonne
+    Schéma   | Ensemble des attributs d'une relation
+    Domaine  | Ensemble des valeurs que peuvent prendre les attributs
 
 2.
-Critère | Structurée | Semi-structurée | Non structurée 
---------|------------|-----------------|----
-Exemple | Basé sur les tables de BDR (SQL) | Basée sur XML ou RDF| Basé sur des caractères et des données binaire (Word PDF, Texte, Logs)
-Flexibilité | Moins flexible| Plus que les DS et moins que les DNS | Trés flexible
-Mise à l'echelle| Difficile | Plus simple que les DS | Très facile
-Schéma | Oui | Oui | Non
+    Critère | Structurée | Semi-structurée | Non structurée 
+    --------|------------|-----------------|----
+    Exemple | Basé sur les tables de BDR (SQL) | Basée sur XML ou RDF| Basé sur des caractères et des données binaire (Word PDF, Texte, Logs)
+    Flexibilité | Moins flexible| Plus que les DS et moins que les DNS | Trés flexible
+    Mise à l'echelle| Difficile | Plus simple que les DS | Très facile
+    Schéma | Oui | Oui | Non
 
-3. 
-Passage à l'échelle horizontale |  Passage à l'échelle verticale
---------------------------------|-------------------------------
-Ajouter des nœuds au cluster pour augmenter sa capacité de calcul | Augmenter la puissance des processeurs. Mais avec le ralentissement de la loi de Moore, ce dernier modèle est remis en question.
+1. 
+    Passage à l'échelle horizontale |  Passage à l'échelle verticale
+    --------------------------------|-------------------------------
+    Ajouter des nœuds au cluster pour augmenter sa capacité de calcul | Augmenter la puissance des processeurs. Mais avec le ralentissement de la loi de Moore, ce dernier modèle est remis en question.
 
 4. Data Lake/Master dataset : Contient des données de natures très variées (des fichiers de logs, des images, des fichiers binaires, etc). 
     Caractériques :
