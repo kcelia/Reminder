@@ -383,12 +383,13 @@ Zettabyte (1,000 exabytes)
 
 1. A small cluster in Hadoop can mesure in Terabytes.
 1. 
-                | Structurée          | Semi-structurée | Non structurée 
-----------------|---------------------|---------
-Exemple| Basé sur les tables de BDR (SQL) | Basée sur XML/RDF | Basé sur des caractères et des données binaire (Word PDF, Texte, Logs) 
-Flexibilité     | Moins flexible | Plus que les DS et moins que les DNS | Trés flexible
-Mise à l'echelle| Difficile      | Plus simple que les DS | Très facile
-Schéma          | Oui            | Oui | Non
+                | Structurée          | Semi-structurée                      | Non structurée 
+----------------|---------------------|--------------------------------------|----------------
+Exemple         | Basé sur les tables de BDR (SQL) | Basée sur XML/RDF       | Basé sur des caractères et des données binaire (Word PDF, Texte, Logs) 
+Flexibilité     | Moins flexible      | Plus que les DS et moins que les DNS | Trés flexible
+Mise à l'echelle| Difficile           | Plus simple que les DS               | Très facile
+Schéma          | Oui                 | Oui                                  | Non
+
 1. Json (JavaScript Object Notation): Constitue le standard actuel pour les échanges de données sur le Web.
 # Frameworks big data
 
