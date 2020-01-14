@@ -1,12 +1,4 @@
 
-   | Structurée | Semi-structurée | Non structurée 
----|------------|-----------------|----
-Exemple | Basé sur les tables de BDR (SQL) | Basée sur XML/RDF| Basé sur des caractères et des données binaire (Word PDF, Texte, Logs)
-Flexibilité     | Moins flexible      | Plus que les DS et moins que les DNS | Trés flexible
-Mise à l'echelle| Difficile           | Plus simple que les DS               | Très facile
-Schéma          | Oui                 | Oui                                  | Non
-
-
 File Systèm:
 
 - Hierarchichical file system (HFS) : Local file system 
@@ -392,8 +384,20 @@ Zettabyte (1,000 exabytes)
 
 1. A small cluster in Hadoop can mesure in Terabytes.
 
-
 1. Json (JavaScript Object Notation): Constitue le standard actuel pour les échanges de données sur le Web.
+
+1.
+
+
+Critère | Structurée | Semi-structurée | Non structurée 
+--------|------------|-----------------|----
+Exemple | Basé sur les tables de BDR (SQL) | Basée sur XML ou RDF| Basé sur des caractères et des données binaire (Word PDF, Texte, Logs)
+Flexibilité | Moins flexible| Plus que les DS et moins que les DNS | Trés flexible
+Mise à l'echelle| Difficile | Plus simple que les DS | Très facile
+Schéma | Oui | Oui | Non
+
+
+
 # Frameworks big data
 
 ## 1. Hadoop 
