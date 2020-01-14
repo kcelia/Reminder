@@ -334,9 +334,16 @@ HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la
 
 # Commentaires : 
 
-1. Petit rappel 
-
 1. Concepts BI 
+Terme        | Définition 
+-------------|------------
+Workflow     | Il s'agit de formaliser les traitements à réaliser, le cheminement à suivre et les acteurs concernés pour accomplir un travail précis.
+Data Quality | Qualité --> Fiabilité de l’information (complétude, intégrité) lors de sa collecte et de son utilisation. Elle représente un enjeu sur le plan 'Business' (1. l’incomplétude des données sur les clients, peut amener à une sur/sous-évaluation des indicateurs prudentiels globaux et 2. des les lacunes dans la connaissance du client peuvent mener quant à elles - outre les risques de conformité en termes de lutte anti-blanchiment). Le plan 'Réglementaire' (il faut être conforme aux normes exigées par les Autorités de contrôle nationales et européennes qui exigent des reportings plus nombreux depuis la dernière crise financière et à un niveau de granularité toujours plus important. Sinon, amendes).
+Définir la qualité d'une donnée | 1. Accessible (la présente dans le système d'information et accessible par les processus et utilisateurs qui l’utilisent) 2. Valide 3. Consistante (si la donnée est redondante, elle doit porter la même valeur à un instant donné) 3. Précision (elle est jugée suffisamment précise pour l’usage que l’on en attend) 4. Utile (elle répond parfaitement au besoin et à l’usage que l’on en attend)
+
+1. Grand investisseur de la Data Quality : Etablissements bancaires 
+
+1. Petit rappel 
 
 Terme    | Définition
 ---------|--------------------------------------------------------------------
