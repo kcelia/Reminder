@@ -320,7 +320,6 @@ Dénormalisée :{username: "Régis", car: "Peugeot 405 Style"}dans la liste "use
 
 Normalisée :{username: "Régis", car_id: 843}dans la liste "users", et dans une autre liste "cars" :{id: 843, model: "Peugeot 405 Style"}
 ```
-
 1. Système de fichiers semi-structuré : Jason, Xml
 2. Système de fichiers distribué : 
     - Elle respecte :
@@ -335,15 +334,6 @@ HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la
 
 # Commentaires : 
 
-1. Concepts BI 
-
-Terme| Définition 
------|---------
-Workflow| Il s'agit de formaliser les traitements à réaliser, le cheminement à suivre et les acteurs concernés pour accomplir un travail précis.
-Data Quality | La qualité signifie la "fiabilité" de l’information ("complétude", "intégrité") lors de sa collecte et de son utilisation. Elle représente un enjeu sur le plan 'Business' (1. l’incomplétude des données sur les clients, peut amener à une sur/sous-évaluation des indicateurs prudentiels globaux et 2. des les lacunes dans la connaissance du client peuvent mener quant à elles - outre les risques de conformité en termes de lutte anti-blanchiment). Le plan 'Réglementaire' (il faut être conforme aux normes exigées par les Autorités de contrôle nationales et européennes qui exigent des reportings plus nombreux depuis la dernière crise financière et à un niveau de granularité toujours plus important. Sinon, amendes).
-Définir la qualité d'une donnée | 1. Accessible (la présente dans le système d'information et accessible par les processus et utilisateurs qui l’utilisent) 2. Valide 3. Consistante (si la donnée est redondante, elle doit porter la même valeur à un instant donné) 3. Précision (elle est jugée suffisamment précise pour l’usage que l’on en attend) 4. Utile (elle répond parfaitement au besoin et à l’usage que l’on en attend)
-
-1. Grand investisseur de la Data Quality : Etablissements bancaires 
 
 1. Petit rappel 
 
@@ -378,6 +368,57 @@ Ajouter des nœuds au cluster pour augmenter sa capacité de calcul | Augmenter 
     <!> Le master dataset n'est pas stockée dans une base de données relationnelle (RDBMS), type *MySQL* ou *PostgreSQL*, jugées trop coûteuses, supportent mal l'évolution du format des données et trop contraignantes pour stocker des données dans un format arbitraire. 
 
     Les RDBMS sont particulièrement adaptées pour les accès aléatoires aux données ainsi que pour la modification de données existantes.
+
+1. Concepts BI 
+
+Terme| Définition 
+-----|---------
+Workflow| Il s'agit de formaliser les traitements à réaliser, le cheminement à suivre et les acteurs concernés pour accomplir un travail précis.
+
+### Data Gouvernance Agency
+
+Tools used for adressing Durty Data | Data Quality  | Master Data Management 
+------|---------------|-----------------------
+Users | Business users (they know very well their data)| 
+
+## Data Quality 
+
+SG refers to there being a high level of confidence that the data is in good enough shape to be useful. There can be missing information, incorrectly keyed values, or any number of issues with the raw data. A Data Quality tool might be used to address those issues and apply some *data governance* to make sure the data is good to go.
+
+It might have a lot of package data quatlity fixes
+It might includes *Data Profiling*
+
+<!> ETL The Transform piece of ETL refers to anything you may need to do to the data prior to the Load stage. This might include joins with other data sources, splitting or merging of columns, or any other process that transforms or alters the data.
+
+La qualité signifie la "Fiabilité" de l’information ("complétude", "intégrité") lors de sa collecte et de son utilisation.
+It focuses on modifications applied to data during its movement from database 1 database B
+Elle représente un enjeu sur:
+- Le plan 'Business':
+    1. l’incomplétude des données sur les clients, peut amener à une sur/sous-évaluation des indicateurs prudentiels globaux
+    1. des les lacunes dans la connaissance du client peuvent mener quant à elles - outre les risques de conformité en termes de lutte anti-blanchiment)
+- Le plan 'Réglementaire':
+    - Il faut être conforme aux normes exigées par les Autorités de contrôle nationales et européennes qui exigent des reportings plus nombreux depuis la dernière crise financière et à un niveau de granularité toujours plus important. Sinon, amendes.
+
+> Grand investisseur de la Data Quality : Etablissements bancaires 
+
+### Définir la qualité d'une donnée
+
+Caracteristique | Définition
+----------------|------------
+Accessible      | La présente dans le système d'information et accessible par les processus et utilisateurs qui l’utilisent
+Valide          | La donnée ne porte pas de valeur aberrant, elle se maintient dans la plage des valeurs acceptable
+Consistante     | Si la donnée est redondante, elle doit porter la même valeur à un instant donné
+Précision       | Elle est jugée suffisamment précise pour l’usage que l’on en attend
+Utile           | Elle répond parfaitement au besoin et à l’usage que l’on en attend
+
+### MDM
+
+Refers to inconsistency and synchronization problems
+
+> Example: a customer migth be present in many systems, which one is the right profil ?
+
+MDM maintains physical dataset, which is fed by all systems and keeps tracks of costumers attributs, called **Master Data** . Then, others records are updated. When it's too hard to make a decision, a business analyst is needed.
+
 
 1. Systeme de gestion de Base de Données relationnelles (SGBDR/ RDBMS) : IBM System R, Oracle, DB2 ou MySQL. 
 
