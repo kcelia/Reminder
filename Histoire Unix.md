@@ -1,15 +1,18 @@
 
 # UNIX
 
-- En 1969, le premier Operating System (OS) --> UNIX
+- 1969: le premier Operating System (OS) --> UNIX
 
-- En 1984, Microsoft sort son premier OS --> MS-DOS, moins puissant que UNIX
+- 1984: Microsoft sort son premier OS --> MS-DOS, moins puissant que UNIX
 
-- Après 1984, Projet GNU/Linux : Unix devient de plus en plus cher, 2 projets complémentaires voient le jour :
+- Après 1984: Projet GNU/Linux : 
+
+Unix devient de plus en plus cher, 2 projets complémentaires voient le jour :
+
     - Richard Stallman en 1984, propose le projet GNU en créant des programmes de base (programme de copie de fichier, de suppression de fichier, éditeur de texte).
     - Linus Torvalds en 1991, étudiant de l'Université de Helsinki (Finlande), crée l'OS (kernel) Linux (Linus + Unix).
 
-***Le projet GNU (programmes libres) et Linux (noyau d'OS) ont fusionné pour créer GNU/Linux***.
+> Le projet GNU (programmes libres) et Linux (noyau d'OS) fusionnent pour créer GNU/Linux
 
 ### Arbre :
 
