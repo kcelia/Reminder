@@ -1,5 +1,5 @@
 1. 
-     E          | Structurée          | Semi-structurée                      | Non structurée 
+     --          | Structurée | Semi-structurée | Non structurée 
 ----------------|---------------------|--------------------------------------|----------------
 Exemple | Basé sur les tables de BDR (SQL) | Basée sur XML/RDF| Basé sur des caractères et des données binaire (Word PDF, Texte, Logs)
 Flexibilité     | Moins flexible      | Plus que les DS et moins que les DNS | Trés flexible
