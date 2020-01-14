@@ -12,6 +12,8 @@ Each file in the LFS is includes by an inode, blocks of data.
 
 - Le stockage des données est représentée en ligne (l'ensemble des attributs) ;
 
+- Les données sont de nature structurée et simple ;
+
 - Faire des jointures entre les tables de la BDs ;
 
 - Faire des requêtes complexes avec un langage de haut niveau sans se préoccuper des couches basses ;
@@ -71,18 +73,19 @@ Il définit par les 3V :
         - Structured : Xml
         - Semi Structured : E-mails
         - Ustractured : Video files
-> Un proleme est dit Big data si une caractéristique est présente.
+        
+> Un problème est dit Big data, si une caractéristique est présente!
 
     ##  Google File System
 
-    GFS splits data into chuncks, wich are distributed an duplicated to different nods in a cluser
+    GFS splits data into chuncks, wich are distributed an duplicated to different nods in a cluster
     > Distrtibution and replication protect against data lose  
 
     ## Bigtble(database)
     
     A database that use GFS to store and treat data 
     ###  MapReduce + GFS (pagerank)
-    # Un arbre distribué
+   
 ----
 Solution __NoSQL__ : 
 
@@ -93,7 +96,6 @@ Solution __NoSQL__ :
 les **stocker**
 - La **réplication** **empêche** la gestion **concurrentielle** de transactions et la distribution de calcul lourd est propre à Map/Reduce et non les langages de plus haut niveau utilisés dans les solutions NoSQL.
 - Une base NoSQL **relâche** certaines **contraintes**, telles que la **synchronisation** des réplicas, pour favoriser l'efficacité. 
-
 
 ----
 ## Propriétés **BASE** des BDs NoSQL :  
@@ -249,10 +251,8 @@ Utilisation : Architecture orientées colonnes : HBase, PigLatin, Spark.
 ![HDSM](./Big_data/HDFS_User.png)
 
 --------------------------------------------------------------------------------
-> Google dosnot let this 3V stop them, they create : 
+> Google does not let this 3V stop them, they create : 
     Google File System, Bigtble, MapReduce 
-
-
 
 Repose sur BTree non-dense, il s'agit de l'arbre dont les données sont triées. 
 
@@ -280,7 +280,6 @@ La particularité de cette technique est que chaque nœud est à la fois client 
 ![HDSM](./Big_data/DHT_user.png)
 
 
-
 ## les critères à respecter par une bonne architecture: 
 
 - La tolérance aux pannes : la loi de Murphy stipule que la probabilité qu'un composant tombe en panne tend vers 1 avec le temps. Il faut donc que votre architecture soit prête à supporter la panne d'un ou plusieurs composants.
@@ -292,18 +291,6 @@ La particularité de cette technique est que chaque nœud est à la fois client 
 - La disponibilité du système 
 
 - La cohérence des données : La cohérence des données est un critère fondamental pour des applications reposant sur des données « fraiches » ou des applications reposant sur des décisions critiques.
-
-
-# Système : 
-
-- Lambda architecture avec systeme de stockage HDFS 
-
-
-##  Type of File
-1. Simple Structured : CSV
-2. Comple Stuctured : 
-3. Simple Semi Stuctured Hbase 
-4. Simple Semi Stuctured : Jason
 
 -----
 
@@ -360,13 +347,13 @@ Commentaires :
 
 1. Petit rappel 
 
-Terme | Définition
-------|-----------
+Terme    | Définition
+---------|--------------------------------------------------------------------
 Relation | Table
-n-uplet | Tuple/Enregistrement/Vecteur/Ligne d'une table/représente un objet
+n-uplet  | Tuple/Enregistrement/Vecteur/Ligne d'une table/représente un objet
 Attribut | Colonne
-Schéma | Ensemble des attributs d'une relation
-Domaine | Ensemble des valeurs que peuvent prendre les attributs
+Schéma   | Ensemble des attributs d'une relation
+Domaine  | Ensemble des valeurs que peuvent prendre les attributs
 
 4. Data Architect : Responsable de la conception, du déploiement et de l'administration de plateformes de calculs distribués et de stockage de données massives (passer à l'échelle l'exploitation des données).
 
@@ -396,12 +383,13 @@ Zettabyte (1,000 exabytes)
 
 1. A small cluster in Hadoop can mesure in Terabytes.
 1. 
-Nature des données | Définition | Exemples 
----|---|---
-Structurée      | |Excel, MySQL, Oracle 
-Semi-Structuées | |
-Structuées      | |
-
+                | Structurée          | Semi-structurée | Non structurée 
+----------------|---------------------|---------
+Exemple| Basé sur les tables de BDR (SQL) | Basée sur XML/RDF | Basé sur des caractères et des données binaire (Word PDF, Texte, Logs) 
+Flexibilité     | Moins flexible | Plus que les DS et moins que les DNS | Trés flexible
+Mise à l'echelle| Difficile      | Plus simple que les DS | Très facile
+Schéma          | Oui            | Oui | Non
+1. Json (JavaScript Object Notation): Constitue le standard actuel pour les échanges de données sur le Web.
 # Frameworks big data
 
 ## 1. Hadoop 
