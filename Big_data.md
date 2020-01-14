@@ -354,7 +354,12 @@ Flexibilité | Moins flexible| Plus que les DS et moins que les DNS | Trés flex
 Mise à l'echelle| Difficile | Plus simple que les DS | Très facile
 Schéma | Oui | Oui | Non
 
-3. Data Lake/Master dataset : Contient des données de natures très variées (des fichiers de logs, des images, des fichiers binaires, etc). 
+3. 
+Passage à l'échelle horizontale |  Passage à l'échelle verticale
+--------------------------------|-------------------------------
+Ajouter des nœuds au cluster pour augmenter sa capacité de calcul | Augmenter la puissance des processeurs. Mais avec le ralentissement de la loi de Moore, ce dernier modèle est remis en question.
+
+4. Data Lake/Master dataset : Contient des données de natures très variées (des fichiers de logs, des images, des fichiers binaires, etc). 
     Caractériques :
     - Write once : Les données ne seront écrites une seule fois ;
     - Append-only : Le master dataset ne subira que des ajouts ;
@@ -386,9 +391,7 @@ Schéma | Oui | Oui | Non
         - Redis est connu pour sa simplicité, même si la gestion des « facettes » doit être bien pensées.
         - Elasticsearch est en particulier utilisé pour faire de la visualisation temps réel et de l’analyse sur des recherches textuelles.
 
-1. Passage à l'échelle horizontale : Ajouter des nœuds au cluster pour augmenter sa capacité de calcul
 
-1. Passage à l'échelle verticale : Augmenter la puissance des processeurs. Mais avec le ralentissement de la loi de Moore, ce dernier modèle est remis en question.
 
 1. Volume des données
 Megabyte (1,000 kilobytes) -> Gigabyte (1,000 megabytes) -> Terabyte (1,000 gigabytes) -> Petabyte (1,000 terabytes) ->
