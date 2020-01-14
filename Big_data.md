@@ -346,7 +346,7 @@ Attribut | Colonne
 Schéma   | Ensemble des attributs d'une relation
 Domaine  | Ensemble des valeurs que peuvent prendre les attributs
 
-1.
+2.
 Critère | Structurée | Semi-structurée | Non structurée 
 --------|------------|-----------------|----
 Exemple | Basé sur les tables de BDR (SQL) | Basée sur XML ou RDF| Basé sur des caractères et des données binaire (Word PDF, Texte, Logs)
@@ -354,7 +354,7 @@ Flexibilité | Moins flexible| Plus que les DS et moins que les DNS | Trés flex
 Mise à l'echelle| Difficile | Plus simple que les DS | Très facile
 Schéma | Oui | Oui | Non
 
-1. Data Lake/Master dataset : Contient des données de natures très variées (des fichiers de logs, des images, des fichiers binaires, etc). 
+3. Data Lake/Master dataset : Contient des données de natures très variées (des fichiers de logs, des images, des fichiers binaires, etc). 
     Caractériques :
     - Write once : Les données ne seront écrites une seule fois ;
     - Append-only : Le master dataset ne subira que des ajouts ;
