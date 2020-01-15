@@ -4,9 +4,9 @@
 - There is different mode of replication:  Master-Master, Master-slave and Cyclic
 
 ```HBase
-# Creat a table, the syntaxe is : creat {Name=>'column1'}, {NAME=>'colomn2'}
+# Create a table, the syntaxe is : create 'Path/TableName', {Name=>'column1'}, {NAME=>'colomn2'}
 
-creat 'UserInfo', {Name=>'username'}, {NAME=>'fullname'}, {NAME=>'homedir'}
+create 'UserInfo', {Name=>'username'}, {NAME=>'fullname'}, {NAME=>'homedir'}
 
 # Add rows, the syntaxe is : put 'UserInfo', 'line_number', 'name column', value'
 
