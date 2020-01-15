@@ -107,9 +107,10 @@ Comme Hive (langage python, scala...)
 ## Drill (Framework BIG DATA)
 
 Apache Drill est un framework logiciel, version open-source de Dremel de Google. Drill supporte les applications temps réel distribuées pour l'analyse interactive de jeux de données à grande échelle. Un objectif de conception indique qu'il est capable:
-- Requeter sur des dépôts distincts
+- **Requeter** sur des dépôts distincts avec une *requete*
 - Evoluer plus de 10.000 serveurs 
 - Traiter des pétaoctets de données et des milliards d'enregistrements en quelques secondes
+- Supporte des BDs NoSql, File systems and Local Files (CSV, Json)
  
 Drill supporte des bases NoSQL et des systèmes de fichiers distribués comme HBase, MongoDB, MapR-DB, HDFS, MapR-FS, Amazon S3, Azure Blob Storage, Google Cloud Storage, Swift, NAS et des fichiers locaux. 
 
