@@ -345,7 +345,7 @@ HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la
     Schéma   | Ensemble des attributs d'une relation
     Domaine  | Ensemble des valeurs que peuvent prendre les attributs
 
-2.
+1.
     Critère | Structurée | Semi-structurée | Non structurée 
     --------|------------|-----------------|----
     Exemple | Basé sur les tables de BDR (SQL) | Basée sur XML ou RDF| Basé sur des caractères et des données binaire (Word PDF, Texte, Logs)
@@ -358,7 +358,7 @@ HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la
     --------------------------------|-------------------------------
     Ajouter des nœuds au cluster pour augmenter sa capacité de calcul | Augmenter la puissance des processeurs. Mais avec le ralentissement de la loi de Moore, ce dernier modèle est remis en question.
 
-4. Data Lake/Master dataset : Contient des données de natures très variées (des fichiers de logs, des images, des fichiers binaires, etc). 
+1. Data Lake/Master dataset : Contient des données de natures très variées (des fichiers de logs, des images, des fichiers binaires, etc). 
     Caractériques :
     - Write once : Les données ne seront écrites une seule fois ;
     - Append-only : Le master dataset ne subira que des ajouts ;
@@ -374,15 +374,24 @@ HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la
     Terme        | Définition 
     -------------|--------------
     Workflow     | Il s'agit de formaliser les traitements à réaliser, le cheminement à suivre et les acteurs concernés pour accomplir un travail précis
-    Manifacturing | Mise en production des données
-    Data ingestion |	Data ingestion refers to insertion of data into a database or table (loading data). Usually do not cover transformations or policy rules
+    Data Acquisition Systems | DAS/DAQ aims to acquire and record data from a variety of sensors and external devices
+    Data ingestion | Refers to (loading data) insertion of data into a database or table (don't cover transformations or policy rules)
     Data integration | Means make the data useful and common thru the process it is needed (ETL - cleansing and standardization in order to integrate the data to the process)
+    Manifacturing | Mise en production des données
+    Data Quality | complétude + intégrité
+    Master Data Management | Refers to inconsistency and synchronization problems
+    Data Gouvernance | Data Quality + Master Data Management
 
-    DQ refers to there being a high level of confidence that the data is in good enough shape to be useful. There can be missing information, incorrectly keyed values, or any number of issues with the raw data. A Data Quality tool might be used to address those issues and apply some *data governance* to make sure the data is good to go.
+    ***Data Gouvernance = Data Quality + Master Data Management***:    
+    ![Data_Gouvernance](./Data_gouvernance.png)
 
-    It might have a lot of package data quatlity fixes
+    1. *Data quality:*
+   
+    **DQ** refers to there being a high level of confidence that the data is in good enough shape to be useful. There can be missing information, incorrectly keyed values, or any number of issues with the raw data. A Data Quality tool might be used to address those issues and apply some *data governance* to make sure the data is good to go.
+
+    It might have a lot of package data quatlity fixes. It might includes *Data Profiling* 
     
-    It might includes *Data Profiling*
+    > Grand investisseur de la Data Quality : Etablissements bancaires 
 
     <!> ETL The Transform piece of ETL refers to anything you may need to do to the data prior to the Load stage. This might include joins with other data sources, splitting or merging of columns, or any other process that transforms or alters the data.
 
@@ -395,19 +404,19 @@ HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la
     - Le plan 'Réglementaire':
         - Il faut être conforme aux normes exigées par les Autorités de contrôle nationales et européennes qui exigent des reportings plus nombreux depuis la dernière crise financière et à un niveau de granularité toujours plus important. Sinon, amendes.
 
-    > Grand investisseur de la Data Quality : Etablissements bancaires 
+    
 
     ### Définir la qualité d'une donnée
 
-    Caracteristique | Définition
-    ----------------|------------
-    Accessible      | La présente dans le système d'information et accessible par les processus et utilisateurs qui l’utilisent
-    Valide          | La donnée ne porte pas de valeur aberrant, elle se maintient dans la plage des valeurs acceptable
-    Consistante     | Si la donnée est redondante, elle doit porter la même valeur à un instant donné
-    Précision       | Elle est jugée suffisamment précise pour l’usage que l’on en attend
-    Utile           | Elle répond parfaitement au besoin et à l’usage que l’on en attend
+    Caracteristique| Définition
+    ---------------|------------
+    Accessible     | La présente dans le système d'information et accessible par les processus et utilisateurs qui l’utilisent
+    Valide         | La donnée ne porte pas de valeur aberrant, elle se maintient dans la plage des valeurs acceptable
+    Consistante    | Si la donnée est redondante, elle doit porter la même valeur à un instant donné
+    Précision      | Elle est jugée suffisamment précise pour l’usage que l’on en attend
+    Utile          | Elle répond parfaitement au besoin et à l’usage que l’on en attend
 
-    ### MDM
+    1. *MDM:*
 
     Refers to inconsistency and synchronization problems
 
@@ -415,19 +424,18 @@ HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la
 
     MDM maintains physical dataset, which is fed by all systems and keeps tracks of costumers attributs, called **Master Data** . Then, others records are updated. When it's too hard to make a decision, a business analyst is needed.
 
-
 1. Systeme de gestion de Base de Données relationnelles (SGBDR/ RDBMS) : IBM System R, Oracle, DB2 ou MySQL. 
 
-1. Data Architect : Responsable de la conception, du déploiement et de l'administration de plateformes de calculs distribués et de stockage de données massives (passer à l'échelle l'exploitation des données).
+1. Data Architect: Responsable de la conception, du déploiement et de l'administration de plateformes de calculs distribués et de stockage de données massives (passer à l'échelle l'exploitation des données).
 
-1. L'indexation : Permet d’accéder directement à l’information recherchée
+1. L'indexation: Permet d’accéder directement à l’information recherchée
 
 1. Framework Big Data en 2019 
     1. MongoDB (Première): 
         - Est une solution fortement utilisée par les développeurs. 
         - Son est langage puissant et facilement intégrable dans toute application gérant des documents/objets.
 
-    1. Cassandra (Deuxième) :
+    1. Cassandra (Deuxième):
         - Son langage est inspiré de SQL, il s'avérer assez décevant en raison de ses fortes contraintes ; 
         - Bonne solution pour l’élasticité ; 
         - Le temps de réponse et des fonctionnalités basiques.
@@ -437,12 +445,9 @@ HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la
         - Redis est connu pour sa simplicité, même si la gestion des « facettes » doit être bien pensées.
         - Elasticsearch est en particulier utilisé pour faire de la visualisation temps réel et de l’analyse sur des recherches textuelles.
 
-
-
 1. Volume des données
 Megabyte (1,000 kilobytes) -> Gigabyte (1,000 megabytes) -> Terabyte (1,000 gigabytes) -> Petabyte (1,000 terabytes) ->
-Exabyte  (1,000 petabytes) ->
-Zettabyte (1,000 exabytes)
+Exabyte  (1,000 petabytes) -> Zettabyte (1,000 exabytes)
 
 1. Json (JavaScript Object Notation): Constitue le standard actuel pour les échanges de données sur le Web.
 
