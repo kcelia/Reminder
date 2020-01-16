@@ -11,8 +11,7 @@ User Story | Décrire l'expérience du user
 Product Backlog| Carnet de commande *évolutif* pour le produit qui regroupe les éléments à developper pour réaliser les User Stories
 Sprint | Itération qui dure entre 2 à 4 semaines (Programmation/Test/Livraison)
 Sprint Backlog | Plusieurs Sprint
-Scrum | Réunions quotidiennt de 15 mn organisaient chaque jour debout, pour assuer la qualité des livrables et le respect des délais. 
-On aborde ce qu'on a fait Hier/aujourd'hui/problèmes
+Scrum | Réunions quotidiennt de 15 mn organisaient chaque jour debout, pour assuer la qualité des livrables et le respect des délais. On y aborde ce qu'on a fait Hier/aujourd'hui/problèmes
 Sprint Meeting Review | A la fin de chaque Sprint, on livre le produit au client et on voit l'avis du client
 
 La User Story comporte : 
