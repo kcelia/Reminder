@@ -384,7 +384,7 @@ HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la
     Data Gouvernance | Data Quality + Master Data Management
 
     ***Data Gouvernance = Data Quality + Master Data Management***:    
-    ![Data_Gouvernance](./Data_gouvernance.png)
+    ![Data_Gouvernance](https://github.com/kcelia/Reminder/blob/master/Master_Data_VS_Transaction_Data.png)
 
     1. *Data quality:*
    
