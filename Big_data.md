@@ -374,12 +374,13 @@ HDFS, NTFS, ext4, ZFS | Plusieurs machines (cluster-disque dure) | Ecriture + la
     Terme        | Définition 
     -------------|--------------
     Workflow     | Il s'agit de formaliser les traitements à réaliser, le cheminement à suivre et les acteurs concernés pour accomplir un travail précis
+    Data Sourcing| Is where that data that is being. Depending on the computer system or program, data sources will differ. 
     Data Acquisition Systems | DAS/DAQ aims to acquire and record data from a variety of sensors and external devices
     Data ingestion | Refers to (loading data) insertion of data into a database or table (don't cover transformations or policy rules)
     Data integration | Means make the data useful and common thru the process it is needed (ETL - cleansing and standardization in order to integrate the data to the process)
     Manifacturing | Mise en production des données
     Data Quality | complétude + intégrité
-    Master Data Management | Refers to inconsistency and synchronization problems
+    Master Data Management/Data Mastering| Refers to inconsistency and synchronization problems
     Data Gouvernance | Data Quality + Master Data Management
 
     ***Data Gouvernance = Data Quality + Master Data Management***:    
