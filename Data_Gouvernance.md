@@ -1,4 +1,4 @@
-Data (active stratégique)---(doit être mesurer)--->[Data Browl] (la donnée peut être bloquée si l'analyse de donnée (qualité ou pas) échoue.
+Data (active stratégique)---(doit être mesurer)--->[Data Browl] (la donnée peut être bloquée si l'analyse de donnée (qualité ou pas) échoue--->Comment surmonter cela?-->configurer une organisation avec des processus.
 
 # Data gouvernance
 * DG is a decision making, monitoring and enforcement body that has authority over Data management
