@@ -1,13 +1,8 @@
-# Data Mangement 
-- Allows us to ensure that shared information is: 
-  - Accurate (correct)
-  - Consistent 
-  - Secure
-
 # Data gouvernance
 DG is a decision making, monitoring and enforcement body that has authority over Data management
+DG is deciding what to do about data and following up to make sure it's done.
+> DG is made up of Policy + Process + Rules
 
-* Une discipline du *Data Management*
 * Nécessaire à cause des 3Vs, des risques des prises de décisions sur les données, les besoins en confirmité... 
 * Trouver un compromis entre les besoins impératifs (innovation et agilité) et les contraintes/régulation
 * Garantir la sécurité et la fiabilité des données dans un environnement _hybride_ complexe (_Cloud_)
@@ -26,8 +21,13 @@ DG is a decision making, monitoring and enforcement body that has authority over
 - Connaissance métier
 - Savoir comment les intègrer 
 - Elaborer une stratégie de gestion des métdonnées pour comprendre le format des données
-
 ## Mise à jour 
 ## Proteger 
 ## Intégration 
 - Transformer les données en information utiles
+
+# Data Mangement 
+DM is the control of data architecture, quality, policy, security, practices and procedures. 
+It allows us to ensure that shared information is accurate (correct), consistent and secure.
+DM takes the decisions of DG and implements the architectures, process, tools and policies
+
