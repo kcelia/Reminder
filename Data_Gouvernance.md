@@ -1,3 +1,33 @@
+# Data Mangement 
+- Allows us to ensure that shared information is: 
+  - Accurate (correct)
+  - Consistent 
+  - Secure
+
 # Data gouvernance
-=====================
+DG is a decision making, monitoring and enforcement body that has authority over Data management
+
+* Une discipline du *Data Management*
+* Nécessaire à cause des 3Vs, des risques des prises de décisions sur les données, les besoins en confirmité... 
+* Trouver un compromis entre les besoins impératifs (innovation et agilité) et les contraintes/régulation
 * Garantir la sécurité et la fiabilité des données dans un environnement _hybride_ complexe (_Cloud_)
+* La gourvernance :
+  - Peut limiter des accès a des users
+  - Toute la donnée n'a pas besoin d'être gouvernée de la même façon
+  - Il est pas question d'empecher la liberté au client, mais la DG doit intervenir 
+* Plusieurs modèles de gouvernance selon l'entreprise
+* Principe : 
+  - Donner un accès a bas coût et avec des capacités de calcul infinies (Cloud) 
+  - Tranformer la donnée en y mettant de la gouvernance et la présenter de la meilleure manière qui soit
+  
+# 4 elements d'une bonne gouvernance 
+
+## Comprendre
+- Connaissance métier
+- Savoir comment les intègrer 
+- Elaborer une stratégie de gestion des métdonnées pour comprendre le format des données
+
+## Mise à jour 
+## Proteger 
+## Intégration 
+- Transformer les données en information utiles
