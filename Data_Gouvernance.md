@@ -1,6 +1,7 @@
 > Goal 
 >> Etre un _Data Driven_ (axé sur les données) et faire de _l'analytics to action_ (connecter l'analyse à l'action)
 >> Make a Data Driven argument (décisions commerciales/... axées sur la donnée)
+>> Consider la donnée comme un atout dans une organisation est un défi
 
 ### Pour être Data driver, l'organisation a besoin de trois choses: 
 - savoir d'où viennent les données;
@@ -8,8 +9,9 @@
 - savoir si les données sont exactes.
 
 ## La donnée
-- Stratégique active car elle ajoute une valeur commerciale à l'entreprise 
+- Stratégique active car elle ajoute une valeur commerciale à l'entreprise.
 - Se doit d'être _fiable_, sinon ==> décision biaisée qui peut mener un **Data Browl** (barrage).
+- The estimated cost of bad data for US businesses is $700 billion a year.
 - Questions are raised:  
   * D'où vient-il? 
   * Qu'est-ce que ça veut dire? 
@@ -36,7 +38,32 @@ La gouvernance:
 - Nécessaire à cause des 3Vs, des risques des prises de décisions sur les données, les besoins en confirmité... 
 - Garantir la sécurité et la fiabilité des données dans un environnement _hybride_ complexe (_Cloud_)
 - Trouver un compromis entre les besoins impératifs (innovation et agilité) et les contraintes/régulation
-* Plusieurs metiers: Data Steward, Data Custodian, Data Owner, Data Producer...
+* Plusieurs metiers qu'on peut cartographier la structure organisationnelle au sein de l'organisation dans une matrice RACI : la transparence dans la propriété et la responsabilité (Data Steward, Data Custodian, Data Owner, Data Producer...
+) de qui serait responsable. 
+* Data Owner:
+- S’implique dans l’*acquisition et l’appropriation d’un ensemble de données*, il ne s’occupe pas de la conservation des données et de leur recensement. 
+
+* Data Steward/Gardien de l’organisation des données/Gestionnaire de données :
+Dans de vu consommation:
+- A une visibilité globale sur un projet d’acquisition.
+- Contrôle la cartographie des données et de leur gestion (collecter/sécurisé/mesurer la qualité de la donnée). 
+- Responsable référent dans un projet de gouvernance des données.
+- Travaille avec les équipes business pour définir les objectifs du projet de gouvernance des données.
+- Capablede reporter les problèmes/escalade.
+Dans point de vu technique/Data technical Steward:
+- Il peut etre un data architect, ingineer, quelqu'un qui travaille un peu plus granulairement sur les aspects techniques du cadre de gouvernance du point de vue de l'architecture. 
+- Oriente les Data Scientist et BI a trouver les bonnes données
+- tenu responsable de la mise à jour des changements au fil du temp
+
+* Data Consumers:
+- Est une unité commerciale.
+- Gère les activités commerciales (À un moment donné, nous sommes des consommateurs de données).
+
+Maintenant, discutons de la deuxième activité la plus critique, 
+
+* Data financial Analyst/Analyste Financier 
+- Parle des opérations et de marketing.
+
 
 Néanmoins, la gourvernance :
   - Peut limiter des accès à des users
@@ -51,6 +78,9 @@ Néanmoins, la gourvernance :
  - La précision
  - L'exhaustivité 
  
+# Process: 
+1. Quelle valeur la gouvernance des données apportera-t-elle à votre organisation? (qui, quoi, quand, où, pourquoi et comment)
+
 # 4 elements d'une bonne gouvernance 
 
 ## Comprendre
@@ -72,7 +102,7 @@ DM takes the decisions of DG and implements the architectures, process, tools an
 ## Data Gouvernance Center (DGC)
 Un système d'enregistrement qui permet de se logger dessus et d'avoir un enregistrement clair pour tout élément de données donné. Ainsi, on sait d'où provient le rapport et qui est le propriétaire des informations. 
 
-## Collibra Data Governance Center : Plateforme de gouvernance de données
+## Collibra Data Governance Center : Plateforme de gouvernance de données (Collibra implementation Method - CIM)
 -  Le Chemin Prescriptif: vous aidera à mettre en œuvre, à développer votre maturité !
 
 CDGC comprend sept applications classées par fonction.
@@ -109,3 +139,14 @@ CDGC comprend sept applications classées par fonction.
     - Il aide les administrateurs de données à gérer vos tâches quotidiennes et à collaborer avec les parties prenantes de l'organisation. 
     - Il offre une propriété et des responsabilités transparentes pour le partage des données dans l'entreprise. 
     - Il permet d'établir une structure organisationnelle comprenant des escalades, des hiérarchies, des contacts de propriété et des responsabilités. 
+
+
+# CIM 
+Se compose de cinq phases différentes:
+1. Phase de préparation/Prep-Project Startup:
+  - Define project goals/Plan
+1. Phase de conception/Blueprint/Design:
+ - Workshop
+1. Phase de configuration et de construction/Configuration & Build:
+1. Phase de préparation finale/Final Preparation:
+1. Phase de transition/Transition/Post Go-Live Support:
