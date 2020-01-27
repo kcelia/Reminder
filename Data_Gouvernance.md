@@ -194,18 +194,28 @@ Une fois la communauté crée, il faut ajouter des actifs/assets, qui sont regro
        ```bash
        'NameCommunity' > Create > Organization > Glossary > 'Fill out: Glossary's name/...'
        // Remarque: Si le domaine est créer depuis le Dashborad, il faut préciser la Communauté 
-       ``` 
-       - Déterminee quel type d'actifs on stocke dans le domaine: 
-       Adding assets to a domain is determined by the selected domain type
-       
+       ```       
       b. Create Policy Domain: Gouvenance/Série de politiques de règles
       c. Organisation (sub-community)
       d. Catalogue de rapport: (collection de rapports/définitions avec la liste des attributs)
-      
-      
-     
-       
-       
+  
+ #### Assets/Actifs (Business Rules + Acronym).
+  
+         - Adding assets to a domain is determined by the selected domain type
+         - Représentent les concepts/composants structurels du modèle d'exploitation. 
+         - Les actifs sont souvent regroupés selon leur fonction, leur projet ou leur domaine de connaissances.
+         - Il existe 5 types d'actifs: actifs commerciaux/technologiques/de données/de gouvernance/des problèmes, chacun ayant des caractéristiques différentes appelées attributs, et ces attributs peuvent avoir des relations différentes. 
+         - Ces actifs vont être organisés à l'intérieur de ces communautés et domaines
+    + Creation Business Terms 
+        a. `ParentPage > Create > Assets > Business Terms` or `DashBorad > Create > Suggested > Business Term > 'Fill out: Term1, Term2, ... In Domain: NameGlossary`
+          Remarque: Si les termes commérciaux existent déja dans un fichier Excel, l'importer `> Import my assets > Find file` 
+          `'NameGlossary' > Overview > Characteristic > ... // Add synonym or ...`
+        b. Approval for each created BR
+        `Traceability > Diagram // To see the relations`
+         `> Workflows > Approval // Depends on the assigned responsability `
+   
+   Business Terms are case sensitive and can be characterized with acronyms.
+         
          
    
     
@@ -213,18 +223,7 @@ Une fois la communauté crée, il faut ajouter des actifs/assets, qui sont regro
   Stewardshi's application/ Module d'Intendance establishes the responsabilities
   `> Stewardship > 'Name Community' > Responsabilities > Role...`
   
- 1. Create Business Terms 
-  a. `> Create > Suggested > Business Term `
-   - In 'Name Glossary 
-   - Add 'Term1', 'Term2'...
-    Remarque: Si les termes commérciaux existent déja dans un fichier Excel, l'importer `> Import my assets > Find file` 
-    `> Overview > Characteristic > ... // Add synonym or ...`
-  b. Approval for each created BR
-  `Traceability > Diagram // To see the relations`
-   `> Workflows > Approval // Depends on the assigned responsability `
-   
-   Business Terms are case sensitive and can be characterized with acronyms.
-  
+
     
 1. Add technical metadata to the catalog (the structure of a schema)
   ```bash
