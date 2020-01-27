@@ -107,7 +107,8 @@ Un système d'enregistrement qui permet de se logger dessus et d'avoir un enregi
 
 CDGC comprend sept applications classées par fonction.
 - Le catalogue et le dictionnaire de données: Aident à trouver d'où proviennent les données.
-  - Le catalogue:       
+  - Le catalogue: 
+      - Chercher des données
       - Inventaire des données (emplacement centralisé), y compris les attributs qui indiquent les définitions de qualité et la ligné.
       - S'intègre à Tableau.
       - Dans crowdsourcing: Les utilisateurs sont en mesure de fournir un examen des notes, d'étiqueter et d'annoter différents ensembles de données. Comment vos collègues utilisent les mêmes ensembles de données et comment ils recommandent leur utilisation. 
@@ -119,9 +120,20 @@ CDGC comprend sept applications classées par fonction.
       - Généralement, un dico existe déjà dans une base de données et il suffit de l'importer dans la DGC.
 - Le glossaire métier et les données de référence:  Aident à comprendre la signification des données. 
   - Glossary:
+      - Ens de terminologies commerciales, de taxonomies et d'autres hiérarchies, et comment elles diffèrent selon les différents domaines d'une organisation.
+      - Liste de tous: les actifs approuvés, KPI, BR, acronymes mis à la disposition de la communauté des utilisateurs, regarder des domaines comme le catalogue de rapports clients.
       - Glossaire métier élaborer lors du démarrage du programme de GD et évolutif.
-      - Définir des termes commerciaux supplémentaires, descriptions/contexte significatifs, la politique de l'entreprise.
-      - Garantit que chacun utilise le bon terme et la bonne définition dans le bon contexte pour ses besoins.
+      - Définir des termes commerciaux, descriptions/contexte significatifs, la politique de l'entreprise.
+      - Un Glossaire métier permet de garantit que chacun utilise le bon terme et la bonne définition dans le bon contexte pour ses besoins (clarté et similitude au sein d'une entreprise).
+      `> traçabilité`: Plus de détails, donne:
+         - Une visualisation qui aide à comprendre la valeur à vie et comment elle est définie dans différents contextes.
+         - Comment un terme commercial est défini dans différents contextes (c.-à-d. Finance et marketing)
+         - Définitions, exemples descriptifs et synonymes s'ils sont attribués
+         - Statut de l'actif
+      
+      `> Quality`: Voir le score de qualité des données pour ce terme commercial
+         - Le nombre de règles a échoué/adoptées et score de qualité et le résultat
+ 
   - Données de référence
       - Opérationnalisent vos données. 
       - Garantit des normes cohérentes pour vos données de référence. 
@@ -150,3 +162,121 @@ Se compose de cinq phases différentes:
 1. Phase de configuration et de construction/Configuration & Build:
 1. Phase de préparation finale/Final Preparation:
 1. Phase de transition/Transition/Post Go-Live Support:
+
+
+
+
+
+
+Steps:
+
+## 1. Créer une communauté:
+- La composante organisationnelle racine est la communauté. 
+- Communities represent different groups of people who own certain domains.
+ ```bash
+  Dashborad > Create > Organization > Community > 'NameCommunity' > Create
+  // Nom unique et sensible à la casse, apparaitera dans le Browser
+  // On peut créer simultanément plusieurs communautés
+  // Une communauté est souvent organisée de la même manière qu'une entreprise
+  ```
+ ### Créer une sub-communauté:
+ Pour: 
+ - To reflect a business or division of a company.
+ - To define ownership over a collection of assets for a group of PMEs.
+ - To focus and partition data governance efforts for a group of people.
+ Il existe 2 façons de créer une communauté:
+    a. `Dashborad > Organization > 'MainCommunity > 'NameSubCommunity' > Create`
+    b. Depuis la page parent: `'ParentPage > Create > Organization > 'NameSubCommunity'`
+Une fois la communauté crée, il faut ajouter des actifs/assets, qui sont regroupés dan sune structure logique "Domaine".
+
+## 2. Create a Domaine to add business terms
+     a. Create Glossary Domain: 
+       ```bash
+       'NameCommunity' > Create > Organization > Glossary > 'Fill out: Glossary's name/...'
+       // Remarque: Si le domaine est créer depuis le Dashborad, il faut préciser la Communauté 
+       ``` 
+       - Déterminee quel type d'actifs on stocke dans le domaine: 
+       Adding assets to a domain is determined by the selected domain type
+       
+      b. Create Policy Domain: Gouvenance/Série de politiques de règles
+      c. Organisation (sub-community)
+      d. Catalogue de rapport: (collection de rapports/définitions avec la liste des attributs)
+      
+      
+     
+       
+       
+         
+   
+    
+ 1. Définir des responsabilités et la gestion de l'ensemble de la matrice RACI 
+  Stewardshi's application/ Module d'Intendance establishes the responsabilities
+  `> Stewardship > 'Name Community' > Responsabilities > Role...`
+  
+ 1. Create Business Terms 
+  a. `> Create > Suggested > Business Term `
+   - In 'Name Glossary 
+   - Add 'Term1', 'Term2'...
+    Remarque: Si les termes commérciaux existent déja dans un fichier Excel, l'importer `> Import my assets > Find file` 
+    `> Overview > Characteristic > ... // Add synonym or ...`
+  b. Approval for each created BR
+  `Traceability > Diagram // To see the relations`
+   `> Workflows > Approval // Depends on the assigned responsability `
+   
+   Business Terms are case sensitive and can be characterized with acronyms.
+  
+    
+1. Add technical metadata to the catalog (the structure of a schema)
+  ```bash
+  > Catalog > Data Dictionary > Create > 'Create Catalog Data set' or 'Ingest From Data source'
+  // Create Catalog Data set: Logical Dataset
+  // Ingest From Data source: Il existe plusieurs gamme de systèmes (Excel, Cloudera, ...), le schema est le même que celui du serveur
+  ```
+  a. Select a set of columns to create a new dataset
+  Create a logical Dataset on top on of the phycical metada: `Select columns > Add To Data Set > New Data Set > 'Fill out' > Create & Add Data`
+  b. Ask for approval:  `Overview > Characteristic > Related To > 'Fill ou/Tags...`
+  c. Présentation: *Asset Model* (top attributs customized)
+1. Create a domain for Policy Manager
+a. Créer le domain
+ ```bash
+ Browser > 'Name Community' > Create > Organization > Placy Domain > 'Fill out' > Create 
+ // On peut avoir différentes politiques dispersées dans les différents secteurs d'activité 
+ ```
+ b. Ajouter un index dans toute l'oganisation dans *Policy Manager*
+ > Policy Manager > Create > Policy > 'Fill out/in the 'Name Domain'/add responsabilities...'
+
+  In order to link a data set to a particular policy, the following steps are required:
+
+  1. Within the relevant community>Create Organization>Policy Domain
+  1. In Policy Manager>Create Policy
+  1. Set Responsibilities
+
+On peut dire que la politique est applicable à un ensemble de données,
+ 
+1. Crete a Policy Manager 
+
+1. Shop 
+`Search > Add To Data Basket` then `Request Data Sets Access`
+Lorsque nous extrayons ces données, nous allons à nouveau parcourir un workflow: Demander à différentes personnes de vérifier les choses (la licence/politique/...) liées liées à cet ens dd **Policy Manager" 
+
+1. Log an issue in Data Helpdesk
+
+En tant que user: `Acceuil > Quick Actions > Log Data Issue > 'Fill out'`
+
+En tant que Data Steward: 
+```Bash
+> Data Helpdesk > 'Issue's List' 
+// le DS peut faire une hiérarchisation
+// Ajouter plus de colonnes pour plus d'information
+```
+
+1. Customized dans Settings
+
+Eg. Ajouter l'attribut cost:
+```bash 
+> Settings > Attributes > Add > 'Fill out' > Save 
+// On peut ajouter l'attribut Cost aux asset types
+> Assignment > Data Set > Data Set Attributes > Edit > 'Fill out' > Save
+```
+
+ https://university.collibra.com/lessons/introduction-to-working-with-assets/
