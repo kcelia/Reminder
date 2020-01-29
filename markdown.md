@@ -88,7 +88,7 @@ __***italique gras souligné***__
 
 ### Image:
 
-![GitHub Logo](/images/logo.png)
+![Raccourci](/Path.format)
 
 Format: ![Alt Text](url)
 
