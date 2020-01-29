@@ -24,6 +24,8 @@
 
 # Data gouvernance
 
+![Data_Gouverance_Vs_Data_Transaction](https://github.com/kcelia/Reminder/blob/master/Master_Data_VS_Transaction_Data.png)
+
 Un système décisionnel partagé pour reconnaître la valeur des données (la démocratisation des données).
 La DG est un processus défini et spécifique qu'une organisation suit pour évaluer, gérer, utiliser, améliorer, surveiller, maintenir et protéger les données organisationnelles afin de générer des résultats commerciaux. La DG consiste à décider de la signification des données, de leur utilisation, de leur exactitude et des règles à suivre. 
 
@@ -187,6 +189,8 @@ Une communauté peut avoir plusieurs domaines.
 
 ### Caractéristiques (Attribut + Relation)
 ### 3.1 Attribut(description textuelle)
+![Exemple_Attribut](https://github.com/kcelia/Reminder/blob/master/Attribut_type.png)
+
 Les actifs ont des caractéristiques différentes appelées attributs, et ces attributs peuvent avoir des relations différentes.
 #### 3.1.1. Les types d'attribut (décrit l'actif):
 - Un attribut est une valeur littérale qui capture des informations sur un actif et un attribut est une instance d'exactement un type d'attribut. 
