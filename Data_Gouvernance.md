@@ -1,17 +1,16 @@
 > Goal 
 >> Etre un _Data Driven_ (axé sur les données) et faire de _l'analytics to action_ (connecter l'analyse à l'action)
->> Make a Data Driven argument (décisions commerciales/... axées sur la donnée)
->> Consider la donnée comme un atout dans une organisation est un défi
+>> Make a _Data Driven Argument_ (décisions commerciales/... axées sur la donnée)
+>> Consider la donnée comme un atout dans une organisation est un _défi_
 
-### Pour être Data driver, l'organisation a besoin de trois choses: 
-- savoir d'où viennent les données;
-- savoir ce que signifient les données;
-- savoir si les données sont exactes.
+### Pour être Data Driver, l'organisation a besoin de 3 choses: 
+- Savoir d'où viennent les données ;
+- Savoir ce que signifient les données ;
+- Savoir si les données sont exactes.
 
 ## La donnée
 - Stratégique active car elle ajoute une valeur commerciale à l'entreprise.
-- Se doit d'être _fiable_, sinon ==> décision biaisée qui peut mener un **Data Browl** (barrage).
-- The estimated cost of bad data for US businesses is $700 billion a year.
+- Se doit d'être _fiable_, sinon ==> décision biaisée qui peut mener un **Data Browl** (barrage). The estimated cost of bad data for US businesses is $700 billion a year.
 - Questions that are raised:  
   * D'où vient-il? 
   * Qu'est-ce que ça veut dire? 
@@ -31,30 +30,30 @@ La DG est un processus défini et spécifique qu'une organisation suit pour éva
 
 Le modèle est :
 - Spécifique à l'organisation
-- Fexible et conçus pour les business users et data stewards (gestionnaires de données)
-* Plays a big role in this new data driven mindset goal
-* DG is a decision making, monitoring and enforcement body that has authority over Data management
+- Fexible et conçus pour les Business Users et Data Stewards (gestionnaires de données)
+* DG is a decision making, monitoring and enforcement body that has authority over Data Management
 * DG is deciding what to do about data and following up to make sure it's done.
 
 La gouvernance:
 + Nécessaire à cause des 3Vs, des risques des prises de décisions sur les données, les besoins en confirmité... 
 + Garantir la sécurité et la fiabilité des données dans un environnement _hybride_ complexe (_Cloud_)
 + Trouver un compromis entre les besoins impératifs (innovation et agilité) et les contraintes/régulation
-+ Plusieurs metiers qu'on peut cartographier la structure organisationnelle au sein de l'organisation dans une matrice RACI : la transparence dans la propriété et la responsabilité (Data Steward, Data Custodian, Data Owner, Data Producer...
-) de qui serait responsable. 
++ On cartographie plusieurs métiers et la structure organisationnelle au sein de l'organisation dans une **Matrice RACI** (la transparence dans la propriété et la responsabilité - Data Steward, Data Custodian, Data Owner, Data Producer...)
  * Data Owner:
  - S’implique dans l’*acquisition et l’appropriation d’un ensemble de données*, il ne s’occupe pas de la conservation des données et de leur recensement 
  * Data Steward/Gardien de l’organisation des données/Gestionnaire de données:
+  
   D'un point de vu consommation:
+  - Responsable référent dans un projet de gouvernance des données
   - A une visibilité globale sur un projet d’acquisition
   - Contrôle la cartographie des données et de leur gestion (collecter/sécurisé/mesurer la qualité de la donnée). 
-  - Responsable référent dans un projet de gouvernance des données
   - Travaille avec les équipes business pour définir les objectifs du projet de gouvernance des données.
   - Capablede reporter les problèmes/escalade
+  
   Dans point de vu technique/Data technical Steward:
   - Il peut etre un data architect, ingineer, quelqu'un qui travaille un peu plus granulairement sur les aspects techniques du cadre de gouvernance du point de vue de l'architecture
   - Oriente les Data Scientist et BI a trouver les bonnes données
-  - Tenu responsable de la mise à jour des changements au fil du temp
+  - Tenu responsable de la mise à jour des changements au fil du temps
  * Data Consumers:
  - Est une unité commerciale
  - Gère les activités commerciales (À un moment donné, nous sommes des consommateurs de données)
@@ -72,11 +71,8 @@ Néanmoins, la gourvernance :
  - La QD 
  - La précision
  - L'exhaustivité 
- 
-### Process: 
-Quelle valeur la gouvernance des données apportera-t-elle à votre organisation? (qui, quoi, quand, où, pourquoi et comment)
 
-# Relation with the Data Mangement 
+# Relationship with the Data Mangement 
 DM is the control of data architecture, quality, policy, security, practices and procedures. 
 It allows us to ensure that shared information is accurate (correct), consistent and secure.
 DM takes the decisions of DG and implements the architectures, process, tools and policies
@@ -85,22 +81,25 @@ DM takes the decisions of DG and implements the architectures, process, tools an
 Un système d'enregistrement qui permet de se logger dessus et d'avoir un enregistrement clair pour tout élément de données donné. Ainsi, on sait d'où provient le rapport et qui est le propriétaire des informations. 
 
 ## Collibra Data Governance Center : Plateforme de gouvernance de données (Collibra implementation Method - CIM)
--  Le Chemin Prescriptif: vous aidera à mettre en œuvre, à développer votre maturité!
-CDGC comprend sept applications classées par fonction.
 
-## 1. Le catalogue et le dictionnaire de données: Aident à trouver d'où proviennent les données.
+Le Chemin Prescriptif: vous aidera à mettre en œuvre, à développer votre maturité. CDGC comprend 7 applications classées par fonction.
+
+![Collibra_Applications]()
+
+## 1. Le catalogue et le dictionnaire de données: Aident à trouver d'où proviennent les données
 ### 1.1 Le catalogue: 
 - Chercher des données
 - Inventaire des données (emplacement centralisé), y compris les attributs qui indiquent les définitions de qualité et la ligné.
 - S'intègre à Tableau.
-- Dans crowdsourcing: Les utilisateurs sont en mesure de fournir un examen des notes, d'étiqueter et d'annoter différents ensembles de données. Comment vos collègues utilisent les mêmes ensembles de données et comment ils recommandent leur utilisation. 
+- Dans Crowdsourcing: Les utilisateurs sont en mesure de fournir un examen des notes, d'étiqueter et d'annoter différents ensembles de données. Comment vos collègues utilisent les mêmes ensembles de données et comment ils recommandent leur utilisation. 
 - Identifier les ensembles de données adaptés à leurs besoins.
 ### 1.2 Dictionnaire
  - Documente les métadonnées techniques, la façon dont elles sont utilisées. 
- - Contenient les définitions des données, des colonnes et des noms de table. 
+ - Contient les définitions des données, des colonnes et des noms de table. 
  - Intérogeable (montrera combien de systèmes le changement aura un impact)
  - Généralement, un dico existe déjà dans une base de données et il suffit de l'importer dans la DGC.
-## 2. Le glossaire métier et les données de référence:  Aident à comprendre la signification des données. 
+ 
+## 2. Le glossaire métier et les données de référence:  Aident à comprendre la signification des données
 ### 2.1 Glossary:
 - Ens de terminologies commerciales, de taxonomies et d'autres hiérarchies, et comment elles diffèrent selon les différents domaines d'une organisation.
 - Liste de tous: les actifs approuvés, KPI, BR, acronymes mis à la disposition de la communauté des utilisateurs, regarder des domaines comme le catalogue de rapports clients.
@@ -132,12 +131,9 @@ CDGC comprend sept applications classées par fonction.
 - Il offre une propriété et des responsabilités transparentes pour le partage des données dans l'entreprise. 
 - Il permet d'établir une structure organisationnelle comprenant des escalades, des hiérarchies, des contacts de propriété et des responsabilités. 
 
-
 ## CIM se compose de cinq phases différentes:
 1. Phase de préparation/Prep-Project Startup:
-  - Define project goals/Plan
 1. Phase de conception/Blueprint/Design:
- - Workshop
 1. Phase de configuration et de construction/Configuration & Build:
 1. Phase de préparation finale/Final Preparation:
 1. Phase de transition/Transition/Post Go-Live Support:
@@ -189,12 +185,12 @@ Une communauté peut avoir plusieurs domaines.
 
 ### 3.1. Caractéristiques (Attribut + Relation)
 
-### 1. Attribut(description textuelle)
+#### a. Attribut(description textuelle)
 ![Exemple_Attribut](https://github.com/kcelia/Reminder/blob/master/Attribut_type.png)
 
 Les actifs ont des caractéristiques différentes appelées attributs, et ces attributs peuvent avoir des relations différentes.
-#### 1.1. Les types d'attribut (décrit l'actif):
-- Un attribut est une valeur littérale qui capture des informations sur un actif et un attribut est une instance d'exactement un type d'attribut. 
+#### b. Les types d'attribut:
+- Un attribut décrit l'actif et est une valeur littérale qui capture des informations sur un actif et un attribut est une instance d'exactement un type d'attribut. 
 - Un type d'attribut définit formellement la classe d'informations contenue dans un attribut. 
 - Create: 
    ```bash
@@ -202,13 +198,16 @@ Les actifs ont des caractéristiques différentes appelées attributs, et ces at
     // Tags: Trouver d'autres articles similaires
     ```
   Exemple 1: Un terme commercial de type d'actif portant le nom client a une description de type d'attribut avec la valeur de la personne qui a passé au moins une commande pour au moins un produit. 
+  
   Exemple 2: Un actif peut être appelé cheveux, mais les attributs peuvent être de couleur, de longueur, de texture, etc.
-#### 1.2. Import/Export Attribut
+  
+#### 3.2. Import/Export Attribut
    Import: `NameGlossary > Export > Add the Characteritics Needed For reimport > Export`
    
    Export: `Import_Icon > Assets > 'Select File' > Next > Update the Name`
-### 1.3 Import simple file
-#### 1.3.1 Create/Export a view 
+### 4. Import simple file
+#### 4.1 Attribut
+#### a. Create/Export a view 
  Exporter: 
  ```bash
  ParentPage > Export_Icon > Assets > 'Fill out'
@@ -218,15 +217,15 @@ Les actifs ont des caractéristiques différentes appelées attributs, et ces at
  // Select type file
  ```
 
-#### 1.3.2 Export view 
+#### b. Export view 
 Remarque: A l'ouverture du fichier importer, une nouvelle colonne est ajoutée UUID, sous chacun des domaines et communautés. 
-#### A.3.3. Importer
+#### c. Importer
 ```bash
 ParentPage > Import_Icon > Assets > 'Select_file' > 'Mappage' > Import
 // Mappage est nécessaire 
 // Si erreur de UUID, clique Next
 ```
-### 1.4. Load Attributs that did not exist in Collibra
+### 4.2. Load Attributs that did not exist in Collibra
 1.  La première étape consiste à créer un point d'atterrissage à Collibra pour ce glossaire: 
     ```bash 
     // 1. Community
@@ -258,7 +257,7 @@ Settings > Asset Typpe > Business Term > Global Assignement > Edit > Add cherist
  1. Complete the view and Save it 
  1. Import file 
  
-### 2. Relation 
+### 4.2. Relation 
 - Définit association entre deux actifs, comment ils sont liés l'un à l'autre. 
 - Instance d'un type de relation. Un type de relation est bidirectionnel. La source et la cible d'une relation sont deux types d'actifs.
 - On parle de relation positive -> et de corrélation <- 
@@ -273,7 +272,7 @@ Exemple:
 - Une colonne fait partie d'un tableau
 - Une politique est appliquée par une norme
 
-#### 2.1 Load Relations 
+#### a. Load Relations 
 
 1.  Landing Zone: 
     ```bash 
@@ -304,7 +303,7 @@ Exemple:
  1. Import File
  `> Import > Assets > Select_File > Mappage > Next > Test_Report`
  
-### 3.2 Create Business Terms 
+### 3.2. Create Business Terms 
 Business Terms are case sensitive and can be characterized with acronyms.
  a. `ParentPage > Create > Assets > Business Terms` or `DashBorad > Create > Suggested > Business Term > 'Fill out: Term1, Term2, ... In Domain: NameGlossary`
  Remarque: Si les termes commérciaux existent déja dans un fichier Excel, l'importer `> Import my assets > Find file` 
@@ -327,7 +326,7 @@ NameGlossary > Save as > 'Fill out: NameView/ViewSharingOptions'
 - Permettent de filtrer les colonnes ou lignes inutiles pour visualiser uniquement ce dont vous avez besoin.
 - Conserve la vue d'origine pour revenir si nécessaire.
 
-### 4.1. Exporter une vue
+### 4.2. Exporter une vue
  Exporter: 
  ```bash
  ParentPage > Export_Icon > Assets > 'Fill out'
@@ -337,7 +336,7 @@ NameGlossary > Save as > 'Fill out: NameView/ViewSharingOptions'
  // Select type file
  ```
 
-### 4.2 Data Lineage Diagramm
+### 4.3. Data Lineage Diagramm
 
 Pour comprendre les données, un tableau d'actifs avec des relations n'est pas toujours suffisant. La visualisation est un plus.
 - Makeover: Color/Symbols for each asset type/optimizing the layout
@@ -403,7 +402,7 @@ On peut dire que la politique est applicable à un ensemble de données,
  
 1. Crete a Policy Manager 
 
-## Shop 
+# Shop 
 
 Lorsque nous extrayons ces données, nous allons à nouveau parcourir un workflow: Demander à différentes personnes de vérifier les choses (la licence/politique/...) liées liées à cet ens dd **Policy Manager" 
 ```bash
@@ -414,17 +413,17 @@ Dashbord > Catalog > Data Sets > 'Filter and select' > Add_To_Data_Basket_Icon >
 ```
 Then, an acces request is generate, can be found on the `Acces_Request_Icon`. La demande d'accès ne va pas aux propriétaires de ces ensembles de données, car ils ne sont qu'un regroupement logique de données. Ils vont en fait aux propriétaires des données physiques contenues dans ces ensembles de données.
 
-#### Data Profiling and Data sampling 
+# Data Profiling and Data sampling 
 
 `Data_dictionnary > 'Select_Table' > Data_Profiling > ...`
 
-#### Combining DataSets
+### 1. Combining DataSets
 ```Bash
 Catalog > Data_Dictionnary > Select_tables > Add_data_to_dataset > 'Fill out' > Creat_Add_Data 
 // Data Dictionnary: Liste de tous les schemas 
 // Add_data_to_dataset: Choose between Existind dataset or New dataset
 ``` 
-### Données de référence
+#  Données de référence
 
 - Elles aident à classer et à créer des hiérarchies autour des données disponibles au sein de l'organisation. 
 - Trouvez les processus de gouvernance nécessaires pour maintenir les données
@@ -432,7 +431,7 @@ Dashbord > Reference Data >
 // Reference Data: Qui en est responsable et quel est le statut actuel, sont affichées?
 
 
-### Data Helpdesk
+#  Data Helpdesk
 
 - Permet à tous les employés d'avoir accès à un emplacement central où toutes les données sont documentées. 
 - Permet de gérer efficacement tous les problèmes liés aux données.
@@ -445,7 +444,7 @@ Lorsqu'un problème de données est identifié: (Sélectionnez tout ce qui s'y r
 - Le rôle défini comme réviseur par défaut est invité à accepter / rejeter la révision du problème.
  - Un problème peut être signalé si le réviseur par défaut n'a pas accepté / rejeté le problème dans le délai spécifié.
  
-### Log an issue in Data Helpdesk
+## 1. Log an issue in Data Helpdesk
 
 En tant que user: `Dashbord > Quick Actions > Log Data Issue > 'Fill out'`
 
@@ -456,7 +455,7 @@ En tant que Data Steward:
 // Ajouter plus de colonnes pour plus d'information
 ```
 
-1. Customized dans Settings
+## 2. Customized dans Settings
 
 Eg. Ajouter l'attribut cost:
 ```bash 
@@ -465,7 +464,7 @@ Eg. Ajouter l'attribut cost:
 > Assignment > Data Set > Data Set Attributes > Edit > 'Fill out' > Save
 ```
 
-Data Stewardship  
+#  Data Stewardship  
 
 Dashbord > Data Stewardship 
 3 segments: 
@@ -473,7 +472,8 @@ Dashbord > Data Stewardship
 - Business Dimensions (axé sur les termes ou éléments de données liés à l'entreprise. Par exemple, les processus d'affaires, la catégorie de données, le secteur d'activité, et cetera) Les vues sont modifiables 
 - Metric:  Appliquer des filtres selon les différents attributs/Date de création/La structure organisationnelle ou le domaine
 
-### Avoir confiance dans un Rapport
+
+# Rapport
 Pour qu'un Report soit considéré, il doit être certifié. Un processus d'identification des DCE est lancé, sinon il est candidat à la certification:
  Certified Report: 
  - 3 niveaux de certification pour un rapport, propres à chaque entreprise et à chaque client. 
@@ -483,7 +483,7 @@ Pour qu'un Report soit considéré, il doit être certifié. Un processus d'iden
   + Lineage/Traceability & Standard
   + Definition & Ownership
 
-### Workflow
+# Workflow
 - Les workflows décrivent les processus dans le DGC pour automatiser certaines tâches et attribuer des tâches aux personnes. 
 - Le DGC est un moteur embarqué de workflow qui exécute tout cela. 
 - Les workflows sont définis par le modèle de processus métier et la notation (BPMN ~ XML) possède un ID de processus, un identifiant unique.
