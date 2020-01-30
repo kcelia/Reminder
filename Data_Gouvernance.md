@@ -178,7 +178,7 @@ Une communauté peut avoir plusieurs domaines.
 ## 3.Assets/Actifs (Business Rules + Acronym).
 - Ces actifs vont être organisés à l'intérieur de ces communautés et domaines.
 - Représentent les *composants structurels* du modèle d'exploitation. 
-- Les actifs sont souvent regroupés selon leur *fonction, leur projet ou leur domaine de connaissances*.
+- Les actifs sont souvent regroupés selon leur *fonction, leur projet ou leur domaine de connaissances* et peuvent être hiérarchisés. 
 - Il existe 5 types d'actifs: 
  + actifs commerciaux
  + actifs technologiques
@@ -187,12 +187,13 @@ Une communauté peut avoir plusieurs domaines.
  + actifs des problèmes
 - Les actifs sont: des termes commerciaux, des acronymes, des politiques, des colonnes, des tableaux, des schémas, vraiment tout ce que vous voulez définir, gouverner et boucler, et valoriser en tant que actif, est un atout au sein de Collibra.
 
-### Caractéristiques (Attribut + Relation)
-### 3.1 Attribut(description textuelle)
+### 3.1. Caractéristiques (Attribut + Relation)
+
+### 1. Attribut(description textuelle)
 ![Exemple_Attribut](https://github.com/kcelia/Reminder/blob/master/Attribut_type.png)
 
 Les actifs ont des caractéristiques différentes appelées attributs, et ces attributs peuvent avoir des relations différentes.
-#### 3.1.1. Les types d'attribut (décrit l'actif):
+#### 1.1. Les types d'attribut (décrit l'actif):
 - Un attribut est une valeur littérale qui capture des informations sur un actif et un attribut est une instance d'exactement un type d'attribut. 
 - Un type d'attribut définit formellement la classe d'informations contenue dans un attribut. 
 - Create: 
@@ -202,12 +203,30 @@ Les actifs ont des caractéristiques différentes appelées attributs, et ces at
     ```
   Exemple 1: Un terme commercial de type d'actif portant le nom client a une description de type d'attribut avec la valeur de la personne qui a passé au moins une commande pour au moins un produit. 
   Exemple 2: Un actif peut être appelé cheveux, mais les attributs peuvent être de couleur, de longueur, de texture, etc.
-#### 3.1.2. Import/Export Attribut
+#### 1.2. Import/Export Attribut
    Import: `NameGlossary > Export > Add the Characteritics Needed For reimport > Export`
    
    Export: `Import_Icon > Assets > 'Select File' > Next > Update the Name`
-   
-### 3.1.3. Load Attributs that did not exist in Collibra
+### 1.3 Import simple file
+#### 1.3.1 Create/Export a view 
+ Exporter: 
+ ```bash
+ ParentPage > Export_Icon > Assets > 'Fill out'
+ // Select View
+ // Add the characteristics needed for re-import: Alignement correcte
+ // Name the file 
+ // Select type file
+ ```
+
+#### 1.3.2 Export view 
+Remarque: A l'ouverture du fichier importer, une nouvelle colonne est ajoutée UUID, sous chacun des domaines et communautés. 
+#### A.3.3. Importer
+```bash
+ParentPage > Import_Icon > Assets > 'Select_file' > 'Mappage' > Import
+// Mappage est nécessaire 
+// Si erreur de UUID, clique Next
+```
+### 1.4. Load Attributs that did not exist in Collibra
 1.  La première étape consiste à créer un point d'atterrissage à Collibra pour ce glossaire: 
     ```bash 
     // 1. Community
@@ -225,7 +244,9 @@ Les actifs ont des caractéristiques différentes appelées attributs, et ces at
    ```bash
    'NameCommunity' > CreateDomainGlossary > Modify_View > Select_columns 
    'Name Community' > Settings > Charistics > Attributs > Add > 'Name/Description/Kind:Number... '
-   // Si les attributs souhaités ne sont pas dans Select_Columns 
+   // Si les attributs souhaités ne sont pas dans Select_Columns:
+   // 1. Créer via Settings
+   // 2. Ordre d'affichage
    ```
 1. Assignement 
 Avant de pouvoir utiliser les attributs nouvellement crées, il doivent être _Attribué/assigné en tant que caractéristique valide au (x) type (s) d'actifs souhaité (s)_
@@ -237,20 +258,22 @@ Settings > Asset Typpe > Business Term > Global Assignement > Edit > Add cherist
  1. Complete the view and Save it 
  1. Import file 
  
-### 3.2 Relation. 
+### 2. Relation 
 - Définit association entre deux actifs, comment ils sont liés l'un à l'autre. 
 - Instance d'un type de relation. Un type de relation est bidirectionnel. La source et la cible d'une relation sont deux types d'actifs.
+- On parle de relation positive -> et de corrélation <- 
 - Create: 
    ```bash
     Acronym/Asset> Add Characteristic> Relation > 'Type Relation' > 'Edit' 
     // Tags: Trouver d'autres articles similaires
     ```
-Exemple: 
-- les relations entre les actifs sont tout ce qu'un terme commercial est synonyme d'un autre terme commercial
-- une colonne fait partie d'un tableau
-- une politique est appliquée par une norme
+Exemple:
+- Une base de données contient des tables (Relation positive). Une table fait partie d'une certaine base de données (corrélation)
+- Les relations entre les actifs sont tout ce qu'un terme commercial est synonyme d'un autre terme commercial
+- Une colonne fait partie d'un tableau
+- Une politique est appliquée par une norme
 
-#### 3.2.1 Load Relations 
+#### 2.1 Load Relations 
 
 1.  Landing Zone: 
     ```bash 
@@ -262,9 +285,7 @@ Exemple:
     // 3. CodeList Domain2 for the relation
     'NameGlossary' > Create > Organization  > CodeList > 'NameCodeList'
     ```
- 
  Lors du chargement d'une relation, vous devez d'abord décider de quel côté vous chargez (Sens de la relation).
- 
     
  1. Editans save View 
     A. Racine (domaine 1):
@@ -283,7 +304,7 @@ Exemple:
  1. Import File
  `> Import > Assets > Select_File > Mappage > Next > Test_Report`
  
-### 3.1 Create Business Terms 
+### 3.2 Create Business Terms 
 Business Terms are case sensitive and can be characterized with acronyms.
  a. `ParentPage > Create > Assets > Business Terms` or `DashBorad > Create > Suggested > Business Term > 'Fill out: Term1, Term2, ... In Domain: NameGlossary`
  Remarque: Si les termes commérciaux existent déja dans un fichier Excel, l'importer `> Import my assets > Find file` 
@@ -291,35 +312,64 @@ Business Terms are case sensitive and can be characterized with acronyms.
  b. Approval for each created BR
  `Traceability > Diagram // To see the relations`
   `> Workflows > Approval // Depends on the assigned responsability `
-### 3.2 Create Acronym
+### 3.3 Create Acronym
  Create: `ParentPage > Create > Assets > Acronym > 'Fill out: NameGlossary/NameAcronym'`
 
-### 3.3 View pour plus de détails
+## 4. View and diagramm 
+
+### 4.1 View pour plus de détails
 Cim propose une view par défaut mais on peut en créer à droite : 
 ```bash
 NameGlossary > Save as > 'Fill out: NameView/ViewSharingOptions'
 // Promote View: Make this default view or/and Pin this view
 ```
-
 - Les vues sont indépendantes ce qui permet de voir les choses de différentes manières.   
 - Permettent de filtrer les colonnes ou lignes inutiles pour visualiser uniquement ce dont vous avez besoin.
 - Conserve la vue d'origine pour revenir si nécessaire.
 
-### 3.3.1 Exporter une vue
+### 4.1. Exporter une vue
  Exporter: 
  ```bash
  ParentPage > Export_Icon > Assets > 'Fill out'
  // Select View
- // Add the characteristics needed for re-impor: Alignement correcte
+ // Add the characteristics needed for re-import: Alignement correcte
  // Name the file 
  // Select type file
  ```
-Remarque: A l'ouverture du fichier importer, une nouvelle colonne est ajoutée UUID, sous chacun des domaines et communautés. 
-### 3.3.2 Importer
-```bash
-ParentPage > Import_Icon > Assets > 'Select_file' > Import
-// Si erreur de UUID, clique Next
-```
+
+### 4.2 Data Lineage Diagramm
+
+Pour comprendre les données, un tableau d'actifs avec des relations n'est pas toujours suffisant. La visualisation est un plus.
+- Makeover: Color/Symbols for each asset type/optimizing the layout
+- Navigation theme: start the diagram at a more condensed level. Instead of starting at the most detailed column level)
+- Explore feature: explore individual relation types rather than all or nothing, focus on the paths between two givin nodes
+- Overlays: Superposition est disponible sur les actifs et relation complexe
+- View Editor: l'éditeur de vue permet de modifier les vues au format JSON et l'éditeur graphique qui permet d'ajouter des noeuds/... sous forme graphique 
+
+
+### 5. Data Governance Operating Model
+
+Repose essentiellement sur:
+1. Phase de planification/L'organisation: 
+  + La DG au sein de l'organisation
+  + centralisé? Va-t-il être fédéré? 
+  + Personnes impliquées/responsabilité? 
+  + Mettre en place nos conseils de gouvernance des données (dépend de l'approche)
+  + Déterminer les rôles et les responsabilités (Owner, Data Stewards, Data technical steward), utiliser la matrice RACI (propre terminologie)
+ + Penser aux Mise à jour/Traçabilité   
+1. Gouvernance des actifs:
+ + Assets:  Report, DataBase, Policy, column, Business Term 
+1. Création du métamodèle 
+  + Métamodèle: La définition des actifs que nous avons au sein de l'organisation, les attributs de chacun de ces actifs et la relation entre ces différents actifs. 
+  +  Les relations complexes sont une relation entre plusieurs types d'actifs.
+   et des attributs/a un propriétaire/une certaine classification de sécurité.      
+  + Cummunauté/Domaine/Type de Domaine 
+    - Le type de domaine dictera réellement quels actifs peuvent exister dans quel type de domaine
+1. Peole/Process 
+
+
+### 6. Responsabilities
+
 1. Définir des responsabilités et la gestion de l'ensemble de la matrice RACI 
   Stewardshi's application/ Module d'Intendance establishes the responsabilities
   `> Stewardship > 'Name Community' > Responsabilities > Role...`
@@ -353,13 +403,51 @@ On peut dire que la politique est applicable à un ensemble de données,
  
 1. Crete a Policy Manager 
 
-1. Shop 
-`Search > Add To Data Basket` then `Request Data Sets Access`
+## Shop 
+
 Lorsque nous extrayons ces données, nous allons à nouveau parcourir un workflow: Demander à différentes personnes de vérifier les choses (la licence/politique/...) liées liées à cet ens dd **Policy Manager" 
+```bash
+// Method1
+Dashbord > Catalog > Data Sets > 'Filter and select' > Add_To_Data_Basket_Icon > check_out_Data_Basket_Icon > 'Fill out' > Submit
+// Method2
+`Search > Add_To_Data_Basket_Icon > Request_Data_Sets_Access > Submit
+```
+Then, an acces request is generate, can be found on the `Acces_Request_Icon`. La demande d'accès ne va pas aux propriétaires de ces ensembles de données, car ils ne sont qu'un regroupement logique de données. Ils vont en fait aux propriétaires des données physiques contenues dans ces ensembles de données.
 
-1. Log an issue in Data Helpdesk
+#### Data Profiling and Data sampling 
 
-En tant que user: `Acceuil > Quick Actions > Log Data Issue > 'Fill out'`
+`Data_dictionnary > 'Select_Table' > Data_Profiling > ...`
+
+#### Combining DataSets
+```Bash
+Catalog > Data_Dictionnary > Select_tables > Add_data_to_dataset > 'Fill out' > Creat_Add_Data 
+// Data Dictionnary: Liste de tous les schemas 
+// Add_data_to_dataset: Choose between Existind dataset or New dataset
+``` 
+### Données de référence
+
+- Elles aident à classer et à créer des hiérarchies autour des données disponibles au sein de l'organisation. 
+- Trouvez les processus de gouvernance nécessaires pour maintenir les données
+Dashbord > Reference Data >
+// Reference Data: Qui en est responsable et quel est le statut actuel, sont affichées?
+
+
+### Data Helpdesk
+
+- Permet à tous les employés d'avoir accès à un emplacement central où toutes les données sont documentées. 
+- Permet de gérer efficacement tous les problèmes liés aux données.
+- Hiérarchiser la solution des problèmes de données
+- Résolution de problèmes de données
+- Gestion de toutes les décisions en matière de données
+- Prise en charge de l'intégration avec des outils de gestion de services informatiques pouvant exécuter ces décisions
+ 
+Lorsqu'un problème de données est identifié: (Sélectionnez tout ce qui s'y rapporte).
+- Le rôle défini comme réviseur par défaut est invité à accepter / rejeter la révision du problème.
+ - Un problème peut être signalé si le réviseur par défaut n'a pas accepté / rejeté le problème dans le délai spécifié.
+ 
+### Log an issue in Data Helpdesk
+
+En tant que user: `Dashbord > Quick Actions > Log Data Issue > 'Fill out'`
 
 En tant que Data Steward: 
 ```Bash
@@ -376,5 +464,36 @@ Eg. Ajouter l'attribut cost:
 // On peut ajouter l'attribut Cost aux asset types
 > Assignment > Data Set > Data Set Attributes > Edit > 'Fill out' > Save
 ```
+
+Data Stewardship  
+
+Dashbord > Data Stewardship 
+3 segments: 
+- L'organisation (cummunity/domain/assets/hiérarchie organisationnelle/Secteur d'activité)
+- Business Dimensions (axé sur les termes ou éléments de données liés à l'entreprise. Par exemple, les processus d'affaires, la catégorie de données, le secteur d'activité, et cetera) Les vues sont modifiables 
+- Metric:  Appliquer des filtres selon les différents attributs/Date de création/La structure organisationnelle ou le domaine
+
+### Avoir confiance dans un Rapport
+Pour qu'un Report soit considéré, il doit être certifié. Un processus d'identification des DCE est lancé, sinon il est candidat à la certification:
+ Certified Report: 
+ - 3 niveaux de certification pour un rapport, propres à chaque entreprise et à chaque client. 
+ -  Ce que nous examinons, ce sont les éléments de données critiques du rapport. Pour chacun de ces éléments de données critiques, nous pouvons avoir différents niveaux d'approfondissement de la certification.
+ Niveau de certification: 
+  + Level1: DQ Monitored
+  + Lineage/Traceability & Standard
+  + Definition & Ownership
+
+### Workflow
+- Les workflows décrivent les processus dans le DGC pour automatiser certaines tâches et attribuer des tâches aux personnes. 
+- Le DGC est un moteur embarqué de workflow qui exécute tout cela. 
+- Les workflows sont définis par le modèle de processus métier et la notation (BPMN ~ XML) possède un ID de processus, un identifiant unique.
+- L'élément métier/Business Item: la ressource pour laquelle ce flux de travail existe.
+- Lorsque les workflows sont affichés au-dessus des ressources, seuls les workflows applicables sont affichés.
+- Le Workflow respecte les autorisation/configuration
+- Les tâches peuvent également être annulées. Mais l'annulation d'une tâche signifie en fait que l'ensemble du flux de travail sera annulé, car le processus ne pourra pas être poursuivi si certaines étapes sont simplement abandonnées.
+- L'écran Paramètres la section: Les workflows qui sont réellement déployés. 
+- Supprimer un workflow: cela arrêtera toutes les instances existantes de ce flux de travail/tout l'historique de ce flux de travail. 
+- Ne plus utiliser un workflow: Le désactiver, l'historique sera toujours là, les instances ne seront pas pérturbées.
+
 
  https://university.collibra.com/lessons/introduction-to-working-with-assets/
