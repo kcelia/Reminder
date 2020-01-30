@@ -84,7 +84,7 @@ Un système d'enregistrement qui permet de se logger dessus et d'avoir un enregi
 
 Le Chemin Prescriptif: vous aidera à mettre en œuvre, à développer votre maturité. CDGC comprend 7 applications classées par fonction.
 
-![Collibra_Applications]()
+![Collibra_Applications](https://github.com/kcelia/Reminder/blob/master/Collibra_Applications.png)
 
 ## 1. Le catalogue et le dictionnaire de données: Aident à trouver d'où proviennent les données
 ### 1.1 Le catalogue: 
@@ -130,6 +130,9 @@ Le Chemin Prescriptif: vous aidera à mettre en œuvre, à développer votre mat
 - Il aide les administrateurs de données à gérer vos tâches quotidiennes et à collaborer avec les parties prenantes de l'organisation. 
 - Il offre une propriété et des responsabilités transparentes pour le partage des données dans l'entreprise. 
 - Il permet d'établir une structure organisationnelle comprenant des escalades, des hiérarchies, des contacts de propriété et des responsabilités. 
+
+![Dashboard1](https://github.com/kcelia/Reminder/blob/master/Collibra_Dashboard.png)
+![Dashboard2](https://github.com/kcelia/Reminder/blob/master/Collibra_Report_Phycical%20Lineage.png)
 
 ## CIM se compose de cinq phases différentes:
 1. Phase de préparation/Prep-Project Startup:
@@ -466,6 +469,8 @@ Eg. Ajouter l'attribut cost:
 
 #  Data Stewardship  
 
+![check](https://github.com/kcelia/Reminder/blob/master/Collibra_Check_task.png)
+
 Dashbord > Data Stewardship 
 3 segments: 
 - L'organisation (cummunity/domain/assets/hiérarchie organisationnelle/Secteur d'activité)
@@ -484,6 +489,7 @@ Pour qu'un Report soit considéré, il doit être certifié. Un processus d'iden
   + Definition & Ownership
 
 # Workflow
+![Workflow](https://github.com/kcelia/Reminder/blob/master/Collibra_Workflow.png)
 - Les workflows décrivent les processus dans le DGC pour automatiser certaines tâches et attribuer des tâches aux personnes. 
 - Le DGC est un moteur embarqué de workflow qui exécute tout cela. 
 - Les workflows sont définis par le modèle de processus métier et la notation (BPMN ~ XML) possède un ID de processus, un identifiant unique.
