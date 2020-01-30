@@ -141,9 +141,21 @@ Le Chemin Prescriptif: vous aidera à mettre en œuvre, à développer votre mat
 1. Phase de préparation finale/Final Preparation:
 1. Phase de transition/Transition/Post Go-Live Support:
 
+
+### Différents types de structures organisationnelles peuvent être établis pour votre initiative de gouvernance des données, notamment: 
+1. Centralisé: une source unique du conseil de gouvernance des données, généralement réservée aux petites et moyennes entreprises.
+1. Décentralisé: Séparez les unités avec leurs propres initiatives de gouvernance des données, généralement mises en place pour les grandes organisations.
+1. Hiérarchie organisationnelle par zone géographique: pour les données provenant d’amont ou d’aval, en fonction de l’emplacement.
+ 
 # Steps:
 
 ## 1. Créer une communauté:
+Pourquoi ? 
+Parmi les raisons suivantes, quelles sont les bonnes raisons de créer une nouvelle communauté? (Sélectionnez tout ce qui s'y rapporte).
+Pour refléter une entreprise ou une division d'une entreprise.
+Pour pouvoir créer un nouveau domaine afin de regrouper un nouveau type d'actif.
+Définir la propriété d'un ensemble d'actifs pour un groupe de PME.
+
 - La composante organisationnelle racine est la communauté. 
 - Communities represent different groups of people who own certain domains.
  ```bash
