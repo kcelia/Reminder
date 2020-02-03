@@ -11,7 +11,7 @@ On recrée un système complet dans le **système hôte** (isolation totale), po
 ------------------|--------------
 Une VM prend du **temps à démarrer** | Une VM est totalement **isolée du système hôte**.
 Une VM **réserve les ressources** (CPU/RAM) sur le **système hôte** | Les ressources attribuées à une VM lui sont totalement réservées
-- | Installer **différents OS** (Linux, Windows, BSD, etc.)
+ | Installer **différents OS** (Linux, Windows, BSD, etc.)
 
 **Problème** : Il arrive très souvent que l'application qu'elle fait tourner ne **consomme pas l'ensemble des ressources disponibles sur la VM**. Ainsi, est né un nouveau **système de virtualisation plus léger** : **les conteneurs**.
 
