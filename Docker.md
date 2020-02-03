@@ -10,8 +10,7 @@ On recrée un système complet dans le **système hôte** (isolation totale), po
 **Inconvénients** | **Avantages** 
 ------------------|--------------
 Une VM prend du **temps à démarrer** | Une VM est totalement **isolée du système hôte**.
-Une VM **réserve les ressources** (CPU/RAM) sur le **système hôte** | Les ressources attribuées à une VM lui sont totalement réservées
- | Installer **différents OS** (Linux, Windows, BSD, etc.)
+Une VM **réserve les ressources** (CPU/RAM) sur le **système hôte** | Les ressources attribuées à une VM lui sont totalement réservées et on peut installer **différents OS** (Linux, Windows, BSD, etc.)
 
 **Problème** : Il arrive très souvent que l'application qu'elle fait tourner ne **consomme pas l'ensemble des ressources disponibles sur la VM**. Ainsi, est né un nouveau **système de virtualisation plus léger** : **les conteneurs**.
 
@@ -209,9 +208,6 @@ Remarque: Si une layer ne bouge pas entre deux builds, Docker ne la reconstruira
 `docker run -d -p 2368:2368 name_docker`
 
 Accéder via l'URL http://127.0.0.1:2368 ou http://192.168.99.100:2368/ ou localhost 
-
-- Optimisation Docker :
-
 
 ### Partager une image 
 1. Partagez votre fichier Dockerfile à chacun de vos collègues, et vous leur demandez de créer eux-mêmes leur propre image avec un `docker build` (peut prendre beaucoup de temps). 
