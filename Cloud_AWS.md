@@ -56,9 +56,11 @@ Elasticity & scalability| Provisionnement rapide | La capacité du cloud d'allou
 It is important to understand how each strategy applies to architectural options and decisions.
 
 ### Cloud Public / An all-in cloud-based application
+An environment that exclusively runs in the cloud.
 ![Cloud_Public]()
 
 ### Cloud Privé
+On-premises deployment
 ![Cloud_Prive]()
 
 ### Cloud Hybride / A hybrid deployment
