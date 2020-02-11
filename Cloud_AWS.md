@@ -39,7 +39,6 @@ use them)
 - Reconfigure the computing environment quickly to adapt to changing business requirements
 
 ## Region and Availability Zones 
-
 - Achieve the greatest possible fault tolerance and stability. 
 - Reduce single points of failure further
 - The AZ are connected through low-latency links. 
@@ -87,14 +86,46 @@ Amazon du site e-commerce, qui pour ses propres besoins a faire une plateform de
 - Disponibilte: 99.90% assez faible pour de l'hebergement, on est généralement sur du 99.95% ou 99.99 dans le cloud et service d'hergement
 
 # Services
-
-
 ![Service](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS_130_Services.png)
 
-- Amazon Elastic Compute Cloud (Amazon EC2):
+## Amazon Elastic Compute Cloud (Amazon EC2):
+  + Break EC2 down: 
+    - C2: In cloud
+    - Elastic: The computing service can expand and retract as needed
+  + An instance is basically a compute, you can use it to run a local/web application, or like a Virtual Machine, or for Compting
+  + An instance is a virtual server wich is operating system agnostic 
   + Un service Web qui fournit une capacité de calcul redimensionnable dans le cloud. 
   + Permet aux clients d'obtenir/configurer/exploiter les ressources.
   + Permet aux clients de lancer des ressources de calcul avec une variété de systèmes d'exploitation, à les charger avec des applications personnalisées et à gérer les autorisations d'accès au réseau 
+  
+### Creating an instance with EC2:
+  1. Select or install an _Image_ 
+Amazon Machine Image (AMI): Combination of an operationg system, and then some applications preinstalled) 
+  1. Select an _Instance Type_
+  Selecting : Number of CPUs, amount of RAM and Network perfomance, AWS will **create instance type and families**
+  
+  Families provide a profile: General Purpose, Memory Optimized, Compute Optimized, ...
+  1. Configure Instance Details
+  Assign a certain number of instance to be replicated ==> Create **Auto Scaling Group** acording to rules set  
+  1. Add Storage - Elastic Block Storage (EBS)
+  1. Configure Security Group 
+  - Control who can SSH into EC2 instance
+  - Allow acces between EC2 instances
+  - Allow acces to databases 
+  - Accept HTTP requests
+  1. Review Instance Launch
+  Create an instance with an existing key pair, which will allow you to SSH in to the instance
+  
+ ### Pricing
+ <!> Stop/Launch the instance when you need it 
+- Amazon charges EC2 instances by the hour.
+- Prices change bases on: 
+  - Instance Type 
+  - AMI Type
+  
+ - Elastic Block Storage (EBS):
+It's specifically for using with EC2, it's not the same as Amazon S3, 
+  
 - Amazon Simple Storage Service (Amazon S3),
 - AWS Elastic Beanstalk
 - AWS CloudFormation
