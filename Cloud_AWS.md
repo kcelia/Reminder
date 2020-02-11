@@ -123,11 +123,39 @@ Amazon Machine Image (AMI): Combination of an operationg system, and then some a
   - Instance Type 
   - AMI Type
   
- - Elastic Block Storage (EBS):
-It's specifically for using with EC2, it's not the same as Amazon S3, 
   
-- Amazon Simple Storage Service (Amazon S3),
-- AWS Elastic Beanstalk
+## Elastic Block Storage (EBS):
+It's specifically for using with EC2, it's not the same as Amazon S3
+  
+## Amazon Simple Storage Service (Amazon S3)
+- Store any type of file, the maximum object size is 5TB (upload in a single _PUT_ operation in 5GB, beyond there are other methods to upload a larger object in separate operations)
+
+### Bucket
+- Root resource to which you can:
+  + Operation Add, delete, modify objects
+  + Configuration options that you can set on buckets like:
+    ### Permission
+    ### Hosting options
+    ### Logging
+    ### Trigger events when objects are added/modified/deleted
+    ### Preserve older versions of objects
+    ### Replicate objects across regions 
+    Reduce latency (or use another CloudFront Service)
+    ### Host Static
+    To alow anonymous/authenticated users acces, use a host static files for websites
+    ### URL
+    Once created, buckets (objects contained within) are accessed via URL
+
+### Pricing
+The pricing is based on 3 first aspects:
+- Amount of data stored
+- Number of requests
+- Amount of dara transferred
+- Different per region 
+
+
+
+- AWS Elastic Beanstal
 - AWS CloudFormation
 - AWS OpsWorks
 - Amazon VPC
