@@ -130,6 +130,24 @@ It's specifically for using with EC2, it's not the same as Amazon S3
 ## Amazon Simple Storage Service (Amazon S3)
 - Store any type of file, the maximum object size is 5TB (upload in a single _PUT_ operation in 5GB, beyond there are other methods to upload a larger object in separate operations)
 
+![AWS-Traditional-IT-Storage-vs-AWS]()
+
+## Access
+
+# How AWS is organized geographically speaking ? 
+> Region & Available Zone
+
+![AWS-Regions-vs-Availability-Zones]()
+
+![AWS-Connectivity-between-AZ-in-Regions]()
+
+- **Regions** are physical locations where certain services are hosted, there are many regions throughout the world
+- **Availability Zone**: Collection of datacenters that have separate power, networking and connectivity. But connect with hyper-fast fiber optics.
+- AZ are fault tolerant 
+
+> By scaling your application in several AZ, you can achieve nearly unlimited uptime for your application (reduce latency)
+
+
 ### Bucket
 - Root resource to which you can:
   + Operation Add, delete, modify objects
@@ -138,12 +156,15 @@ It's specifically for using with EC2, it's not the same as Amazon S3
     ### Hosting options
     ### Logging
     ### Trigger events when objects are added/modified/deleted
+    ### Lifecycle
+    ![AWS-Data-Lifecycle]()
     ### Preserve older versions of objects
     ### Replicate objects across regions 
     Reduce latency (or use another CloudFront Service)
     ### Host Static
     To alow anonymous/authenticated users acces, use a host static files for websites
     ### URL
+    ![AWS-Object-adressed-by-URL]()
     Once created, buckets (objects contained within) are accessed via URL
 
 ### Pricing
