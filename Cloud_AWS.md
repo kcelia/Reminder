@@ -42,7 +42,9 @@ use them)
 - Achieve the greatest possible fault tolerance and stability. 
 - Reduce single points of failure further
 - The AZ are connected through low-latency links. 
+
 ![R_&_AZ](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-R-vs-AZ%20-%20Copy.png)
+
 ![region](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AW-R%20-%20Copy.png)
 
 ## Accessing the Platform
@@ -64,10 +66,10 @@ It is important to understand how each strategy applies to architectural options
 
 ### Cloud Public / An all-in cloud-based application
 An environment that exclusively runs in the cloud.
+
 ![Cloud_Public](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Stockage-Cloud-Public.png)
 
-### Cloud Privé
-On-premises deployment
+### Cloud Privé / On-premises deployment
 ![Cloud_Prive](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Stockage-Cloud-prive.png)
 
 ### Cloud Hybride / A hybrid deployment
@@ -81,9 +83,6 @@ In 2006, Amazon Web Services, Inc. (AWS) began offering IT infrastructure servic
 
 Amazon du site e-commerce, qui pour ses propres besoins a faire une plateform de cloud en interne As a Service, puis l'ont offert au public "Simple Storage Service - S3"/blob storage / service fiable 
 
-### Disponibilté vs Durabilité
-- Durabilité - 11.9: Signifie que les objects postés sur S3 sont disponible à 99.999999999, peu de chance que les données disparaissent (replication a travers le monde)
-- Disponibilte: 99.90% assez faible pour de l'hebergement, on est généralement sur du 99.95% ou 99.99 dans le cloud et service d'hergement
 
 # Services
 ![Service](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS_130_Services.png)
@@ -92,7 +91,7 @@ Amazon du site e-commerce, qui pour ses propres besoins a faire une plateform de
   + Break EC2 down: 
     - C2: In cloud
     - Elastic: The computing service can expand and retract as needed
-  + An instance is basically a compute, you can use it to run a local/web application, or like a Virtual Machine, or for Compting
+  + An instance is basically a compute, you can use it to run a local/web application on a scalable and affordable Virutal Machine in the cloud
   + An instance is a virtual server wich is operating system agnostic 
   + Un service Web qui fournit une capacité de calcul redimensionnable dans le cloud. 
   + Permet aux clients d'obtenir/configurer/exploiter les ressources.
@@ -130,41 +129,44 @@ It's specifically for using with EC2, it's not the same as Amazon S3
 ## Amazon Simple Storage Service (Amazon S3)
 - Store any type of file, the maximum object size is 5TB (upload in a single _PUT_ operation in 5GB, beyond there are other methods to upload a larger object in separate operations)
 
+
+### Bucket
 ![AWS-Traditional-IT-Storage-vs-AWS]()
 
 ## Access
 
-# How AWS is organized geographically speaking ? 
+## How AWS is organized geographically speaking ? 
 > Region & Available Zone
 
 ![AWS-Regions-vs-Availability-Zones]()
 
 ![AWS-Connectivity-between-AZ-in-Regions]()
 
+![AWS-Console-Regions]()
+
 - **Regions** are physical locations where certain services are hosted, there are many regions throughout the world
-- **Availability Zone**: Collection of datacenters that have separate power, networking and connectivity. But connect with hyper-fast fiber optics.
+- **Availability Zone**: Isolated regions, collection of datacenters that have separate power, networking and connectivity. But connect with hyper-fast fiber optics.
 - AZ are fault tolerant 
 
-> By scaling your application in several AZ, you can achieve nearly unlimited uptime for your application (reduce latency)
+> By scaling your application in several AZ, you can achieve nearly unlimited uptime for your application (reduce latency) and satisfy compliance requirements on distance. But, it does not protect against accidental deletion.
 
-
-### Bucket
 - Root resource to which you can:
   + Operation Add, delete, modify objects
   + Configuration options that you can set on buckets like:
     ### Permission
     ### Hosting options
     ### Logging
-    ### Trigger events when objects are added/modified/deleted
     ### Lifecycle
     ![AWS-Data-Lifecycle]()
+    ### Trigger events when objects are added/modified/deleted
     ### Preserve older versions of objects
     ### Replicate objects across regions 
     Reduce latency (or use another CloudFront Service)
+    * Reduce latency (or use another CloudFront Service) and satisfy compliance
+    * Crossregion replication does not protect against accidental deletion.
     ### Host Static
     To alow anonymous/authenticated users acces, use a host static files for websites
     ### URL
-    ![AWS-Object-adressed-by-URL]()
     Once created, buckets (objects contained within) are accessed via URL
 
 ### Pricing
@@ -174,12 +176,62 @@ The pricing is based on 3 first aspects:
 - Amount of dara transferred
 - Different per region 
 
+### Relational Database Service (RDS)
 
+A collection de service for managed relational databases and infrastructure 
+> Managed: AWS takes care of all the backups, software updates. 
+> Unmanaged: like installing a database on an EC2 instance, you would then be responsible for figuring out backups, redundancy, updating the software with security 
+You can: 
+- Take DB Snapshopts 
+- Increasing the size 
 
-- AWS Elastic Beanstal
-- AWS CloudFormation
-- AWS OpsWorks
-- Amazon VPC
+### RDS Database
+![RDS-Database]()
+Each carries a different price, configuration and connection options
+
+### Pricing
+Prices depends on:
+- Type of database
+- Region
+- EC2 Instance Type 
+
+### Access via security groups 
+
+## Route53
+- Amazon service for DNS management, both inside and outside AWS
+- To configure domain names to resolve to internal AWS services  
+> Domain Name system: translates human-readable URLs to IP addresses
+- Route53 or LoadBalancers don't have visible IP addresses 
+```Bash
+1. First 
+DNS Management > Setting up a Hosted Zone
+// Hosted Zone: Root Domain Name, like google.com 
+```
+### Pricing
+Prices depend on the number of created Hosted Zone and the amount of requests 
+### Health checks 
+
+## Lambda
+Write (in different languages) simple function and return the result
+It can be envoked from many sources
+## Identity Access Management
+![AWS-IAM-Logo]()
+> Allows you to manage uses and also manage that level of access to the AWOS console
+- It gives you centralized control over your AWOS account
+- It also gives you shared access to AWOS account 
+- It gives you granular permissions (enable different levels of access to different users within your organization)
+- It allows you to set up your own password rotation policy it integrates 
+- It enables access to store or retrieve data located in an bucket or within a dynamo DB database.
+
+### Users, Groups, Roles and Policies
+![User-Groups-Roles-Policies]()
+## AWS Elastic Beanstal
+## AWS CloudFormation
+## AWS OpsWorks
+## CloudFront 
+To edge files to users to Reduce Latency 
+## Amazon VPC
+To controll access and secure you instances 
 - AWS Identity and Access Management (IAM) 
 
 ### Sans AWS
