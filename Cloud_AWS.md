@@ -227,9 +227,10 @@ It can be envoked from many sources
   + Granular enough to limit a single user to the ability to perform a single action on a specific resource from a specific IP address during a specific time window
 - It allows you to set up your own password rotation policy it integrates 
 - It enables access to store or retrieve data located in an bucket or within a dynamo DB database.
-- Integrates with existing your active Directory account allowing single sign-on
+- Integrates with existing your Active Directory account allowing single sign-on
 
 IAM Policy: A JSON document which defines one or more permissions
+Active Directory: fournir des services centralisés d'identification et d'authentification à un réseau d'ordinateurs 
 
 features of IAM that will help you secure your infrastructure, including MFA, rotating keys, federation, resolving multiple permissions, and using IAM roles.
 - IAM is not an identity store/authorization system for your applications. 
@@ -239,13 +240,76 @@ features of IAM that will help you secure your infrastructure, including MFA, ro
 ### Access to IAM 
 IAM is controlled like most other AWS Cloud services:
 
-
 AWS Management Console | CLI | SDK
 -----------------------|------|----------
 An easy way to start learning | Start scripting repeated tasks using the CLI | Start writing your own tools and complex processes by manipulating IAM directly through the REST API via one of several SDKs.
 
 ### Users, Groups, Roles and Policies
 ![User-Groups-Roles-Policies]()
+
+## Principals 
+A principal is an IAM entity that is allowed to interact with AWS resources. A principal can be permanent or temporary, and it can represent a human or an application. There are three types of principals: root users, IAM users, and roles/temporary security tokens.
+
+### 1. Root USER
+- The root user is similar to the UNIX root or Windows Administrator account
+- He has complete access to all AWS Cloud services and resources in the account
+- The root user can be used for both console and programmatic access to AWS resources
+- It's strongly recommended that you don't use the root user for your everyday tasks, and use the root user only to create your first IAM user
+ 
+### 2. IAM USER 
+- Set up through the IAM service to represent individual people or applications. 
+- You might also create dev, test, and production users for applications that need to access AWS Cloud services (best practice ==> ROLE)
+- Users are persistent (no expiration period). But can be removed by IAM administrator
+- Users can be associated with very granular policies that define these permissions
+
+### 3. POLE/Temporary Security Tokens 
+- Roles are used to grant specific privileges to specific actors for a specific duration of time (15 mn to 36h) (AWS provides them a temporary security token from the AWS Security Token Service - STS)
+- Actors can be authenticated by AWS or some trusted external system
+- You can write your own policies or use one of the managed policies provided by AWS.
+
+### 3.1 Use Cases
+
+#### 3.1.1. Amazon EC2 Roles - Granting permissions to applications running on an Amazon EC2 instance.
+
+**Context**: An application running on an Amazon EC2 instance needs to access an Amazon S3 _bucket_.
+
+**Solution1**: A policy granting permission to read and write that bucket can be created and assigned to an **IAM user**, and the application can use the **access key** for that IAM user to access the Amazon S3 bucket.
+
+  **Problem**: 
+  - The access key for the user must be accessible to the application. Probably by storing it encrypted in a configuration file. Obtaining the access key is risky, when being passed around or when the time comes to rotate the access key.
+
+**Solution 2**: 
+To create an IAM role that grants the required access to the Amazon S3 bucket. 
+When the Amazon EC2 instance is launched, the role is assigned to the instance.
+When the application running on the instance uses API to access the Amazon S3 bucket, it assumes the role assigned to the instance and obtains a temporary token that it sends to the API (without worrying about authentication).
+There is no fixed access key that must be rotated, because the API access uses a temporary token.
+
+> Using IAM roles for Amazon EC2 removes the need to store AWS credentials in a configuration file.
+
+#### 3.1.2 Cross-Account Access - Granting permissions to users from other AWS accounts, whether you control those accounts or not
+-  This is highly recommended as a best practice, as opposed to distributing access keys outside your organization.
+
+### 3.3.2 Federation—Granting permissions to users authenticated by a trusted external system.
+- IAM Identity Providers provide the ability to federate these outside identities with IAM and assign privileges to those users authenticated outside of IAM.
+- IAM can integrate with two different types of outside Identity Providers (IdP).
+- Access controlled by policy Temporary Expire after specific time interval
+
+OpenID Connect (OIDC) | Security Assertion Markup Language 2.0 (SAML)
+----------------------|----------------------------------------------
+For federating web identities such as Facebook, Google, or Login with Amazon | For federating internal identities, such as Active Directory or LDAP, IAM supports integration via
+
+In each case, federation works by returning a temporary token associated with a role to the IdP for the authenticated identity to use for calls to the AWS API.
+
+### Authentification & Authorization
+![]() 
+
+> IAM user accounts can be further secured by rotating keys, implementing MFA, and adding conditions to policies
+
+### Multi-Factor Authentication (MFA)
+- Add an extra layer of security to your infrastructure by adding a second method of authentication beyond just a password or access key.
+- It requires entering a One-Time Password (OTP) on a small device (hardware or a virtual device via an app on your smart phone, for example, the AWS Virtual MFA app)
+- MFA can be assigned to any IAM user account, whether the account represents a person or application.
+ 
 ## AWS Elastic Beanstal
 ## AWS CloudFormation
 ## AWS OpsWorks
