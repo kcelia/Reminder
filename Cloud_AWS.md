@@ -138,11 +138,11 @@ It's specifically for using with EC2, it's not the same as Amazon S3
 ## How AWS is organized geographically speaking ? 
 > Region & Available Zone
 
-![AWS-Regions-vs-Availability-Zones]()
+![AWS-Regions-vs-Availability-Zones](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Regions-vs-Availability-Zones.png)
 
-![AWS-Connectivity-between-AZ-in-Regions]()
+![AWS-Connectivity-between-AZ-in-Regions](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Connectivity-between-AZ-in-Regions.png)
 
-![AWS-Console-Regions]()
+![AWS-Console-Regions](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-console-regions.png)
 
 - **Regions** are physical locations where certain services are hosted, there are many regions throughout the world
 - **Availability Zone**: Isolated regions, collection of datacenters that have separate power, networking and connectivity. But connect with hyper-fast fiber optics.
@@ -158,7 +158,7 @@ It's specifically for using with EC2, it's not the same as Amazon S3
     ### Logging
     ### Encryption 
     ### Lifecycle
-    ![AWS-Data-Lifecycle]()
+    ![AWS-Data-Lifecycle](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Data-Lifecycle.png)
     ### Trigger events when objects are added/modified/deleted
     ### Preserve older versions of objects
     ### Replicate objects across regions 
@@ -217,7 +217,10 @@ Write (in different languages) simple function and return the result
 It can be envoked from many sources
 
 ## Identity Access Management
-![AWS-IAM-Logo]()
+![AWS-IAM-Logo](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-IAM-launch.png)
+
+![AWS-First-steps](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-IAM-first-steps.png)
+
 - Allows you to manage uses users, groups, and roles and their corresponding level of access to the AWS platform 
 - It gives you centralized control over your AWOS account
 - It also gives you shared access to AWOS account 
@@ -246,7 +249,7 @@ AWS Management Console | CLI | SDK
 An easy way to start learning | Start scripting repeated tasks using the CLI | Start writing your own tools and complex processes by manipulating IAM directly through the REST API via one of several SDKs.
 
 ### Users, Groups, Roles and Policies
-![User-Groups-Roles-Policies]()
+![User-Groups-Roles-Policies](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-IAM-Rules-Groups-Policy.png)
 
 ## Principals 
 A principal is an IAM entity that is allowed to interact with AWS resources. A principal can be permanent or temporary, and it can represent a human or an application. There are three types of principals: root users, IAM users, and roles/temporary security tokens.
@@ -269,6 +272,8 @@ A principal is an IAM entity that is allowed to interact with AWS resources. A p
 - You can write your own policies or use one of the managed policies provided by AWS.
 
 ### 3.1 Use Cases
+
+![AWS-Use-Cases](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Authentificaation%20Technologies.png)
 
 #### 3.1.1. Amazon EC2 Roles - Granting permissions to applications running on an Amazon EC2 instance.
 
@@ -304,7 +309,7 @@ For federating web identities such as Facebook, Google, or Login with Amazon | F
 In each case, federation works by returning a temporary token associated with a role to the IdP for the authenticated identity to use for calls to the AWS API.
 
 ### Authentification & Authorization
-![]() 
+![AWS-Autentification-Authorization](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Authentification-Authorization.png) 
 
 > IAM user accounts can be further secured by rotating keys, implementing MFA, and adding conditions to policies
 
