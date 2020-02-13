@@ -228,6 +228,7 @@ It can be envoked from many sources
 - It allows you to set up your own password rotation policy it integrates 
 - It enables access to store or retrieve data located in an bucket or within a dynamo DB database.
 - Integrates with existing your Active Directory account allowing single sign-on
+- IAM controls access to AWS ***resources only***, like: Launching an Amazon Linux EC2 instance, (Not Installing ASP.NET that will require Windows operating system authorization),Adding a message to an Amazon SQS queue), (not querying an Oracle database that will require Oracle authorization)
 
 IAM Policy: A JSON document which defines one or more permissions
 Active Directory: fournir des services centralisés d'identification et d'authentification à un réseau d'ordinateurs 
@@ -285,6 +286,8 @@ When the application running on the instance uses API to access the Amazon S3 bu
 There is no fixed access key that must be rotated, because the API access uses a temporary token.
 
 > Using IAM roles for Amazon EC2 removes the need to store AWS credentials in a configuration file.
+> The benefits of adding a role: Credentials do not need to be stored on the Amazon EC2 instance and Key rotation is not necessary
+> A role must still be assigned a policy
 
 #### 3.1.2 Cross-Account Access - Granting permissions to users from other AWS accounts, whether you control those accounts or not
 -  This is highly recommended as a best practice, as opposed to distributing access keys outside your organization.
