@@ -19,17 +19,18 @@ provisionnées et libérées avec un effort minime.
 
 > Designing highly available, cost-efficient, fault-tolerant, scalable systems
 
-An | Fr | Définition
-----|------------|------------
-on-demand delivery | Service à la demande | Un client peut faire une demande pour n'importe quel type de ressourceet a n'importe quel instant, la réponse du cloud doit être immédiate. Contrairement aux datacenters classiques, ou solliciter une ressorce pouvait prendre des semaines. Les autorisations d'accès se font sans l'intervention humaine.
-rapid access to flexible and low-cost | Accès rapide au au réseau | Réseau à prendre au sens large, smartphones, laptops, stations de travail, etc.
-pay-as-you-go pricing/billing | Service mesurable | Mesurer l'usage qui fait des ressources, un client paye ce qu'il utilise à la seconde. 
+An | Définition
+---|------------
+on-demand delivery / Service à la demande | Un client peut faire une demande pour n'importe quel type de ressourceet a n'importe quel instant, la réponse du cloud doit être immédiate. Contrairement aux datacenters classiques, ou solliciter une ressorce pouvait prendre des semaines. Les autorisations d'accès se font sans l'intervention humaine.
+rapid access to flexible and low-cost / Accès rapide au au réseau | Réseau à prendre au sens large, smartphones, laptops, stations de travail, etc.
+pay-as-you-go pricing/billing / Service mesurable | Mesurer l'usage qui fait des ressources, un client paye ce qu'il utilise à la seconde. 
 Mutualisation des ressources: Un herbergeur cloud possède d'énorme ressource IT, partagé entre l'ensemble de ses clients en fonction de la demande. Elle permet l'élasticité dans les ressources du Cloud, en adaptant  les ressources au varition de la demande 
-Elasticity & scalability| Provisionnement rapide | La capacité du cloud d'allouer dynamiquement des ressource de manière automatique et rapide en fonction des besoins à la hausse ou à la baisse, le scaling horizontal (scale out) ou vertical (scale up), de façon durable ou temporaire rapidement. e.g., Auto Scaling, Amazon Simple Queue Service (Amazon SQS), Elastic Load Balancing, Amazon CloudFront)
+Elasticity & scalability / Provisionnement rapide | La capacité du cloud d'allouer dynamiquement des ressource de manière automatique et rapide en fonction des besoins à la hausse ou à la baisse, le scaling horizontal (scale out) ou vertical (scale up), de façon durable ou temporaire rapidement. e.g., Auto Scaling, Amazon Simple Queue Service (Amazon SQS), Elastic Load Balancing, Amazon CloudFront)
 
 ### Avantage
 
 ![upside](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Upside.png)
+
 - Cloud services become an operational expense (pay only when you consume computing resources and pay only for how
 much you consume) instead of a capital expense (invest heavily in data centers and servers before knowing how you’re going to
 use them)
@@ -43,11 +44,10 @@ use them)
 - Reduce single points of failure further
 - The AZ are connected through low-latency links. 
 
-![R_&_AZ](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-R-vs-AZ%20-%20Copy.png)
+![R_&_AZ](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Regions-vs-Availability-Zones.png)
 
-![region](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AW-R%20-%20Copy.png)
+![region](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Connectivity-between-AZ-in-Regions.png)
 
-## Accessing the Platform
 ![acces_platefom](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Accessing-aws-cloud.png)
 
 ## Type de Cloud Computing 
