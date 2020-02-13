@@ -218,17 +218,25 @@ It can be envoked from many sources
 
 ## Identity Access Management
 ![AWS-IAM-Logo]()
-- Allows you to manage uses and also manage that level of access to the AWOS console
+- Allows you to manage uses users, groups, and roles and their corresponding level of access to the AWS platform 
 - It gives you centralized control over your AWOS account
 - It also gives you shared access to AWOS account 
+- IAM is universal ; it can be viewed and utilized by any region
 - It gives you granular permissions :
   + enable different levels of access to different users within your organization
   + Granular enough to limit a single user to the ability to perform a single action on a specific resource from a specific IP address during a specific time window
 - It allows you to set up your own password rotation policy it integrates 
 - It enables access to store or retrieve data located in an bucket or within a dynamo DB database.
+- Integrates with existing your active Directory account allowing single sign-on
 
+IAM Policy: A JSON document which defines one or more permissions
 
-### Access to 
+features of IAM that will help you secure your infrastructure, including MFA, rotating keys, federation, resolving multiple permissions, and using IAM roles.
+- IAM is not an identity store/authorization system for your applications. 
+- For using Active Directory in the cloud is AWS Directory Service, which is an Active Directory-compatible directory service that can work on its own or integrate with your on-premises Active Directory. 
+- If you are working with a mobile app, consider Amazon Cognito for identity management for mobile applications.
+
+### Access to IAM 
 IAM is controlled like most other AWS Cloud services:
 
 
