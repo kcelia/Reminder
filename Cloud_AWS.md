@@ -19,7 +19,7 @@ provisionnées et libérées avec un effort minime.
 
 > Designing highly available, cost-efficient, fault-tolerant, scalable systems
 
-An | Définition
+Termes | Définition
 ---|------------
 on-demand delivery / Service à la demande | Un client peut faire une demande pour n'importe quel type de ressourceet a n'importe quel instant, la réponse du cloud doit être immédiate. Contrairement aux datacenters classiques, ou solliciter une ressorce pouvait prendre des semaines. Les autorisations d'accès se font sans l'intervention humaine.
 rapid access to flexible and low-cost / Accès rapide au au réseau | Réseau à prendre au sens large, smartphones, laptops, stations de travail, etc.
@@ -39,16 +39,6 @@ use them)
 - Scaling à la demande et Economies of Scale (complexification de l'infrastructure) 
 - Reconfigure the computing environment quickly to adapt to changing business requirements
 
-## Region and Availability Zones 
-- Achieve the greatest possible fault tolerance and stability. 
-- Reduce single points of failure further
-- The AZ are connected through low-latency links. 
-
-![R_&_AZ](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Regions-vs-Availability-Zones.png)
-
-![region](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Connectivity-between-AZ-in-Regions.png)
-
-![acces_platefom](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Accessing-aws-cloud.png)
 
 ## Type de Cloud Computing 
 
@@ -131,7 +121,7 @@ It's specifically for using with EC2, it's not the same as Amazon S3
 
 
 ### Bucket
-![AWS-Traditional-IT-Storage-vs-AWS]()
+![AWS-Traditional-IT-Storage-vs-AWS](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Traditional-IT-Storage-vs-AWS.png)
 
 ## Access
 
@@ -148,11 +138,13 @@ It's specifically for using with EC2, it's not the same as Amazon S3
 - **Availability Zone**: Isolated regions, collection of datacenters that have separate power, networking and connectivity. But connect with hyper-fast fiber optics.
 - AZ are fault tolerant 
 
-> By scaling your application in several AZ, you can achieve nearly unlimited uptime for your application (reduce latency) and satisfy compliance requirements on distance. But, it does not protect against accidental deletion.
+> By scaling your application in several AZ, you can achieve nearly unlimited uptime for your application (reduce latency and single points of failure), satisfy compliance requirements on distance. But, it does not protect against accidental deletion and dchieve the greatest possible fault tolerance and stability. 
 
 - Root resource to which you can:
   + Operation Add, delete, modify objects
   + Configuration options that you can set on buckets like:
+    ### Delimiter 
+    ![URL]https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Object-adressed-by-URL.png
     ### Permission
     ### Hosting options
     ### Logging
@@ -187,7 +179,7 @@ You can:
 - Increasing the size 
 
 ### RDS Database
-![RDS-Database]()
+![RDS-Database](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-RDS-Database.png)
 Each carries a different price, configuration and connection options
 
 ### Pricing
