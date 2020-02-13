@@ -156,6 +156,7 @@ It's specifically for using with EC2, it's not the same as Amazon S3
     ### Permission
     ### Hosting options
     ### Logging
+    ### Encryption 
     ### Lifecycle
     ![AWS-Data-Lifecycle]()
     ### Trigger events when objects are added/modified/deleted
@@ -214,14 +215,26 @@ Prices depend on the number of created Hosted Zone and the amount of requests
 ## Lambda
 Write (in different languages) simple function and return the result
 It can be envoked from many sources
+
 ## Identity Access Management
 ![AWS-IAM-Logo]()
-> Allows you to manage uses and also manage that level of access to the AWOS console
+- Allows you to manage uses and also manage that level of access to the AWOS console
 - It gives you centralized control over your AWOS account
 - It also gives you shared access to AWOS account 
-- It gives you granular permissions (enable different levels of access to different users within your organization)
+- It gives you granular permissions :
+  + enable different levels of access to different users within your organization
+  + Granular enough to limit a single user to the ability to perform a single action on a specific resource from a specific IP address during a specific time window
 - It allows you to set up your own password rotation policy it integrates 
 - It enables access to store or retrieve data located in an bucket or within a dynamo DB database.
+
+
+### Access to 
+IAM is controlled like most other AWS Cloud services:
+
+
+AWS Management Console | CLI | SDK
+-----------------------|------|----------
+An easy way to start learning | Start scripting repeated tasks using the CLI | Start writing your own tools and complex processes by manipulating IAM directly through the REST API via one of several SDKs.
 
 ### Users, Groups, Roles and Policies
 ![User-Groups-Roles-Policies]()
