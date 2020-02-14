@@ -88,15 +88,16 @@ Amazon du site e-commerce, qui pour ses propres besoins a faire une plateform de
   + Permet aux clients de lancer des ressources de calcul avec une variété de systèmes d'exploitation, à les charger avec des applications personnalisées et à gérer les autorisations d'accès au réseau 
   
 ### Creating an instance with EC2:
+![]()
   1. Select or install an _Image_ 
 Amazon Machine Image (AMI): Combination of an operationg system, and then some applications preinstalled) 
   1. Select an _Instance Type_
   Selecting : Number of CPUs, amount of RAM and Network perfomance, AWS will **create instance type and families**
-  
-  Families provide a profile: General Purpose, Memory Optimized, Compute Optimized, ...
+  > Families provide a profile: General Purpose, Memory Optimized, Compute Optimized, ...
   1. Configure Instance Details
   Assign a certain number of instance to be replicated ==> Create **Auto Scaling Group** acording to rules set  
   1. Add Storage - Elastic Block Storage (EBS)
+  1. Add Tags
   1. Configure Security Group 
   - Control who can SSH into EC2 instance
   - Allow acces between EC2 instances
@@ -104,8 +105,43 @@ Amazon Machine Image (AMI): Combination of an operationg system, and then some a
   - Accept HTTP requests
   1. Review Instance Launch
   Create an instance with an existing key pair, which will allow you to SSH in to the instance
-  
- ### Pricing
+ 
+ #### For Windows 
+1. Install Putty
+```Bash
+> Google > 'Putty'  > Putty download Page > For Windows on Intel x86 > putty.exe + puttygen.exe 
+```
+2. Launch EC2 Instance 
+```Bash
+> Step 7 - Review Instance Launch > Launch > Create New Key Pair > Key Pai Name: 'MyPuttyKey' 
+> Download Key Pair // MyPuttyKey.pem 
+                   // To be able to use it with Putty, convert it to PPK file
+> Launch Instances 
+// In the browser, you can see 
+// Your instances are now launching and have been initiated I-2343FDFD433 (i)
+```
+3. Convert File
+```Bash
+> puttygen.exe > Run Anyway > Load (load the key file) > Save Private Key > Yes > Save it as MyPuttyKey.ppk
+```
+4. Launch the instance in Cloud
+```Bash
+> Hit (i) > Save IP Address 
+> putty.exe 
+> Host Name (or IP Address): ec2-user@IP-Address 
+> Save Session: ec2-user@IP-Address
+> SSH > Auth > Brower > Open: MyPuttyKey.kkp
+> Session > Save 
+> Select & Load & Open: ec2-user@IP-Address  > Terminal > Yes
+// If the terminal is not easy to handle, 
+> putty.exe > Select & Load: ec2-user@IP-Address > Windows > Appearance / ... > Save > Open 
+
+// Finaly, we have Linux on the Cloud
+```
+5. Hands on Amazon Linux AMI
+$ sudo su 
+
+ ### Pricing  - 
  <!> Stop/Launch the instance when you need it 
 - Amazon charges EC2 instances by the hour.
 - Prices change bases on: 
