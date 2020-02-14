@@ -106,7 +106,7 @@ Amazon Machine Image (AMI): Combination of an operationg system, and then some a
   1. Review Instance Launch
   Create an instance with an existing key pair, which will allow you to SSH in to the instance
  
- #### For Windows 
+ #### Launch an instance in Windows 
 1. Install Putty
 ```Bash
 > Google > 'Putty'  > Putty download Page > For Windows on Intel x86 > putty.exe + puttygen.exe 
@@ -139,8 +139,32 @@ Amazon Machine Image (AMI): Combination of an operationg system, and then some a
 // Finaly, we have Linux on the Cloud
 ```
 5. Hands on Amazon Linux AMI
-$ sudo su 
+```bash
 
+$ sudo su 
+// YUM - Yellowdog Updater Modified
+// -y for -YES 
+# yum update -y 
+
+// Pour des applications Web
+# yum install httpd -y
+
+// Once, Httpd installed, start the service 
+# service httpd start 
+
+// If the instance reboot we want Apache to come back on automatically
+# chkconfig httpd on 
+
+// Show the status of the service
+# service httpd status 
+
+// Create the application within the html service
+# cd /var/www/html 
+// Add <html><body><h1>Hello Cloud Gurus</h1></body></html> to index.html
+# nano index.html 
+// See the message, through the browser > IP Address
+
+```
  ### Pricing  - 
  <!> Stop/Launch the instance when you need it 
 - Amazon charges EC2 instances by the hour.
@@ -346,7 +370,24 @@ In each case, federation works by returning a temporary token associated with a 
 - It requires entering a One-Time Password (OTP) on a small device (hardware or a virtual device via an app on your smart phone, for example, the AWS Virtual MFA app)
 - MFA can be assigned to any IAM user account, whether the account represents a person or application.
  
-## AWS Elastic Beanstal
+## AWS Elastic LoadBalancers
+- Create a Domain Name 
+- Balance or load across multiple services to not overwhelmed a server or crash you application
+- Use Cases: 
+  + You got several web servers and you want to equally balance the load between them
+  
+![AWS-Types-of-load-balancers]()
+
+### Error ELB
+
+ERROR | 504 
+------|-----
+The ELB reponds with Error X when | Gateway timeout error - Application stops reponding, maybe because of, application or Web server Layer or Database Layer issues | 
+Solution | Identify where the application is failing, and scale it up or out where possible 
+
+### X-Forwarded For
+![DNS-Request]()
+
 ## AWS CloudFormation
 ## AWS OpsWorks
 ## CloudFront 
