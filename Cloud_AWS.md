@@ -388,6 +388,22 @@ Solution | Identify where the application is failing, and scale it up or out whe
 ### X-Forwarded For
 ![DNS-Request]()
 
+## Route53 
+- Is Amazon's DNS Service Network
+- Allows you to map your _domain names_ to **EC2 Instances, Load Balancers and S3 Buckets**
+
+### Create a Domain Name
+```bash
+Console > Services > Network: Route53 > DNS Management: Get started Now > 
+// Register a domain if there is no Hosted Zone
+> Registered Domains > Register Domain > Choose a domain name: XXX.Select-Domain > Check > Add to card > Continue > Contact details for your 1 Domain (Fill out) > Complete Purchase > Go to Domain
+// It might take up 3 days to complete
+
+Create Hosted Zone > Select_your_Domain > Go To Record Sets 
+// A-record for IP4v Address
+```
+
+
 ## AWS CloudFormation
 ## AWS OpsWorks
 ## CloudFront 
