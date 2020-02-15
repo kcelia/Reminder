@@ -8,6 +8,14 @@ Par la suite, au lieu d'investir dans du matériel, les organisations ont préf�
 
 Pour finir, ils ont transferé des datacenters vers le _Cloud_, grâce à des services comme **Amazon Web Services (AWS), Azure, Google Cloud**.
 
+
+
+# Amazon 
+In 2006, Amazon Web Services, Inc. (AWS) began offering IT infrastructure services to businesses in the form of **web services**, now commonly known as **Cloud Computing**
+
+Amazon du site e-commerce, qui pour ses propres besoins a faire une plateform de cloud en interne As a Service, puis l'ont offert au public "Simple Storage Service - S3"/blob storage / service fiable 
+
+
 ## Cloud Computing
 
 Le National Institute of Standard Technology (NIST) définit le CC comme 
@@ -63,55 +71,57 @@ An environment that exclusively runs in the cloud.
 ![Cloud_Prive](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Stockage-Cloud-prive.png)
 
 ### Cloud Hybride / A hybrid deployment
-![Cloud_Hybride](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Stockage-Cloud-Hybride.png)
+Between the cloud and existing on-premises infrastructure to extend and grow an organization’s infrastructure.
 
-Between the cloud and existing on-premises infrastructure to extend and grow an organization’s infrastructure while connecting cloud resources to internal system.
 Architecture: AWS Direct Connect, AWS Storage Gateway, Amazon Virtual Private Cloud (Amazon VPC), AWS Directory Service
 
-# Amazon 
-In 2006, Amazon Web Services, Inc. (AWS) began offering IT infrastructure services to businesses in the form of **web services**, now commonly known as **Cloud Computing**
+![Cloud_Hybride](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Stockage-Cloud-Hybride.png)
 
-Amazon du site e-commerce, qui pour ses propres besoins a faire une plateform de cloud en interne As a Service, puis l'ont offert au public "Simple Storage Service - S3"/blob storage / service fiable 
 
 
 # Services
 ![Service](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS_130_Services.png)
 
 ## Amazon Elastic Compute Cloud (Amazon EC2):
-  + Break EC2 down: 
-    - C2: In cloud
-    - Elastic: The computing service can expand and retract as needed
-  + An instance is basically a compute, you can use it to run a local/web application on a scalable and affordable Virutal Machine in the cloud
-  + An instance is a virtual server wich is operating system agnostic 
-  + Un service Web qui fournit une capacité de calcul redimensionnable dans le cloud. 
-  + Permet aux clients d'obtenir/configurer/exploiter les ressources.
-  + Permet aux clients de lancer des ressources de calcul avec une variété de systèmes d'exploitation, à les charger avec des applications personnalisées et à gérer les autorisations d'accès au réseau 
+> Break EC2 down: 
+>> C2: In cloud
+>> Elastic: The computing service can expand and retract as needed
+
+  + An instance is basically a compute/a virtual server wich is operating system agnostic, you can use it to run a local/web application on a scalable and affordable Virutal Machine in the cloud
+  + Permet aux clients d'obtenir/configurer/exploiter les ressources
+  + Permet aux clients de gérer les autorisations d'accès au réseau 
   
-### Creating an instance with EC2:
+### 1. Creating an instance with EC2:
 ![]()
-  1. Select or install an _Image_ 
+1. **Select or install an _Image_ **
+
 Amazon Machine Image (AMI): Combination of an operationg system, and then some applications preinstalled) 
-  1. Select an _Instance Type_
-  Selecting : Number of CPUs, amount of RAM and Network perfomance, AWS will **create instance type and families**
+
+1. **Select an _Instance Type_**
+Selecting : Number of CPUs, amount of RAM and Network perfomance, AWS will **create instance type and families**
   > Families provide a profile: General Purpose, Memory Optimized, Compute Optimized, ...
-  1. Configure Instance Details
-  Assign a certain number of instance to be replicated ==> Create **Auto Scaling Group** acording to rules set  
-  1. Add Storage - Elastic Block Storage (EBS)
-  1. Add Tags
-  1. Configure Security Group 
+  
+1. **Configure Instance Details**
+Assign a certain number of instance to be replicated ==> Create **Auto Scaling Group** according to rules set  
+
+1. **Add Storage - Elastic Block Storage (EBS)**
+
+1. **Add Tags**
+
+1. **Configure Security Group** 
   - Control who can SSH into EC2 instance
-  - Allow acces between EC2 instances
-  - Allow acces to databases 
+  - Allow acces between EC2 instances, allow acces to databases 
   - Accept HTTP requests
-  1. Review Instance Launch
-  Create an instance with an existing key pair, which will allow you to SSH in to the instance
- 
- #### Launch an instance in Windows 
-1. Install Putty
+  
+1. **Review Instance Launch**
+Create an instance with an existing key pair, which will allow you to SSH in to the instance
+
+### 2. Launch an instance in Windows 
+2.1. Install Putty
 ```Bash
 > Google > 'Putty'  > Putty download Page > For Windows on Intel x86 > putty.exe + puttygen.exe 
 ```
-2. Launch EC2 Instance 
+2.2. Launch EC2 Instance 
 ```Bash
 > Step 7 - Review Instance Launch > Launch > Create New Key Pair > Key Pai Name: 'MyPuttyKey' 
 > Download Key Pair // MyPuttyKey.pem 
@@ -120,11 +130,11 @@ Amazon Machine Image (AMI): Combination of an operationg system, and then some a
 // In the browser, you can see 
 // Your instances are now launching and have been initiated I-2343FDFD433 (i)
 ```
-3. Convert File
+2.3. Convert File
 ```Bash
 > puttygen.exe > Run Anyway > Load (load the key file) > Save Private Key > Yes > Save it as MyPuttyKey.ppk
 ```
-4. Launch the instance in Cloud
+2.4. Launch the instance in Cloud
 ```Bash
 > Hit (i) > Save IP Address 
 > putty.exe 
@@ -138,7 +148,7 @@ Amazon Machine Image (AMI): Combination of an operationg system, and then some a
 
 // Finaly, we have Linux on the Cloud
 ```
-5. Hands on Amazon Linux AMI
+2.5. Hands on Amazon Linux AMI
 ```bash
 
 $ sudo su 
@@ -165,20 +175,19 @@ $ sudo su
 // See the message, through the browser > IP Address
 
 ```
- ### Pricing  - 
- <!> Stop/Launch the instance when you need it 
+### Pricing  
+<!> Stop/Launch the instance when you need it 
 - Amazon charges EC2 instances by the hour.
 - Prices change bases on: 
-  - Instance Type 
-  - AMI Type
-  
-  
+- Instance Type 
+- AMI Type
+
+------------------  
 ## Elastic Block Storage (EBS):
 It's specifically for using with EC2, it's not the same as Amazon S3
   
 ## Amazon Simple Storage Service (Amazon S3)
 - Store any type of file, the maximum object size is 5TB (upload in a single _PUT_ operation in 5GB, beyond there are other methods to upload a larger object in separate operations)
-
 
 ### Bucket
 ![AWS-Traditional-IT-Storage-vs-AWS](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Traditional-IT-Storage-vs-AWS.png)
@@ -204,7 +213,7 @@ It's specifically for using with EC2, it's not the same as Amazon S3
   + Operation Add, delete, modify objects
   + Configuration options that you can set on buckets like:
     ### Delimiter 
-    ![URL]https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Object-adressed-by-URL.png
+    ![URL](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Object-adressed-by-URL.png)
     ### Permission
     ### Hosting options
     ### Logging
@@ -229,6 +238,7 @@ The pricing is based on 3 first aspects:
 - Amount of dara transferred
 - Different per region 
 
+--------------
 ### Relational Database Service (RDS)
 
 A collection de service for managed relational databases and infrastructure 
@@ -239,22 +249,24 @@ You can:
 - Increasing the size 
 
 ### RDS Database
-![RDS-Database](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-RDS-Database.png)
 Each carries a different price, configuration and connection options
 
-### Pricing
-Prices depends on:
+![RDS-Database](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-RDS-Database.png)
+
+### Pricing depends on:
 - Type of database
 - Region
 - EC2 Instance Type 
 
 ### Access via security groups 
 
+---------
 ## Route53
 - Amazon service for DNS management, both inside and outside AWS
-- To configure domain names to resolve to internal AWS services  
-> Domain Name system: translates human-readable URLs to IP addresses
 - Route53 or LoadBalancers don't have visible IP addresses 
+
+> Domain Name system: translates human-readable URLs to IP addresses
+
 ```Bash
 1. First 
 DNS Management > Setting up a Hosted Zone
@@ -264,6 +276,7 @@ DNS Management > Setting up a Hosted Zone
 Prices depend on the number of created Hosted Zone and the amount of requests 
 ### Health checks 
 
+--------
 ## Lambda
 Write (in different languages) simple function and return the result
 It can be envoked from many sources
@@ -370,6 +383,7 @@ In each case, federation works by returning a temporary token associated with a 
 - It requires entering a One-Time Password (OTP) on a small device (hardware or a virtual device via an app on your smart phone, for example, the AWS Virtual MFA app)
 - MFA can be assigned to any IAM user account, whether the account represents a person or application.
  
+---------
 ## AWS Elastic LoadBalancers
 - Create a Domain Name 
 - Balance or load across multiple services to not overwhelmed a server or crash you application
@@ -388,6 +402,7 @@ Solution | Identify where the application is failing, and scale it up or out whe
 ### X-Forwarded For
 ![DNS-Request]()
 
+-------------
 ## Route53 
 - Is Amazon's DNS Service Network
 - Allows you to map your _domain names_ to **EC2 Instances, Load Balancers and S3 Buckets**
@@ -402,7 +417,6 @@ Console > Services > Network: Route53 > DNS Management: Get started Now >
 Create Hosted Zone > Select_your_Domain > Go To Record Sets 
 // A-record for IP4v Address
 ```
-
 
 ## AWS CloudFormation
 ## AWS OpsWorks
