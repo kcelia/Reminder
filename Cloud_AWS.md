@@ -260,21 +260,7 @@ Each carries a different price, configuration and connection options
 
 ### Access via security groups 
 
----------
-## Route53
-- Amazon service for DNS management, both inside and outside AWS
-- Route53 or LoadBalancers don't have visible IP addresses 
 
-> Domain Name system: translates human-readable URLs to IP addresses
-
-```Bash
-1. First 
-DNS Management > Setting up a Hosted Zone
-// Hosted Zone: Root Domain Name, like google.com 
-```
-### Pricing
-Prices depend on the number of created Hosted Zone and the amount of requests 
-### Health checks 
 
 --------
 ## Lambda
@@ -403,20 +389,55 @@ Solution | Identify where the application is failing, and scale it up or out whe
 ![DNS-Request]()
 
 -------------
+
+
+---------
+## Route53 - Network 
+- Amazon service for DNS management, both inside and outside AWS
+- Route53 or LoadBalancers don't have visible IP addresses 
+- Allows you to map your domain names to EC2 instances, Load Balancers, S3 Buckets
+
+> Domain Name system: translates human-readable URLs to IP addresses
+
+```Bash
+1. First 
+DNS Management > Setting up a Hosted Zone
+
+```
+### Pricing
+Prices depend on the number of created Hosted Zone and the amount of requests 
+### Health checks 
+
+
 ## Route53 
 - Is Amazon's DNS Service Network
-- Allows you to map your _domain names_ to **EC2 Instances, Load Balancers and S3 Buckets**
+- Allows you to map your _domain names_ to **EC2 Instances, Load Balancers and S3 Buckets**. Which means, that R53 essentially allows you to buy a domain name (XXX.com) and then we'd be able to connect that domain name to 3 different services  EC2, LB or S3.
 
 ### Create a Domain Name
+
+Create a working Web site, behind an application Load Balancer which is spread across
+multiple availability zones.
+Then when we go to resolve the name XXX.com, that's basically sending traffic to our application. Load Balancer which is sending traffic to our EC2 instance.
+
 ```bash
 Console > Services > Network: Route53 > DNS Management: Get started Now > 
-// Register a domain if there is no Hosted Zone
-> Registered Domains > Register Domain > Choose a domain name: XXX.Select-Domain > Check > Add to card > Continue > Contact details for your 1 Domain (Fill out) > Complete Purchase > Go to Domain
+
+// Register a DOMAIN if there is no Hosted Zone
+// Hosted Zone: Root Domain Name, like google.com 
+
+> Registered Domains > Register Domain > Choose a domain name: XXX.Select-Domain 
+> Check > Add to card > Continue > Contact details for your 1 Domain (Fill out) > Agree & Complete Purchase > Go to Domain
+
 // It might take up 3 days to complete
 
 Create Hosted Zone > Select_your_Domain > Go To Record Sets 
-// A-record for IP4v Address
+// The records sets/ where we create our DNS records 
 ```
+![]()
+
+// Check the region if you do not see your instance running 
+> EC2 > LOAD BALANCING > Load Balancers > Create Load Balancer > Choose a LB
+Step1 Co
 
 ## AWS CloudFormation
 ## AWS OpsWorks
