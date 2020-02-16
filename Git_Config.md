@@ -106,6 +106,8 @@ $ git remote -v        // Connaitre l'URL
 ## Merge 
 
 ```
+// il va souvent vous arriver de vouloir ajouter  dans une branche A les mises à jour que vous avez faites dans une autre branche B. Pour cela, on se place dans la branche A
+
 // Résolution du conflit en supprimant des lignes...
 
 <<<<<<<<<<< HEAD      // Balise -> La branche master
@@ -140,6 +142,22 @@ $ git status
 
 $ git checkout File.txt
 
+$ git status
+   Nothing to commit
+```   
+
+```Bash
+$ git add file.txt
+// Sans le commit 
+$ git reset HEAD file.txt
+// Retour à la version précédente 
+
+$ git add file.txt
+$ git commit -m "commit"
+$ git reset HEAD~1 // Revient à la version t-1
+
+// CASE:
+$ git reset --hard HEAD~1
 $ git status
    Nothing to commit
 ```
