@@ -127,3 +127,19 @@ Ligne bleu            // Version dans une autre branche
    $ git add .
    $ git commit -m "fix conflict"
 ```
+
+## Git Checkout 
+
+```
+$ ls
+   File.txt
+$ vim File.txt
+
+$ git status
+   Modified File.txt
+
+$ git checkout File.txt
+
+$ git status
+   Nothing to commit
+```
