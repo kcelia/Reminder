@@ -160,4 +160,5 @@ $ git reset HEAD~1 // Revient à la version t-1
 $ git reset --hard HEAD~1
 $ git status
    Nothing to commit
+   
 ```
