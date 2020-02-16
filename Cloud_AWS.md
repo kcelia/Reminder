@@ -388,56 +388,74 @@ Solution | Identify where the application is failing, and scale it up or out whe
 ### X-Forwarded For
 ![DNS-Request]()
 
--------------
+
+
+
+
+
+
+
+
 
 
 ---------
-## Route53 - Network 
-- Amazon service for DNS management, both inside and outside AWS
-- Route53 or LoadBalancers don't have visible IP addresses 
-- Allows you to map your domain names to EC2 instances, Load Balancers, S3 Buckets
+## Route53 
 
 > Domain Name system: translates human-readable URLs to IP addresses
 
-```Bash
-1. First 
-DNS Management > Setting up a Hosted Zone
-
-```
-### Pricing
-Prices depend on the number of created Hosted Zone and the amount of requests 
-### Health checks 
-
-
-## Route53 
-- Is Amazon's DNS Service Network
+- Is Amazon's DNS Service Network, both inside and outside AWS
+- Route53 or LoadBalancers don't have visible IP addresses (a verifier)
 - Allows you to map your _domain names_ to **EC2 Instances, Load Balancers and S3 Buckets**. Which means, that R53 essentially allows you to buy a domain name (XXX.com) and then we'd be able to connect that domain name to 3 different services  EC2, LB or S3.
 
-### Create a Domain Name
+1- Enregister un Domain
+2- Enregister a Hosted Zone 
+
+### 1. Create a Domain Name
 
 Create a working Web site, behind an application Load Balancer which is spread across
-multiple availability zones.
-Then when we go to resolve the name XXX.com, that's basically sending traffic to our application. Load Balancer which is sending traffic to our EC2 instance.
+multiple availability zones. Then when we go to resolve the name XXX.com, that's basically sending traffic to our application. Load Balancer which is sending traffic to our EC2 instance.
 
 ```bash
 Console > Services > Network: Route53 > DNS Management: Get started Now > 
 
-// Register a DOMAIN if there is no Hosted Zone
+// If there is no Hosted Zone, register a DOMAIN 
 // Hosted Zone: Root Domain Name, like google.com 
 
+// 1.Enregister un Domaine 
 > Registered Domains > Register Domain > Choose a domain name: XXX.Select-Domain 
-> Check > Add to card > Continue > Contact details for your 1 Domain (Fill out) > Agree & Complete Purchase > Go to Domain
+> Check > Add to card > Continue > Contact Details For Your 1 Domain: Fill out 
+> Agree & Complete Purchase > Go to Domain
 
-// It might take up 3 days to complete
+// It might take up 3 days to co mplete
 
-Create Hosted Zone > Select_your_Domain > Go To Record Sets 
-// The records sets/ where we create our DNS records 
+// 2.Hosted Zone
+Dashboard > DNS Management > Hosted Zone > Select_your_Domain > Go To Record Sets 
+// The records sets: Where we create our DNS records 
+// If you use a naked Domain Name, Select an ALIAS 
+// Select your record, according on whether EC2, ELB, or S3 is selected 
+// Here, we select ELB 
 ```
-![]()
-
+![Record-set](https://github.com/kcelia/Reminder/blob/master/Image_AWS/R53-Create-Record-Set.png)
+```Bash
 // Check the region if you do not see your instance running 
-> EC2 > LOAD BALANCING > Load Balancers > Create Load Balancer > Choose a LB
-Step1 Co
+> EC2 > LOAD BALANCING > Load Balancers > Create Load Balancer: Choose a LB
+```
+![ELB-Create-LB](https://github.com/kcelia/Reminder/blob/master/Image_AWS/ELB-Create-LB.png) 
+
+```Bash
+// Dashboard > DN Management > Hosted Zone > Select_Hosted_Zone > Go To Record Sets
+> Create Record Set > Select_Alias_ELB
+
+// Finaly, we have created a working Web site it's behind an application LB which is spread across multiple availability zones And then when we go to resolve the XXX.DN that's basically sending traffic to our application LB which is sending traffic to our EC2 Instance
+
+> Brower > XXX.DN > Result
+// Alors, que précedement on entrait l'adresse IP 
+```
+
+### Pricing
+Prices depend on the number of created Hosted Zone and the amount of requests 
+### Health checks 
+
 
 ## AWS CloudFormation
 ## AWS OpsWorks
