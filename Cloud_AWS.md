@@ -231,6 +231,58 @@ It's specifically for using with EC2, it's not the same as Amazon S3
     ### URL
     Once created, buckets (objects contained within) are accessed via URL
 
+
+### Connection EC2 with CLI
+
+1.1 Via Access Key
+```Bash
+Console > Services > EC2 > Running Instance: Take the Ipv4 Public IP
+
+// Open Terminal 
+$ ssh ec2-user@35.135.184.58 -i MyNewKey.pem
+$ sudo su 
+$ aws s3 ls
+  Unable to locate credentials 
+  $ aws configure
+  // Entry your Access key & Secret Access key that you have already downloaded once the creation of the user
+    AWS access Key ID: Access_Key
+    AWS Secret Access key: Secret_Access_Key
+    // If you leave it blank (you don't specify the region), the S3 Bucket will be in EU West  
+    Default Region Name: 
+    Default format:
+    
+// No error message
+$ aws s3 ls 
+
+// mb: Make Bucket - Create a S3 bucket
+$ aws s3 mb s3://mybucket1-ck
+  make_bucket: mybucket1-ck 
+  
+$ aws s3 ls
+  2020-02-17 11:37:00 make_bucket: mybucket1-ck 
+
+// Create hello.txt and copy it into mybucket-ck
+$ aws s3 cp hello.txt s3://mybucket1-ck
+
+// List eveything inside the bucket 
+$ aws s3 ls s3://mybucket1-ck
+  hello.txt
+```
+
+1.2 See your bucket 
+
+`Services > EC2`
+
+![]()
+
+
+1.3 Via Role
+
+`Service > IAM`
+
+
+
+
 ### Pricing
 The pricing is based on 3 first aspects:
 - Amount of data stored
@@ -267,6 +319,7 @@ Each carries a different price, configuration and connection options
 Write (in different languages) simple function and return the result
 It can be envoked from many sources
 
+----------
 ## Identity Access Management
 ![AWS-IAM-Logo](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-IAM-launch.png)
 
@@ -287,7 +340,7 @@ It can be envoked from many sources
 IAM Policy: A JSON document which defines one or more permissions
 Active Directory: fournir des services centralisés d'identification et d'authentification à un réseau d'ordinateurs 
 
-features of IAM that will help you secure your infrastructure, including MFA, rotating keys, federation, resolving multiple permissions, and using IAM roles.
+Features of IAM that will help you secure your infrastructure, including MFA, rotating keys, federation, resolving multiple permissions, and using IAM roles.
 - IAM is not an identity store/authorization system for your applications. 
 - For using Active Directory in the cloud is AWS Directory Service, which is an Active Directory-compatible directory service that can work on its own or integrate with your on-premises Active Directory. 
 - If you are working with a mobile app, consider Amazon Cognito for identity management for mobile applications.
@@ -369,6 +422,7 @@ In each case, federation works by returning a temporary token associated with a 
 - It requires entering a One-Time Password (OTP) on a small device (hardware or a virtual device via an app on your smart phone, for example, the AWS Virtual MFA app)
 - MFA can be assigned to any IAM user account, whether the account represents a person or application.
  
+ 
 ---------
 ## AWS Elastic LoadBalancers
 - Create a Domain Name 
@@ -387,12 +441,6 @@ Solution | Identify where the application is failing, and scale it up or out whe
 
 ### X-Forwarded For
 ![DNS-Request]()
-
-
-
-
-
-
 
 
 
