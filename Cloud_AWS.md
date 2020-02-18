@@ -97,7 +97,23 @@ How we do a restore with automated backups ? When you recover, AWS will first ch
 
 - BackUps are taken within a defined window. During the backup window, storage I/O may be suspended while your data is being backed up and you may experience some elevated latency
 
+```
+Service > Database > RDS > Create DB Instance or Select An existing Instances
 
+// 1 - Take snapshot
+Instances > Instance Actions > Take Snapshop: name_manual_snapshot 
+
+// 2 - Copy & encryption
+// Then, you can select the copy_manual_snapshot and copy it in a region (deploy new instance) by:
+> Instance Action > Copy Snapshot
+// Then, scroll down 
+> Enable encryption or Disable encryption 
+
+// 3 - Restore the instance to a point in time
+// Apply with transactions, logs to that snapshot and then bring it back to a point in time
+
+Instance Action > Restore
+```
 
 1. Database Snapshots:
 - When we do a database snapshot it's going to take a snapshot of the database.
@@ -105,12 +121,34 @@ How we do a restore with automated backups ? When you recover, AWS will first ch
 
 > Whenever you restore either an automatic backup or a manual snapshot, the restored version of the database will be a new RDS Instance with a new DNS EndPoint
 
-Encryption
+2. Encryption
 At rest, is supported for MySQL, Oracle, SQL Server, PostgreSQL, Maria DB and Aurora
 It is done using the AWS Key Management Service (KMS) service.
 Once your RDS Instance is encrypted, the data stored at rest in the underlying storage is encrypted, as are its automated backups, read replicas and snapshots.
 
+1. Multi-AZ
+- Allows you to have an exact copy of your production database in another Availability Zone.
+AWS handdles the replication for you, so when your production database is written to, this write will automatically be synchronized to the standby database. 
 
+In the event of database maintenance or DB Instance failure or an availability zone failure, AWS will automatically follow it to the standby so that the database operations can resume quickly without administrative intervention
+- Is Synchronous
+
+Services > Database > RDS > Instances > Instances Actions > Modify > Multi-AZ-Deployment: Yes
+1. Read Replicas
+- Scaling out your database so that you take the load off the primary database and you spread that load across one or more read replicas.
+
+-  You can also have Read Replicas of Read Replicas in different AZ or R (but watch out for latency) 
+- Allows you to have a read only copy of your production database, This is achieved using asynchronous replication
+- you use read replicas primarily for very real heavy database workloads so use Read replicas to scale out.
+- Is Asynchronous 
+- Is available for Aurora, MariaDB, MySQL, PostgreSQL, MySQL Server
+- Used for scaling, not for DR
+- you must have automatic backups tuned on in order to deploy a read replica
+- you can have up to 5 read replica copies of any database 
+- Each read replica will have its own DNS end point 
+- You can have RR that have Multi-AZ
+
+Services > Database > RDS > Instances > Instances Actions > Create read Replicas
 # Services
 ![Service](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS_130_Services.png)
 
