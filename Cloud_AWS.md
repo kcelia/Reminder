@@ -78,6 +78,38 @@ Architecture: AWS Direct Connect, AWS Storage Gateway, Amazon Virtual Private Cl
 ![Cloud_Hybride](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Stockage-Cloud-Hybride.png)
 
 
+### Bakcups, Multi-AZ, 
+
+There 2 different types of _Backups_ for AWS:
+
+1. Automated Backups:
+- Allows you to recover your database to any point in time within a **retention period** (conservation)
+
+The _retention period_: can be between 1 and 35 days
+
+- Takes a full daily snapshot and will also store transaction logs throughout the day.
+
+How we do a restore with automated backups ? When you recover, AWS will first choose the most recent daily backup so choose the snapshot that's most recent and then apply those transaction logs that are relevant to that day.
+
+- Allows you to do a point in time recovery down to a second within the retention period
+
+- Is enabled by default, the backup data is stored on S3 and you're going to get free storage space equal to the size of your database.
+
+- BackUps are taken within a defined window. During the backup window, storage I/O may be suspended while your data is being backed up and you may experience some elevated latency
+
+
+
+1. Database Snapshots:
+- When we do a database snapshot it's going to take a snapshot of the database.
+- It's done manually (use initiated). They are stored (_standalone file_) even after you delete the origianl RDS Instance, unlike Automated BackUps (AB will also be deleted with it as well)
+
+> Whenever you restore either an automatic backup or a manual snapshot, the restored version of the database will be a new RDS Instance with a new DNS EndPoint
+
+Encryption
+At rest, is supported for MySQL, Oracle, SQL Server, PostgreSQL, Maria DB and Aurora
+It is done using the AWS Key Management Service (KMS) service.
+Once your RDS Instance is encrypted, the data stored at rest in the underlying storage is encrypted, as are its automated backups, read replicas and snapshots.
+
 
 # Services
 ![Service](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS_130_Services.png)
@@ -309,6 +341,27 @@ Each carries a different price, configuration and connection options
 - Type of database
 - Region
 - EC2 Instance Type 
+
+### Create a DB
+
+```
+// Step1: Launch Instance
+> EC2 > Launch New Instance > Choose_OS > ...
+
+// Step2: Create Database 
+```
+![Create-DB]()
+
+```
+// Step3: Access EC2 via terminal
+Change the hostname in connect.php bye the endpoint 
+$hostnam = "DNS Address" 
+
+// Step4: Allow instances to talk to each other
+
+// RDS > Instance > Security Group: select_security_group > Inbound > 
+```
+![]()
 
 ### Access via security groups 
 
