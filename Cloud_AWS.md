@@ -245,6 +245,14 @@ $ sudo su
 // See the message, through the browser > IP Address
 
 ```
+
+### Encryption of an existing EC2 instance
+You work for a web analytics firm who have recently migrated their application to AWS. The application sits behind an Elastic Load Balancer and it monitors user traffic to their website. You have noticed that in the application logs you are no longer seeing your users public IP addresses, instead you are seeing the private IP address of the elastic load balancer. This data is critical for your business and you need to rectify the issue immediately. What should you do?
+Creat a snapshot of the EC2 volume. then Create a copye of that volume, checking the box to enable encryption, create an AMI pf the copied snapshot and then redeploy the EC2 instance using the encrypted AMI
+Delete the old EC2 Instance
+
+You create the role and attach it to the existing EC2 instance. How fast will the changes take to propagate? Immediatly 
+
 ### Pricing  
 <!> Stop/Launch the instance when you need it 
 - Amazon charges EC2 instances by the hour.
@@ -254,35 +262,45 @@ $ sudo su
 
 ------------------  
 ## Elastic Block Storage (EBS):
-It's specifically for using with EC2, it's not the same as Amazon S3
-  
+- It's specifically for using with EC2, it's not the same as Amazon S3
+- Configure _encryption_ when creating the EBS volume
+
 ## Amazon Simple Storage Service (Amazon S3)
+
+- It's object-based storage (Not a block storage), like: files, images, pages. It's not for operating systems and not for databases
 - Store any type of file, the maximum object size is 5TB (upload in a single _PUT_ operation in 5GB, beyond there are other methods to upload a larger object in separate operations)
-
-### Bucket
-![AWS-Traditional-IT-Storage-vs-AWS](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Traditional-IT-Storage-vs-AWS.png)
-
-## Access
+- There is unlimited storage (no allocation space) and AWS take care of the capacity management/capacity on your behalf 
+- it allows you to store and retrieve any amount of data from anywhere on the web.
+- High availability and disaster recovery (if AWS lose one of their devices/facilities, or there is a faulty device or a faulty datacenter or a faulty availability, the S3 service will still be available)
+- When you upload a file into S3, you're going to receive an HTTP 200 code
 
 ## How AWS is organized geographically speaking ? 
 > Region & Available Zone
 
-![AWS-Regions-vs-Availability-Zones](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Regions-vs-Availability-Zones.png)
-
+![AWS-Regions-vs-Availability-Zones](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Regions-vs-Availability-Zones.png) 
 ![AWS-Connectivity-between-AZ-in-Regions](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Connectivity-between-AZ-in-Regions.png)
 
 ![AWS-Console-Regions](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-console-regions.png)
 
-- **Regions** are physical locations where certain services are hosted, there are many regions throughout the world
-- **Availability Zone**: Isolated regions, collection of datacenters that have separate power, networking and connectivity. But connect with hyper-fast fiber optics.
+1. **Regions**:
+Regions are physical locations where certain services are hosted, there are many regions throughout the world
+1. **Availability Zone**: 
+- Isolated regions
+- Collection of datacenters that have separate power, networking and connectivity. But connect with hyper-fast fiber optics.
 - AZ are fault tolerant 
+- Individual instances are provisioned in AZ
 
 > By scaling your application in several AZ, you can achieve nearly unlimited uptime for your application (reduce latency and single points of failure), satisfy compliance requirements on distance. But, it does not protect against accidental deletion and dchieve the greatest possible fault tolerance and stability. 
+
+### Bucket ~ folder 
+![AWS-Traditional-IT-Storage-vs-AWS](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Traditional-IT-Storage-vs-AWS.png)
 
 - Root resource to which you can:
   + Operation Add, delete, modify objects
   + Configuration options that you can set on buckets like:
     ### Delimiter 
+    S3 is a universal namespace, the bucket names must be unique globally and it's similar to a DNS or an Internet Address
+    
     ![URL](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Object-adressed-by-URL.png)
     ### Permission
     ### Hosting options
@@ -303,6 +321,8 @@ It's specifically for using with EC2, it's not the same as Amazon S3
 
 
 ### Connection EC2 with CLI
+
+Install the CLI on your PC
 
 1.1 Via Access Key
 ```Bash
@@ -345,6 +365,7 @@ $ aws s3 ls s3://mybucket1-ck
 
 ![]()
 
+If you want to **get away** from AccessKey and SecretAccessKeys ==> ROLE 
 
 1.3 Via Role
 
@@ -353,12 +374,26 @@ $ aws s3 ls s3://mybucket1-ck
 
 
 
-### Pricing
-The pricing is based on 3 first aspects:
+### Pricing is based on:
 - Amount of data stored
 - Number of requests
 - Amount of dara transferred
 - Different per region 
+
+![]()
+
+Use Case: Y
+A firm is moving its infrastructure to AWS. 
+Their environment consists of a three-tier web application: a web tier, an application tier and a relational database tier. 
+They have a separate fleet of virtual machines that are used to access large HPC clusters on the fly. 
+Their lab researches run multiple projects simultaneously and they will need to launch and decommission 1,000's of nodes on-demand while reducing the time required to complete genomic sequencing from weeks to days. 
+In order to stay competitive they need to do this at as low cost as possible, with no long-term contracts. These HPC clusters can run any time day or night and their workloads store information in S3, so the instances can be terminated at any time without any effect on the data. What is the most COST EFFECTIVE EC2 pricing model for their requirements? SPOT INSTANCES
+
+You run the internal intranet for a corporate bank. The intranet consists of a number of webservers and single relational database running Microsoft SQL Server. Your peak demand occurs at 9am every week morning when users are first logging in to the intranet. They can only log in using the company's internal network and it is not possible to access the intranet from any location other than within the office building for security purposes. Management is considering a change and to move this environment to AWS where users will be able to access the intranet via a software VPN. You have been asked to evaluate a migration to AWS and to identify the best EC2 billing model for your company's intranet. You must keep costs low and to be able to scale at particular times of day. You must maintain availability of the intranet throughout office hours. Management do not want to be locked into any contracts in case for some reason they want to go back to hosting internally. What EC2 billing model should you recommend? ON DEMAND 
+
+You are the IT manager at a furniture retailer and they are considering moving their web application to AWS. They currently colocate their servers in a colocation facility and the contract for this facility is now coming to an end. Management are comfortable signing a 3 year contract and want to get the cheapest web servers as possible while still maintaining availability. Their traffic is very steady and predictable. What EC2 pricing model would you recommend to maintain availability and to get the lowest cost price available? ON RESERVED
+
+You work for a government contractor who supply services that are critical to national security. Because of this your corporate IT policy states that no multi-tenant virtualization is authorized within the company. Despite this, they are interested in moving to AWS, but they cannot violate corporate IT policy. Which EC2 billing model would you recommend that they use to achieve this? DEDICATED 
 
 --------------
 ### Relational Database Service (RDS)
@@ -527,16 +562,15 @@ In each case, federation works by returning a temporary token associated with a 
 
 ERROR | 504 
 ------|-----
-The ELB reponds with Error X when | Gateway timeout error - Application stops reponding, maybe because of, application or Web server Layer or Database Layer issues | 
+The *Classique LB* reponds with Error X when | Gateway timeout error - Application stops reponding, maybe because of, application or Web server Layer or Database Layer issues | 
 Solution | Identify where the application is failing, and scale it up or out where possible 
 
-### X-Forwarded For
+### X-Forwarded_For
+If you need the IP4 Address of your end user, look for the X-Forwarded-For Header. 
+
 ![DNS-Request]()
 
-
-
-
-
+Use Case: You work for a web analytics firm who have recently migrated their application to AWS. The application sits behind an Elastic Load Balancer and it monitors user traffic to their website. You have noticed that in the application logs you are no longer seeing your users public IP addresses, instead you are seeing the private IP address of the elastic load balancer. This data is critical for your business and you need to rectify the issue immediately. What should you do?
 ---------
 ## Route53 
 
@@ -592,8 +626,6 @@ Dashboard > DNS Management > Hosted Zone > Select_your_Domain > Go To Record Set
 ```
 
 
-
-
 ### Pricing
 Prices depend on the number of created Hosted Zone and the amount of requests 
 ### Health checks 
@@ -616,14 +648,14 @@ Type of ElastiCache | Memcached | Redis
 --------------------|-----------|------
 Definition | Widely adopted memory object caching system.ElastiCache is a protocol compliant with Memcached | A popular open-source in-memory key-value store that supports data structures sorted sets and lists
 Difference |  | Multi-AZ
-Simple, Pure caching solutionto offload the DB, no persistence, not concerned about redundancy, scale cache horizontally (provides additional capabilities like automatic node replacement and auto discovery) | Relation DB, persistant, stateful entity, include failover (like AWS RDS does), store advanced data types (lists, hashes, sets), does sorting and ranking datasets in memory (like leaderboards), multi-AZ
+Simple, Pure caching solutionto offload the DB, no persistence, not concerned about redundancy, scale cache horizontally (provides additional capabilities like automatic node replacement and auto discovery) | Relation DB, persistant, stateful entity, include failover (like AWS RDS does), store advanced data types (lists, hashes, sets), does sorting and ranking datasets in memory (like leaderboards), multi-AZ, Pub/Sub capabilities 
 
 Similar on the surface : Both are Cache In-memory key Stores 
 
 ### ElastiCache Vs Redshift 
 ElastiCache | Redshift 
 ------------|-----------
-If your database is feeling stressed, because management running online analytics processing transactions on it ==> Data Warehousing question | Take stress off your database, because it's very heavy 
+If your database is feeling stressed, because management running online analytics processing transactions on it ==> Data Warehousing question | OLAP - Take stress off your database, because it's very heavy 
 
 ## AWS CloudFormation
 ## AWS OpsWorks
