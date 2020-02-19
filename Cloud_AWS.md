@@ -270,16 +270,24 @@ You create the role and attach it to the existing EC2 instance. How fast will th
 - It's object-based storage (Not a block storage), like: files, images, pages. It's not for operating systems and not for databases
 - Store any type of file, the maximum object size is 5TB (upload in a single _PUT_ operation in 5GB, beyond there are other methods to upload a larger object in separate operations)
 - There is unlimited storage (no allocation space) and AWS take care of the capacity management/capacity on your behalf 
-- it allows you to store and retrieve any amount of data from anywhere on the web.
+- It allows you to store and retrieve any amount of data from anywhere on the web.
 - High availability and disaster recovery (if AWS lose one of their devices/facilities, or there is a faulty device or a faulty datacenter or a faulty availability, the S3 service will still be available)
-- When you upload a file into S3, you're going to receive an HTTP 200 code
 - S3 is a simple key value store 
-
-
+- S3 is not an OS
 
 ### Amazon Simple Storage Service (Amazon S3) Basics 
+
 ### 1. Bucket ~ folder 
 ![AWS-Traditional-IT-Storage-vs-AWS](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Traditional-IT-Storage-vs-AWS.png)
+
+S3 is a universal namespace, the bucket names must be unique globally and it's similar to a DNS or an Internet Address
+![Bucket-name]()
+
+Subresources - Bucket specific configuration
+
+Bucket policies, Access control Lists: Ways to control access to the contents of your pocket.
+Cross Origin Ressource sharing (CORS): Setting up the capability for files that were located in one bucket to access the files within another bucket 
+
 
 ### 2. How AWS is organized geographically speaking ? 
 > Region & Available Zone
@@ -289,9 +297,10 @@ You create the role and attach it to the existing EC2 instance. How fast will th
 
 ![AWS-Console-Regions](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-console-regions.png)
 
-1. **Regions**:
+2.1. **Regions**:
 Regions are physical locations where certain services are hosted, there are many regions throughout the world
-1. **Availability Zone**: 
+
+2.2. **Availability Zone**: 
 - Isolated regions
 - Collection of datacenters that have separate power, networking and connectivity. But connect with hyper-fast fiber optics.
 - AZ are fault tolerant 
@@ -300,29 +309,76 @@ Regions are physical locations where certain services are hosted, there are many
 > By scaling your application in several AZ, you can achieve nearly unlimited uptime for your application (reduce latency and single points of failure), satisfy compliance requirements on distance. But, it does not protect against accidental deletion and dchieve the greatest possible fault tolerance and stability. 
 
 ### 3. Objects 
-Key
+S3 is a simple Key-Value store ==> Object-Based 
+
+  
+
+Term | definition 
+--------|----------
+The key | Name of the object or the file name 
+The value | Data which is made up of a sequence of bytes.
+Metadata | Data about data you are storing (the owner of the data, the project that the file is related to)
+Version ID| for _Versioning_ and S3 does support version control, you can you can keep multiple versions of the same file 
+
+
 Object URL 
+ 
+### 4. CRUD Operation (Add, delete, modify and update objects)
 
-###  CRUD Operation
+- When you upload/add a file into S3, you're going to receive an HTTP 200 code when you use CLI or IPA not the Browser
+- Transfer acceleration is really just a service which allows you to accelerate file transfer speeds when you're uploading lots of files into S3.
 
-  + Operation Add, delete, modify objects
-    ### Data Consistency Model
-      * Read after Write consistency for PUTS (upload object) of new objects: Access the file as soon as you upload the file 
-      * Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate)
-Durability and Availability  
+### Data Consistency Model
+  * Read after Write consistency for PUTS (upload object) of new objects: Access the file as soon as you upload the file 
+  * Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate)
 
-DAmazon S3 Advanced Features
-Beyond the basics, there are some advanced features
-+ Configuration options that you can set on buckets like:
+### 5. Durability and Availability  
+
+Durability: S3 garantees 99.99% of availablity/accessiblity. It refers to the uptime, the amount of time the service is available. Wich is low for such a service 
+
+Durability: S3 guarantees 99.99999999999 durablity. It corresponds to the amount of data that you can expect to lose over a given year. This is way S3 is a safe place
+
+In S3 we can :
+- enable version control (keep multiple historical versions of the same file and roll back if you lost your file)
+- put in safeguards to prevent accidental deletions
+- replicate your data (don't just keep it in one place)
+- have a backup of your data, 
+
+
+### Amazon S3 Advanced Features
+Beyond the basics, there are some advanced features, that you can set on buckets like:
+
+### Storage tiers/Classes 
+
+### Lifecycle - To set rules around moving your data between different storage stages.
+
+![AWS-Data-Lifecycle](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Data-Lifecycle.png)
+
+### Encryption 
+
+### S3 Security 
+By default, all newly created buckets are _Private_ (only the owner of the bucket gets access to the packet and its contents)
+Enable access to your bucket by ==> Bucket Policies or Access control Lists
+The bucket Policiers: 
+- Set of permissions that are granted by a policy and are applies at a bucket level, which means to _all of the objects within the bucket_ (can't attach a bucket policy to an individual object)
+- Bucket Policies are written in JSon
+Access control Lsits - Object level: 
+- Apply different permissions for different objects within a bucket (define which accounts/groups are granted access and also the type of access)
+-  fine grained access control
+
+Track the different access requests that are being made to your S3 objects 
+==> configure access log, all the activities are logged in a file. These logs can be written to another bucket 
+
+
+
 ### Delimiter 
-S3 is a universal namespace, the bucket names must be unique globally and it's similar to a DNS or an Internet Address
+
 ![URL](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Object-adressed-by-URL.png)
 ### Permission
 ### Hosting options
 ### Logging
-### Encryption 
-### Lifecycle
-![AWS-Data-Lifecycle](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Data-Lifecycle.png)
+
+
 ### Trigger events when objects are added/modified/deleted
 ### Preserve older versions of objects
 ### Replicate objects across regions 
@@ -390,10 +446,12 @@ If you want to **get away** from AccessKey and SecretAccessKeys ==> ROLE
 
 
 ### Pricing is based on:
-- Amount of data stored
-- Number of requests
-- Amount of dara transferred
-- Different per region 
+- Amount of data stored per GB
+- Number of requests (Get, Put, Copy,...)
+- Storage Management Pricing (Inventory, Analytics, Objects Tags)
+- Transfer Acceleration (CloudFront to optimize transfers) 
+- Per region 
+- Data Management Pricing (Data Transferred OUt of S3)
 
 ![]()
 
