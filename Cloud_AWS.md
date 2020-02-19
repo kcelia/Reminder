@@ -591,19 +591,39 @@ Dashboard > DNS Management > Hosted Zone > Select_your_Domain > Go To Record Set
 // Alors, que précedement on entrait l'adresse IP 
 ```
 
-## Elasticache 
 
-> Cache your most frequently used queries from your database. Instead of putting it in your database, we put it in _Elastic cache_ and that takes a bit and it takes a lot of load off your production DB.
 
-Elasticache is a web service that makes it easy to deploy, operate and scale and in-memory cache in the cloud.
-The service improves the performance of web applications by allowing you to retrieve information from fast managed in-memory caches instead of relying entirely on slower disk-based databases.
-
-+ Improve latency for many read heavy application workloads (intensive database queries, computationally intensive calculations)
 
 ### Pricing
 Prices depend on the number of created Hosted Zone and the amount of requests 
 ### Health checks 
 
+## Elasticache 
+
+> Purpuse:
+>> Cache your most frequently used queries from your database.  
+Your DB is under a lot of stress/load, read heavy, not prone to frequent changing
+>>> Instead of putting data in your database, we put it in _Elastic cache_ and that takes a bit and it takes a lot of load off your production DB.
+
+- Elasticache is a web service that makes it easy to deploy, operate and scale and in-memory cache in the cloud.
+- The service improves the performance of web applications by allowing you to retrieve information from fast managed in-memory caches instead of relying entirely on slower disk-based databases.
+- Improve latency for many read heavy application workloads (intensive database queries, computationally intensive calculations)
+- ElasticCache supports master/slave replication and Multi-AZ which can be used to achieve cross AZ redundancy, with Redis
+
+### Types of Elasticache
+
+Type of ElastiCache | Memcached | Redis 
+--------------------|-----------|------
+Definition | Widely adopted memory object caching system.ElastiCache is a protocol compliant with Memcached | A popular open-source in-memory key-value store that supports data structures sorted sets and lists
+Difference |  | Multi-AZ
+Simple, Pure caching solutionto offload the DB, no persistence, not concerned about redundancy, scale cache horizontally (provides additional capabilities like automatic node replacement and auto discovery) | Relation DB, persistant, stateful entity, include failover (like AWS RDS does), store advanced data types (lists, hashes, sets), does sorting and ranking datasets in memory (like leaderboards), multi-AZ
+
+Similar on the surface : Both are Cache In-memory key Stores 
+
+### ElastiCache Vs Redshift 
+ElastiCache | Redshift 
+------------|-----------
+If your database is feeling stressed, because management running online analytics processing transactions on it ==> Data Warehousing question | Take stress off your database, because it's very heavy 
 
 ## AWS CloudFormation
 ## AWS OpsWorks
