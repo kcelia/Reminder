@@ -273,8 +273,15 @@ You create the role and attach it to the existing EC2 instance. How fast will th
 - it allows you to store and retrieve any amount of data from anywhere on the web.
 - High availability and disaster recovery (if AWS lose one of their devices/facilities, or there is a faulty device or a faulty datacenter or a faulty availability, the S3 service will still be available)
 - When you upload a file into S3, you're going to receive an HTTP 200 code
+- S3 is a simple key value store 
 
-## How AWS is organized geographically speaking ? 
+
+
+### Amazon Simple Storage Service (Amazon S3) Basics 
+### 1. Bucket ~ folder 
+![AWS-Traditional-IT-Storage-vs-AWS](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Traditional-IT-Storage-vs-AWS.png)
+
+### 2. How AWS is organized geographically speaking ? 
 > Region & Available Zone
 
 ![AWS-Regions-vs-Availability-Zones](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Regions-vs-Availability-Zones.png) 
@@ -292,32 +299,40 @@ Regions are physical locations where certain services are hosted, there are many
 
 > By scaling your application in several AZ, you can achieve nearly unlimited uptime for your application (reduce latency and single points of failure), satisfy compliance requirements on distance. But, it does not protect against accidental deletion and dchieve the greatest possible fault tolerance and stability. 
 
-### Bucket ~ folder 
-![AWS-Traditional-IT-Storage-vs-AWS](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Traditional-IT-Storage-vs-AWS.png)
+### 3. Objects 
+Key
+Object URL 
 
-- Root resource to which you can:
+###  CRUD Operation
+
   + Operation Add, delete, modify objects
-  + Configuration options that you can set on buckets like:
-    ### Delimiter 
-    S3 is a universal namespace, the bucket names must be unique globally and it's similar to a DNS or an Internet Address
-    
-    ![URL](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Object-adressed-by-URL.png)
-    ### Permission
-    ### Hosting options
-    ### Logging
-    ### Encryption 
-    ### Lifecycle
-    ![AWS-Data-Lifecycle](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Data-Lifecycle.png)
-    ### Trigger events when objects are added/modified/deleted
-    ### Preserve older versions of objects
-    ### Replicate objects across regions 
-    Reduce latency (or use another CloudFront Service)
-    * Reduce latency (or use another CloudFront Service) and satisfy compliance
-    * Crossregion replication does not protect against accidental deletion.
-    ### Host Static
-    To alow anonymous/authenticated users acces, use a host static files for websites
-    ### URL
-    Once created, buckets (objects contained within) are accessed via URL
+    ### Data Consistency Model
+      * Read after Write consistency for PUTS (upload object) of new objects: Access the file as soon as you upload the file 
+      * Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate)
+Durability and Availability  
+
+DAmazon S3 Advanced Features
+Beyond the basics, there are some advanced features
++ Configuration options that you can set on buckets like:
+### Delimiter 
+S3 is a universal namespace, the bucket names must be unique globally and it's similar to a DNS or an Internet Address
+![URL](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Object-adressed-by-URL.png)
+### Permission
+### Hosting options
+### Logging
+### Encryption 
+### Lifecycle
+![AWS-Data-Lifecycle](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Data-Lifecycle.png)
+### Trigger events when objects are added/modified/deleted
+### Preserve older versions of objects
+### Replicate objects across regions 
+Reduce latency (or use another CloudFront Service)
+* Reduce latency (or use another CloudFront Service) and satisfy compliance
+* Crossregion replication does not protect against accidental deletion.
+### Host Static
+To alow anonymous/authenticated users acces, use a host static files for websites
+### URL
+Once created, buckets (objects contained within) are accessed via URL
 
 
 ### Connection EC2 with CLI
