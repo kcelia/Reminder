@@ -591,6 +591,15 @@ Dashboard > DNS Management > Hosted Zone > Select_your_Domain > Go To Record Set
 // Alors, que précedement on entrait l'adresse IP 
 ```
 
+## Elasticache 
+
+> Cache your most frequently used queries from your database. Instead of putting it in your database, we put it in _Elastic cache_ and that takes a bit and it takes a lot of load off your production DB.
+
+Elasticache is a web service that makes it easy to deploy, operate and scale and in-memory cache in the cloud.
+The service improves the performance of web applications by allowing you to retrieve information from fast managed in-memory caches instead of relying entirely on slower disk-based databases.
+
++ Improve latency for many read heavy application workloads (intensive database queries, computationally intensive calculations)
+
 ### Pricing
 Prices depend on the number of created Hosted Zone and the amount of requests 
 ### Health checks 
