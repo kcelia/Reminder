@@ -278,16 +278,19 @@ You create the role and attach it to the existing EC2 instance. How fast will th
 ### Amazon Simple Storage Service (Amazon S3) Basics 
 
 ### 1. Bucket ~ folder 
+
 ![AWS-Traditional-IT-Storage-vs-AWS](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Traditional-IT-Storage-vs-AWS.png)
 
-S3 is a universal namespace, the bucket names must be unique globally and it's similar to a DNS or an Internet Address
+- S3 is a universal namespace, the bucket names must be unique globally and it's similar to a DNS or an Internet Address
 ![Bucket-name]()
-
-Subresources - Bucket specific configuration
-
-Bucket policies, Access control Lists: Ways to control access to the contents of your pocket.
+- Subresources - Bucket specific configuration
+- Bucket policies, Access control Lists: Ways to control access to the contents of your pocket.
 Cross Origin Ressource sharing (CORS): Setting up the capability for files that were located in one bucket to access the files within another bucket 
 
+#### 1.1 Create Bucket 
+![Upload-Bucket]()
+#### 1.2 Add Folder Whithin Bucket
+``` Select buckt > Create Folder > Fill out ``` 
 
 ### 2. How AWS is organized geographically speaking ? 
 > Region & Available Zone
@@ -311,7 +314,11 @@ Regions are physical locations where certain services are hosted, there are many
 ### 3. Objects 
 S3 is a simple Key-Value store ==> Object-Based 
 
-  
+#### Create Object
+![Create-Bucket]()
+
+ #### 1.3 Open an object
+![Open-Object]()
 
 Term | definition 
 --------|----------
@@ -321,7 +328,7 @@ Metadata | Data about data you are storing (the owner of the data, the project t
 Version ID| for _Versioning_ and S3 does support version control, you can you can keep multiple versions of the same file 
 
 
-Object URL 
+Object URL  ?????????????
  
 ### 4. CRUD Operation (Add, delete, modify and update objects)
 
@@ -355,12 +362,53 @@ Beyond the basics, there are some advanced features, that you can set on buckets
 ![AWS-Data-Lifecycle](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Data-Lifecycle.png)
 
 ### Encryption 
+There are 2 different types of encryption:
+1. Encryption in Transit:
+- Encrypting the data that you are sending to (upload) and from (download) your packets over the network 
+- It is done, using SSL or Transport Layer Security (better then SSL)
+- It uses HTTPS Protocol to upload and download the file
+1. Encryption at rest:
+  1.1 Server Side Encryption: There are 3 different types of encryption for Server Side Encryption
+  + S3 Managed Keys - SSE-S3 
+    * Object is encrypted with its own unique K using strong multi-factor encryption.
+    * An additional step, AWS also encrypts the key itself with the masticate which then they then regularly rotate for you.
+    * AWS manages the keys for you
+    * It's all a 256 bit
+  + Key Management Service, Managed Keys, SSE-KMS
+    * AWS managed the key for you
+    * It gives an added level of protection against unauthorized access (add an additional key "Envelope key" which encrypts you  data's encryption key)
+    * Gives an audit trail, which records the use of your encryption keys 
+    * You can use your own key or the default key  
+  + Server side Encryption with Customer Provided Keys - SSE-C  
+    * AWS manages the encryption and decryption activities
+    * You're in charge of administering those keys or rotating them  and lifecyrcle of those keys (you manage your own keys)
+    
+  1.1 Client Side Encryption:
+    - The client encrypts his files locally by his own before uploading into S3
+    - The client choses his own encryption methodology 
+
+If you want to enforce the use of encryption for your files in S3, use a **Bucket Policy** to deny all PUT requests that don't include the **w-amz-server-side-encryption** parameter in the request header 
+
+![Force-Encryption]()
+
+Create a new S3 Bucket, then add a _policy_ to **enforce** the use of _Server Side Encryption_
+
+![]()
+
 
 ### S3 Security 
 By default, all newly created buckets are _Private_ (only the owner of the bucket gets access to the packet and its contents)
 Enable access to your bucket by ==> Bucket Policies or Access control Lists
 The bucket Policiers: 
 - Set of permissions that are granted by a policy and are applies at a bucket level, which means to _all of the objects within the bucket_ (can't attach a bucket policy to an individual object)
+
+```Bash
+
+Service > Storage > S3 > Create Bucket 
+
+
+```
+
 - Bucket Policies are written in JSon
 Access control Lsits - Object level: 
 - Apply different permissions for different objects within a bucket (define which accounts/groups are granted access and also the type of access)
