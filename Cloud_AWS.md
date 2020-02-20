@@ -445,9 +445,44 @@ Track the different access requests that are being made to your S3 objects ==> c
 
 
 
-CROS: It's a way of allowing code that is in one S3 pocket to access or reference code that is in another S3 bucket.
+### Cross Origin Resource Sharing (CROS): 
+
+Allowing one resource to access another resource. Exemple, allowing code that is in one S3 pocket to access or reference code that is in another S3 bucket.
+- Good way to organize your Web site 
+
+> Static Website Hosting 
+
+### Access to files which are located in one signle bucket via Static Website Hosting
+
+### Step 1: Create a Public Pucket & Static WebSite Hosting
+
+```HTML
+Service > S3 > Create a PUBLIC Bucket
+// Step Set Permission: Uncheck all of the public access protection 
+Select Bucket > Properties > Static Website Hosting 
+```
+### Step 2: Upload file to this bucket
+
+Upload files to the bucket and Grand Pulic read access to this bucket 
+
+![files]()
+
+### Step 3: Access the page via EndPoint URL 
+
+If all our files have loaded successfully we should be able to access them as though they were a Web site.
 
 
+### Access to files which are located in different buckets via Static Website Hosting
+
+### Step 1: Create 2 public Buckets
+### Step 2: Upload files in the 2 backets 
+
+- Update the path of the file
+ - Grant public read access to all files 
+ 
+ <!> An error message can appear: Failed to load ressources (even if the bucket is public) 
+
+![]()
 
 ### Delimiter 
 
