@@ -289,10 +289,11 @@ Cross Origin Ressource sharing (CORS): Setting up the capability for files that 
 
 #### 1.1 Create Bucket 
 ![Upload-Bucket]()
+
 #### 1.2 Add Folder Whithin Bucket
 ``` Select buckt > Create Folder > Fill out ``` 
 
-### 2. How AWS is organized geographically speaking ? 
+#### 2. How AWS is organized geographically speaking ? 
 > Region & Available Zone
 
 ![AWS-Regions-vs-Availability-Zones](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Regions-vs-Availability-Zones.png) 
@@ -314,18 +315,18 @@ Regions are physical locations where certain services are hosted, there are many
 ### 3. Objects 
 S3 is a simple Key-Value store ==> Object-Based 
 
-#### Create Object
+#### 3.1. Create an object
 ![Create-Bucket]()
 
- #### 1.3 Open an object
+#### 3.2. Open an object
 ![Open-Object]()
 
-Term | definition 
---------|----------
-The key | Name of the object or the file name 
+Term      | Definition 
+----------|----------
+The key   | Name of the object or the file name 
 The value | Data which is made up of a sequence of bytes.
-Metadata | Data about data you are storing (the owner of the data, the project that the file is related to)
-Version ID| for _Versioning_ and S3 does support version control, you can you can keep multiple versions of the same file 
+Metadata  | Data about data you are storing (the owner of the data, the project that the file is related to)
+Version ID| For _Versioning_ and S3 does support version control, you can you can keep multiple versions of the same file 
 
 
 Object URL  ?????????????
@@ -333,7 +334,7 @@ Object URL  ?????????????
 ### 4. CRUD Operation (Add, delete, modify and update objects)
 
 - When you upload/add a file into S3, you're going to receive an HTTP 200 code when you use CLI or IPA not the Browser
-- Transfer acceleration is really just a service which allows you to accelerate file transfer speeds when you're uploading lots of files into S3.
+- Transfer acceleration is really just a service which allows you to accelerate file transfer speeds when you're uploading lots of files into S3
 
 ### Data Consistency Model
   * Read after Write consistency for PUTS (upload object) of new objects: Access the file as soon as you upload the file 
@@ -341,9 +342,9 @@ Object URL  ?????????????
 
 ### 5. Durability and Availability  
 
-Durability: S3 garantees 99.99% of availablity/accessiblity. It refers to the uptime, the amount of time the service is available. Wich is low for such a service 
+***Durability***: S3 garantees 99.99% of availablity/accessiblity. It refers to the uptime, the amount of time the service is available. Wich is low for such a service 
 
-Durability: S3 guarantees 99.99999999999 durablity. It corresponds to the amount of data that you can expect to lose over a given year. This is way S3 is a safe place
+***Durability***: S3 guarantees 99.99999999999 durablity. It corresponds to the amount of data that you can expect to lose over a given year. This is way S3 is a safe place
 
 In S3 we can :
 - enable version control (keep multiple historical versions of the same file and roll back if you lost your file)
@@ -367,8 +368,8 @@ There are 2 different types of encryption:
 - Encrypting the data that you are sending to (upload) and from (download) your packets over the network 
 - It is done, using SSL or Transport Layer Security (better then SSL)
 - It uses HTTPS Protocol to upload and download the file
-1. Encryption at rest:
-  1.1 Server Side Encryption: There are 3 different types of encryption for Server Side Encryption
+2. Encryption at rest:
+  2.1 Server Side Encryption: There are 3 different types of encryption for Server Side Encryption
   + S3 Managed Keys - SSE-S3 
     * Object is encrypted with its own unique K using strong multi-factor encryption.
     * An additional step, AWS also encrypts the key itself with the masticate which then they then regularly rotate for you.
@@ -382,8 +383,7 @@ There are 2 different types of encryption:
   + Server side Encryption with Customer Provided Keys - SSE-C  
     * AWS manages the encryption and decryption activities
     * You're in charge of administering those keys or rotating them  and lifecyrcle of those keys (you manage your own keys)
-    
-  1.1 Client Side Encryption:
+  2.2 Client Side Encryption:
     - The client encrypts his files locally by his own before uploading into S3
     - The client choses his own encryption methodology 
 
@@ -393,7 +393,40 @@ If you want to enforce the use of encryption for your files in S3, use a **Bucke
 
 Create a new S3 Bucket, then add a _policy_ to **enforce** the use of _Server Side Encryption_
 
-![]()
+There are 2 ways to enable encryption:
+1. Enable encryption via the _console_ 
+
+`Services > S3 > Create Bucket: Enable Ecryption > ... `
+![Create-Bucket-Enable-Encryption]()
+
+2. Enforce encryption on your S3 packet by using an _S3 Bucket Policy_
+```
+Services > S3 > Create Bucket: Do not Enable Ecryption > ... 
+
+... > Select_Bucket > Permission > Buket Policy > Generate Policy 
+
+// Type of Policy: S3 Bucket Plicy 
+// Effect: Deny
+// Principal: *
+// AWS Services: Amazon S3 
+// Actions: PUTobject
+// Amazon Ressource Name: ARN (Bucket Name)
+
+> Add Condition
+Condition: Select: StringNotEquals
+Key: Select: S3-amz-server-side-encryption
+Value: Choose between ESA256 or ams:kms
+
+> add condition > add statement > generate policy > Copy code - Paste
+
+// Remarque: You may have an error when you use the policy editor
+// Look at the resource section, which is the Amazon resource name 
+// Some services do not let you specify specific actions for individual resources. 
+// So, add "/*" at the end of the ARN (means that the action will apply to all resources within that service, not just that bucket)
+
+// Create an object and select the RIGHT ecryption method. 
+// Otherwise, it will raise an error, S3 forbids any attempts to upload a file without using the specified method of encryption.
+```
 
 
 ### S3 Security 
