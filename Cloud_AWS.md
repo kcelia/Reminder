@@ -352,7 +352,6 @@ In S3 we can :
 - replicate your data (don't just keep it in one place)
 - have a backup of your data, 
 
-
 ### Amazon S3 Advanced Features
 Beyond the basics, there are some advanced features, that you can set on buckets like:
 
@@ -363,6 +362,7 @@ Beyond the basics, there are some advanced features, that you can set on buckets
 ![AWS-Data-Lifecycle](https://github.com/kcelia/Reminder/blob/master/Image_AWS/AWS-Data-Lifecycle.png)
 
 ### Encryption 
+
 There are 2 different types of encryption:
 1. Encryption in Transit:
 - Encrypting the data that you are sending to (upload) and from (download) your packets over the network 
@@ -428,27 +428,24 @@ Value: Choose between ESA256 or ams:kms
 // Otherwise, it will raise an error, S3 forbids any attempts to upload a file without using the specified method of encryption.
 ```
 
-
 ### S3 Security 
 By default, all newly created buckets are _Private_ (only the owner of the bucket gets access to the packet and its contents)
-Enable access to your bucket by ==> Bucket Policies or Access control Lists
+Enable access to your bucket by ==> Bucket Policies or Access control Lists.
+
 The bucket Policiers: 
 - Set of permissions that are granted by a policy and are applies at a bucket level, which means to _all of the objects within the bucket_ (can't attach a bucket policy to an individual object)
-
-```Bash
-
-Service > Storage > S3 > Create Bucket 
-
-
-```
-
 - Bucket Policies are written in JSon
-Access control Lsits - Object level: 
-- Apply different permissions for different objects within a bucket (define which accounts/groups are granted access and also the type of access)
--  fine grained access control
 
-Track the different access requests that are being made to your S3 objects 
-==> configure access log, all the activities are logged in a file. These logs can be written to another bucket 
+Access control Lits - Object level: 
+- Apply different permissions for different objects within a bucket (define which accounts/groups are granted access and also the type of access)
+- Fine grained access control
+
+Track the different access requests that are being made to your S3 objects ==> configure access log, all the activities are logged in a file. These logs can be written to another bucket 
+
+
+
+
+CROS: It's a way of allowing code that is in one S3 pocket to access or reference code that is in another S3 bucket.
 
 
 
