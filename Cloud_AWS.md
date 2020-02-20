@@ -843,10 +843,31 @@ ElastiCache | Redshift
 ------------|-----------
 If your database is feeling stressed, because management running online analytics processing transactions on it ==> Data Warehousing question | OLAP - Take stress off your database, because it's very heavy 
 
+
+## CloudFront 
+
+- A Content Delivery Network (CDN) is a system of distributed servers or a network of distributed servers that deliver web pages on other web content to users based on the geographic location of the user, the origin of the webpage and a content delivery server.
+- Cached objects are deleted after period of time "Time to live" or you can clear on your own 
+
+> Edge Locations:  a collection of servers which are in a geographically dispersed datacenters
+
+#### CloudFront vs Transfer Acceleration
+
+CloudFront focus on content delivery (allowing more efficient leads and downloads)
+Transfer acceleration utilizes CloudFront Technology and is all about enabling faster uploads into S3
+  
+Upsides:
+- A web service which speeds up the distribution of your static and dynamic web content.
+- Which is much closer geographically than the main server 
+- Improves the performance time 
+- It gives you lower latency and higher transfer rights as well
+
+![]()
+
 ## AWS CloudFormation
 ## AWS OpsWorks
-## CloudFront 
-To edge files to users to Reduce Latency 
+
+
 ## Amazon VPC
 To controll access and secure you instances 
 - AWS Identity and Access Management (IAM) 
