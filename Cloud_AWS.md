@@ -284,9 +284,10 @@ You create the role and attach it to the existing EC2 instance. How fast will th
 
 - S3 is a universal namespace, the bucket names must be unique globally and it's similar to a DNS or an Internet Address
 ![Bucket-name]()
-- Subresources - Bucket specific configuration
+- Subresources - Bucket specific configuration 
 - Bucket policies, Access control Lists: Ways to control access to the contents of your pocket.
-Cross Origin Ressource sharing (CORS): Setting up the capability for files that were located in one bucket to access the files within another bucket 
+- Cross Origin Ressource sharing (CORS): Setting up the capability for files that were located in one bucket to access the files within another bucket 
+- Access log: Keep records of all the different requests made to the S3 bucket. It is configured on the bucket and written in the same bucket or another bucket
 
 #### 1.1 Create Bucket 
 ![Upload-Bucket]()
@@ -315,6 +316,16 @@ Regions are physical locations where certain services are hosted, there are many
 
 ### 3. Objects 
 S3 is a simple Key-Value store ==> Object-Based 
+
+### The core  fundamentales of an S3 object: 
+- Key(name), 
+- Value(data), 
+- Version ID, 
+- Metadata, 
+- Subresources (used to manage bucket-specific configuration)
+  + Bucket policiers (applied at a bucket level), ACLs(applied at an object level):  (access to the bucket and the content)
+  + CORS (access ressource)
+  - Transfer Acceleration (CLoudFront)
 
 #### 3.1. Create an object
 ![Create-Bucket]()
@@ -385,8 +396,10 @@ There are 2 different types of encryption:
     * AWS manages the encryption and decryption activities
     * You're in charge of administering those keys or rotating them  and lifecyrcle of those keys (you manage your own keys)
   2.2 Client Side Encryption:
-    - The client encrypts his files locally by his own before uploading into S3
+    - The client encrypts his files locally by his own  Key before uploading into S3
+    - AWS just take care of the encryption and decryption process (they decrypt the file that you read)
     - The client choses his own encryption methodology 
+    - The client manages his key (rotating, lifecycle)
 
 If you want to enforce the use of encryption for your files in S3, use a **Bucket Policy** to deny all PUT requests that don't include the **w-amz-server-side-encryption** parameter in the request header 
 
