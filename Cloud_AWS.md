@@ -16,6 +16,7 @@ In 2006, Amazon Web Services, Inc. (AWS) began offering IT infrastructure servic
 Amazon du site e-commerce, qui pour ses propres besoins a faire une plateform de cloud en interne As a Service, puis l'ont offert au public "Simple Storage Service - S3"/blob storage / service fiable 
 
 
+
 ## Cloud Computing
 
 Le National Institute of Standard Technology (NIST) définit le CC comme 
@@ -503,7 +504,13 @@ To alow anonymous/authenticated users acces, use a host static files for website
 ### URL
 Once created, buckets (objects contained within) are accessed via URL
 
+### Performance S3
+Performance: 3500 PUT (upload) requests per seconde, 5500 GET requests per seconde
 
+1. Randomize your object keynames to achieve faster performance
+1. CloudFront 
+
+![S3-Performance]()
 ### Connection EC2 with CLI
 
 Install the CLI on your PC
@@ -554,9 +561,6 @@ If you want to **get away** from AccessKey and SecretAccessKeys ==> ROLE
 1.3 Via Role
 
 `Service > IAM`
-
-
-
 
 ### Pricing is based on:
 - Amount of data stored per GB
@@ -856,10 +860,11 @@ A collection of servers which are in a geographically dispersed datacenters
 #### Type of CLD
 Type of CLD |WEB | RTMP
 ----|-----|-----
-DEF | Speed up distribution of static and dynamic content for exemple HTML, CSS, PHP,  GRACHICS FILE  | Speed up distribution of streaming media 
-Using | Distribute Media files using HTTP or HTTPS | Adobe Flash Media, Server's RTMP Protocol
-Using | Add, Update, or delete object, and submit data from web forms | RTMP distribution allows an end user to begin playing a media file before the file has finished downloading from CF EL
-Using | Use Live Streaming to stream an event in real time | -  
+For | Websites | Media Streaming
+Speed up | Distribution of static and dynamic content (HTML, CSS, PHP, GRACHICS FILE)  | Distribution of streaming media 
+Distribution |  Media files using HTTP or HTTPS | Media using Adobe Flash Media, Server's RTMP Protocol
+Operations/Permissions | Add, Update, or delete object, and submit data from web forms | RTMP distribution allows an end user to begin playing a media file before the file has finished downloading from CF EL
+Others | Use Live Streaming to stream an event in real time | -  
 Storage support | S3 Bucket or WebServer | S3 Bucket
 
  
@@ -892,8 +897,26 @@ Services > Networking & content delivery > CloudFront
 
 ### Create CloudFront Distribution (CFD)
 
-Create distribution > Select_type_of_CFD
+Create distribution > Select_type_of_CFD: Web
 
+![Creat-Web-CloudFront-distribution]()
+
+Remarque: It does take a while to get the distribution created, around 15 to 20 minutes
+Because it's provisioning/replicating your distribution (lot to push) to different EL all around the world (over 25 countries)
+
+![]()
+
+![inside-CF]()
+
+Accessing the file using CFD
+Services > S3 > lect-my-bucket: CopyeLink
+// Make the file private
+// USE Distribution Domain Name as a prifixe to our file link
+// The first time, it will still slow (not cached, yet), use another device or browser and it will be fast 
+
+Questions: 
+
+Paid for content: Accessing content that you're selling on a Website and restricting that only to users who have paid for the content then, use signed URL or signed Cookies
 
 
 ## AWS CloudFormation
