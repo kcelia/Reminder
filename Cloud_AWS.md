@@ -848,9 +848,21 @@ If your database is feeling stressed, because management running online analytic
 
 - A Content Delivery Network (CDN) is a system of distributed servers or a network of distributed servers that deliver web pages on other web content to users based on the geographic location of the user, the origin of the webpage and a content delivery server.
 - Cached objects are deleted after period of time "Time to live" or you can clear on your own 
+- a cloud front distribution
+### Edge Locations:  
+A collection of servers which are in a geographically dispersed datacenters
+![]() 
 
-> Edge Locations:  a collection of servers which are in a geographically dispersed datacenters
+#### Type of CLD
+Type of CLD |WEB | RTMP
+----|-----|-----
+DEF | Speed up distribution of static and dynamic content for exemple HTML, CSS, PHP,  GRACHICS FILE  | Speed up distribution of streaming media 
+Using | Distribute Media files using HTTP or HTTPS | Adobe Flash Media, Server's RTMP Protocol
+Using | Add, Update, or delete object, and submit data from web forms | RTMP distribution allows an end user to begin playing a media file before the file has finished downloading from CF EL
+Using | Use Live Streaming to stream an event in real time | -  
+Storage support | S3 Bucket or WebServer | S3 Bucket
 
+ 
 #### CloudFront vs Transfer Acceleration
 
 CloudFront focus on content delivery (allowing more efficient leads and downloads)
@@ -863,6 +875,26 @@ Upsides:
 - It gives you lower latency and higher transfer rights as well
 
 ![]()
+1. Step 1: Create Bucket and add files
+Services > S3 > Create Bucket 
+// Create a pocket in place that's the most furthest away from where you are
+// Public Bucket: Deselect all the boxe in "Set Permission"
+// Add a Pulic file, grand public acces  
+// The upload is not immediate, beacause we are transferring it over the other side of the world
+// Open the file via the LINK, it takes ages to load it, like it would normally be if we stored it in a local bucket
+// CloudFront comes in
+
+
+
+Step 2: CloudFront 
+
+Services > Networking & content delivery > CloudFront
+
+### Create CloudFront Distribution (CFD)
+
+Create distribution > Select_type_of_CFD
+
+
 
 ## AWS CloudFormation
 ## AWS OpsWorks
