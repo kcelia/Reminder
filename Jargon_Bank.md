@@ -17,15 +17,37 @@ Il existe 3 types de banque, qui jouent un rôle dans le financement de l'écono
   
 Les banques sont encadrées par l'autorité publique, qui leur impose des règles dites prudentielles (eg. disposer d'un fond propre...).
 
-**Actoin**: 
-- Titre de propriété
-- On devient actionnaire et donc propriétaire d'une partie de l'entreprise
-- On dispose d'un droit de regard sur l'entreprise via le droit de vote, exprimé lors des assemblé générale
-- La rémunération/bénéfice est le droit est la dividande 
-
 **Client solvable**: est un client qui est en mesure de rembourser l'emprunt.
 
-**Obligation** : Tire de créance, on devient créancier/Emetteur, on prete de l'argent en échange d'une rémunération connue à l'emprunteur (Etat/Client/Entreprise).
+## 3 types d'actifs:
+- On peut investir sur 3 types d'actifs
+- Ils comprennent différentes opportunités et différents niveaux de risques
+
+1. **Actoin**: 
+- Certificat/Titre de propriété
+- On devient actionnaire et donc propriétaire d'une partie de l'entreprise
+- On dispose d'un droit de regard sur l'entreprise via le droit de vote, exprimé lors des assemblé générale
+- La rémunération/prtage des bénéfices avec les actionnaires  en versant des dividandes. Si l'entreprise fait des pertes, aucun dividande n'est versé ou le cours de l'action chute
+
+1. **Obligation** / Titre à revenu fixe:
+- Pas de titre de propriété
+- Prêter l'argent à son émetteur pour une durée déterminée (échéance/maturité) en échange d'une rémunération / intêret connue 
+- Retour de l'argent avec intêret
+- Les prix des obligations sont plus stables que celui des actions.
+- Tire de créance, on devient créancier/Emetteur, l'emprunteur (Etat/Client/Entreprise).
+Dette: à 3 composantes principales: Principal (montant), échéance/maturité (durée de vie du prêt)
+1. Actif Immobilier: 
+- Immeuble / terrain
+
+### Fond d'investissement / organisme de placement collectif:
+
+Context: Acheter des parts dans plusieurs entreprises pour _répartir les risques_ --> Limite de l'investissement indivuel --> Engager un professionnel _gestionnaire de fond_ pour la gestion du portefeuil.
+
+Des milliers d'investisseurs individuels ou ... mettent en commun leur argent et investissent ensemble dans divers actifs (actions + obligations). L'argent / actif du fond est géré par des sociétés de gestion professionnelle.
+
+Les organismes publics de réglementation supervisent les fonds d'investissement + la société de gestion.
+
+
 
 ### Vocabulaire Fr/An
 - Prêt: Loan /lawn/, Prêter: To loan, to lend, Accorder un prêt: To grant a loan, to make a loan 
@@ -47,7 +69,7 @@ Autorisation de découvert: Overdraft Facilities
 - Retrait: Withdrawal, Retier: To withdraw
 - Mensualité: Monthly Installment
 - Paiement par versements échelonnées: Payment by installments
-- 
+
 Solder un compte: Fermer un compte
 Endosser un chèque: Signer au dos du chèque 
 
