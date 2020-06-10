@@ -35,7 +35,10 @@ Les banques sont encadrées par l'autorité publique, qui leur impose des règle
 - Retour de l'argent avec intêret
 - Les prix des obligations sont plus stables que celui des actions.
 - Tire de créance, on devient créancier/Emetteur, l'emprunteur (Etat/Client/Entreprise).
-Dette: à 3 composantes principales: Principal (montant), échéance/maturité (durée de vie du prêt)
+Dette: à 3 composantes principales: Principal (montant), échéance/maturité (durée de vie du prêt), taux d'intrêret. 
+
+Banque des entreprises ~ Banque des investissements.
+
 1. Actif Immobilier: 
 - Immeuble / terrain
 
