@@ -88,11 +88,11 @@ __***italique gras souligné***__
 
 ### Image:
 
-![Alt Text](url)
+`![Alt Text](url)`
 
 ### Lien:
 
-[item](URL)-  Lien cliquable!
+`[item](URL)` -  Lien cliquable!
 
 [GitHub](http://github.com) -- http://github.com est remplacé par GitHub
 
