@@ -6,7 +6,7 @@ Vous pouvez utiliser Markdown avec: Gists, Fichiers avec l' extension .mdou ou .
 
 ### En-têtes:
 
-Vous pouvez utiliser un "#" jusqu'à "######" six pour différentes tailles de titres.
+Vous pouvez utiliser un "#" jusqu'à "######" six pour différentes tailles de titresou les signes = et -.
 
 ### Citations:
 
@@ -66,17 +66,17 @@ import numpy as np
 
 #### Italique:
 
-_italic_, avec _
- 
-*italic*, avec *
+_italic_ ou *italic*, avec _ ou *
 
 #### Gras:
 
- **gras**
+ **gras** ou __gras__ avec ** ou __
 
 #### Souligné:
 
-__souligné__
+En utilisant HTML:
+
+<u>souligné</u> avec <u> et <u/>
 
 ## Italique, Gras et Souligné:
 
