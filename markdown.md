@@ -88,11 +88,11 @@ __***italique gras souligné***__
 
 ### Image:
 
-`![Alt Text](url)`
+`![Item](URL)`
 
 ### Lien:
 
-`[item](URL)` -  Lien cliquable!
+`[Item](URL)` -  Lien cliquable!
 
 [GitHub](http://github.com) -- http://github.com est remplacé par GitHub
 
@@ -103,10 +103,11 @@ __***italique gras souligné***__
 ```
 #Tableau
 
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
+First Header | Second Header | Third Header
+------------ | :------------:|------------:
+Everything on the _left_ | Everything is _centred_ | Everything on the _right_
+-- | :--: | --:
+
 
 ### Emoji:
 
