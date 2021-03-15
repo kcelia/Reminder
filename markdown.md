@@ -74,9 +74,9 @@ _italic_ ou *italic*, avec _ ou *
 
 #### Souligné:
 
-En utilisant HTML:
+Dans jupyter en utilisant HTML avec <u> et <u/>:
 
-<u>souligné</u> avec <u> et <u/>
+<u>souligné</u>
 
 ## Italique, Gras et Souligné:
 
@@ -84,17 +84,15 @@ __***italique gras souligné***__
 
 ## Barré:
 
-~~this~~
+~~this~~ avec ~~
 
 ### Image:
 
-![Raccourci](/Path.format)
-
-Format: ![Alt Text](url)
+![Alt Text](url)
 
 ### Lien:
 
-http://github.com -  Lien cliquable!
+[item](URL)-  Lien cliquable!
 
 [GitHub](http://github.com) -- http://github.com est remplacé par GitHub
 
