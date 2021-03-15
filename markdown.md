@@ -135,6 +135,11 @@ Exemples:
 + != : ≠
 + +/- : ±
 
+### LATEX
+
+$x+ y$
+
+
 ## Create a folder via graphical interface
 
 `Create_file > my_folder/.gitkeep > Create_file`
