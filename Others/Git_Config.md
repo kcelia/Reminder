@@ -26,14 +26,14 @@
 ## Configuration Git:
 
 ```
-$ git config --global color.diff auto
-$ git config --global color.status auto
-$ git config --global color.branch auto
-$ git config --global user.name "kcelia"
-$ git config --global use.email "kherfallah_celia@hotmail.fr
-$ git help config
-$ git config --list    // Savoir ce qui a été configuré
-$ git remote -v        // Connaitre l'URL
+git config --global color.diff auto
+git config --global color.status auto
+git config --global color.branch auto
+git config --global user.name "kcelia"
+git config --global use.email "kherfallah_celia@hotmail.fr
+git help config
+git config --list    // Savoir ce qui a été configuré
+git remote -v        // Connaitre l'URL
 ```
 
 # Steps
@@ -41,64 +41,64 @@ $ git remote -v        // Connaitre l'URL
 1. Init (Depuis la console, se placer dans le dossier souhaité): 
 
     ```  
-    $ git init         // Init le versionning
-    $ git clone URL    // Cloner un dépôt existant: ou Créer un nouveau dépôt
+    git init         // Init le versionning
+    git clone URL    // Cloner un dépôt existant: ou Créer un nouveau dépôt
     ```
     
 1. Add:
 
     ```
-    $ git add fic1 fic2 
-    $ git add --all      // Recommader à : git add folder/*
-    $ git add *.html        
+    git add fic1 fic2 
+    git add --all      // Recommader à : git add folder/*
+    git add *.html        
     ```
 
 1. Commit 
 
     ```
-    $ git commit -m         // Commit est local
+      git commit -m         // Commit est local
                             // m: commentaires 
                             // Commiter tous les fichiers listés dans _git status_ dans les colonnes 
                             // «Changes to be committed» et «Changed but not updated» (vert ou rouge)
 
-    $ git commit fic1 fic2  // Pour indiquer lors du commit quels fichiers précis doivent être «commités»
+      git commit fic1 fic2  // Pour indiquer lors du commit quels fichiers précis doivent être «commités»
     ```
 
 1. Push:
 
     ```
-    $ git push origin master_                             // Les envoyer sur le serveur
-    $ git branch --set-upstream-to=origin/master master_
-    $ git push
+    git push origin master_                             // Les envoyer sur le serveur
+    git branch --set-upstream-to=origin/master master_
+    git push
     ```
 
 1. Pull:
 
-    `$ git pull   // Récupérer du serveur`
+    `git pull   // Récupérer du serveur`
 
 1. Affichage:
 
     ```
-    $ git status      // Etat du repertoire
-    $ git log -n 2    // Lister les 2 derniers commits
-    $ git log --stat  // Résumer plus court des commits
-    $ git diff        // Affiche un diff etre le (working directory) et l’index (staging area) ou dans le repository. 
+    git status      // Etat du repertoire
+    git log -n 2    // Lister les 2 derniers commits
+    git log --stat  // Résumer plus court des commits
+    git diff        // Affiche un diff etre le (working directory) et l’index (staging area) ou dans le repository. 
                       // Dès qu’on fait _git add_ sur un fichier modifié, il n’apparait plus dans le diff
     ```
 
 ## Branch 
 
 ```
-   $ git checkout -b my_branch  // Création de la branche et on se met dessus
+   git checkout -b my_branch  // Création de la branche et on se met dessus
    // ou 
-   $ git branch my_branch       // Création de la branche
-   $ git branch 
+   git branch my_branch       // Création de la branche
+   git branch 
    * master                     // Branche intiale sur laquelle on se trouve
      my_branch
    
-   $ git checkout my_branch     // Se déplacer sur la branche
+   git checkout my_branch     // Se déplacer sur la branche
    Switched to branch 'my_branch'
-   $ git branch 
+   git branch 
      master     
    * my_branch
 ```
@@ -116,49 +116,49 @@ Ligne rouge           // Version dans la branche actuelle
 Ligne bleu            // Version dans une autre branche 
 >>>>>>>>>>> my_branch // Balise fermante 
 
-   $ git add . 
-   $ git commit            // Sans -m, on peut prendre le message par défaut de merge
+   git add . 
+   git commit            // Sans -m, on peut prendre le message par défaut de merge
 
 // Scénario: Des motifications ont été apportées à la branche my_branch
   
-   $ git branch master     // On se place sur la branche master
-   $ git merch my_branch   // Commit se fait automatiquement 
+   git branch master     // On se place sur la branche master
+   git merch my_branch   // Commit se fait automatiquement 
    
 // Conflict --> A regler manuellement 
    
-   $ git add .
-   $ git commit -m "fix conflict"
+   git add .
+   git commit -m "fix conflict"
 ```
 
 ## Git Checkout 
 
 ```
-$ ls
+ls
    File.txt
-$ vim File.txt
+vim File.txt
 
-$ git status
+git status
    Modified File.txt
 
-$ git checkout File.txt
+git checkout File.txt
 
-$ git status
+git status
    Nothing to commit
 ```   
 
 ```Bash
-$ git add file.txt
+git add file.txt
 // Sans le commit 
-$ git reset HEAD file.txt
+git reset HEAD file.txt
 // Retour à la version précédente 
 
-$ git add file.txt
-$ git commit -m "commit"
-$ git reset HEAD~1 // Revient à la version t-1
+git add file.txt
+git commit -m "commit"
+git reset HEAD~1 // Revient à la version t-1
 
 // CASE:
-$ git reset --hard HEAD~1
-$ git status
+git reset --hard HEAD~1
+git status
    Nothing to commit
    
 ```
