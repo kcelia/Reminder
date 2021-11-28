@@ -2,11 +2,11 @@
 
 ### Shell programming: 
 
-Mini programming language integrated in all Linux systems. So, no configuration is required for installation or compilation. All commands used in shell scripts are system commands. You just need an editor (Vi, Vim, emacs,...)
+Mini programming language integrated in all Linux systems. So, no configuration is required for installation or compilation. All commands used in shell scripts are system commands. You just need an editor (Vi, Vim, emacs,...).
 
 In shell scripts, the shell acts as an interpreter and executes the commands sequentially.
 
-**DRY** stands  for "Don't Repeat Yourself_
+**DRY** stands  for _Don't Repeat Yourself_.
 
 
 ### Different _shells_ 
@@ -25,17 +25,39 @@ zsh (Z Shell) | Shell assez récent reprenant les meilleures idées de bash, ksh
 
 ## Vim
 
-**Vim** est une version améliorée de l'un des plus anciens éditeurs en console : **Vi**
+**Vim** is an enhanced version of **Vi**.
 
-On débute avec le mode **interactif** avec _Vim_.
+vim has 2 main mode: 
+- **I**nsert mode: `ESC + i` you type text 
+- Command: undo, redo, find and replace, quit, etc.
 
-Le mode interactif ne permet pas de rentrer du texte mais de faire des opérations sur du texte. Appuyez sur "i" pour passer en mode insertion et rentrer ainsi du texte.
 
-Exit without saving: `:q!`
+``` 
+vimtuto fr       ## Open tutorial in french
 
-Exit with saving :  `INSET` + ... + `ECHAP` + `:wq`
+ESC + :q!        ## Exit without saving
+ESC + :wq        ## Exit with saving
 
-Supprimer 3 lignes dans Vim : 3dd
+dd               ## Delete an entire line  
+d4w              ## Delete 4 words  
+4dd              ## Delete 4 lines
+
+dd + p           ## Cut + copy before the cursor
+dd + P           ## Cut + copy after the cursor
+
+u                ## CTR+Z
+U                ## Undo all your changes
+
+gg               ## Beginning of the script
+G                ## End of the script
+
+/beau            ## Searche for the word beau
+n                ## Go to the next found word
+N                ## Go to the previous found word 
+
+:5               ## Go to line 5
+```
+
 
 Deux environnements très différents sont disponibles sous Linux :
 
