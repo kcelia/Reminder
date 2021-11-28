@@ -54,7 +54,7 @@ N                ## Go to the previous found word
 :5               ## Go to line 5
 ```
 
-Deux environnements sont diponibles sous Linux :
+2 environments are available on Linux:
 
 1. Environnements console 
 (appelés, les shells)
