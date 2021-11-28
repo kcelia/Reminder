@@ -8,17 +8,15 @@ In shell scripts, the shell acts as an interpreter and executes the commands seq
 
 **DRY** stands  for _Don't Repeat Yourself_.
 
-
 ## Different _shells_ 
--------------
-shells | Descriptions
---|---
-sh (Bourne Shell) | L'ancêtre de tous les shells.
-bash (Bourne Again Shell) | Une amélioration du Bourne Shell, disponible par défaut de la plupart des distriutions Linux et Mac OS X
-ksh (Korn Shell) | Un shell puissant assez présent sur les Unix propriétaires, mais aussi disponible en version libre, compatible avec bash
-csh (C Shell) | Un shell utilisant une syntaxe proche du langage C
-tcsh (Tenex C Shell) | Amélioration du C Shell.
-zsh (Z Shell) | Shell assez récent reprenant les meilleures idées de bash, ksh et tcsh
+
+Shells | Stands for         | Descriptions
+-------|--------------------|-------------
+sh     | Bourne Shell       | The ancestor of all shells
+bash   | Bourne Again Shell | An improved version of the Bourne Shell, available by default in all distributions
+ksh    | Korn Shell         | A powerful shell, more present on proprietary Unix, also available in free version and compatible with bash
+csh    | C Shell            | Close to C syntax language tcsh   | Tenex C Shell      | An uplift version of cshell
+zsh    | Z Shell            | Fairly new shell with the best ideas of bash, ksh and tcsh
 
 
 ## Vim
