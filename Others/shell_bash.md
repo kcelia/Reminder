@@ -445,16 +445,16 @@ set +x
 #### Method 3
 bash -x script.sh
 
-#### Method 4: Prints file name : number line : line code
-#!/bin/bash -xe
+#### Method 4: Prints file_name:num_line:code_line
+#!/bin/bash -x
 PS4='+ $BASH_SOURCE : $LINENO :' 
 TEST_VAR="test"
 echo "$TEST"
 
 
-#### Method 4: Prints file name : number line : line code
-#!/bin/bash -xe
-PS4='+ ${BASH_SOURCE} : ${LINENO}: ${FUNCNAME[0]} ()'
+#### Method 5: Prints file_name:num_line:code_line:function_name:command
+#!/bin/bash -x
+PS4='+ ${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]} ()'
 
 debug()  {
     echo "Executing: $@"
