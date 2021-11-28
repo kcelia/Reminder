@@ -1,6 +1,6 @@
 # Shell BASH
 
-### Shell programming: 
+## Shell programming: 
 
 Mini programming language integrated in all Linux systems. So, no configuration is required for installation or compilation. All commands used in shell scripts are system commands. You just need an editor (Vi, Vim, emacs,...).
 
@@ -9,7 +9,7 @@ In shell scripts, the shell acts as an interpreter and executes the commands seq
 **DRY** stands  for _Don't Repeat Yourself_.
 
 
-### Different _shells_ 
+## Different _shells_ 
 -------------
 shells | Descriptions
 --|---
@@ -32,7 +32,7 @@ vim has 2 main mode:
 - Command: undo, redo, find and replace, quit, etc.
 
 
-``` 
+```bash
 vimtuto fr       ## Open tutorial in french
 
 ESC + :q!        ## Exit without saving
@@ -58,44 +58,454 @@ N                ## Go to the previous found word
 :5               ## Go to line 5
 ```
 
-
-Deux environnements très différents sont disponibles sous Linux :
+Deux environnements sont diponibles sous Linux :
 
 1. Environnements console 
 (appelés, les shells)
-1. Environnement graphique (Unity, KDE, XFCE).
+1. Environnement graphique (Unity, KDE, XFCE)
 
-- La différence est moins tape-à-l'œil que dans le mode graphique (différent menus)
-- Les fonctionnalités offertes par l'invite de commandes peuvent varier en fonction du shell que l'on utilise (eg. tabulation, définir des alias, gérer les processus, chainer les commandes ‘|’).
-
-
-
-### Créer un **script shell** :
-Extension *.sh* par convention, certain scripts shell n’ont pas d’extension du tout)
-
-`$ vim test_shell_bash.sh`
-
-Ajouter à la première ligne: 
-```bash 
-#!/bin/bash/
-``` 
-Pour indiquer que le script est écrit en bash, appelée le *sha-bang*.
-
-**!#** : Un signal qui indique avec quel interpréteur de shell il faut lire le script.
-
-**/bin/bash** : peut être remplacé par */bin/sh* ou */bin/ksh*/
-
-#### Rendre le script executable : 
+### VcXsrv - Deport your terminal in an interactive server X
 
 ```bash
-$ chmod +x test_shell_bash.sh
+## Enable the connexion to the server X
+nano .bashrc 
+CTRL + o
+export DISPLAY=:0
+# <!> Close your terminal to apply the new changes
+
+## Install vim + interface
+sudo apt-get vim-gtk
+
+### Lunch vim
+gim
+``` 
+## Let's get started
+
+### 1. Shebang "#!"
+
+What follows the _she-bang_ is the interpreter path, it could be :
+
+```bash
+#!/bin/bash
+#!/bin/csh
+#!/bin/ksh
+#!/bin/zsh
+#!/usr/bin/python3.8
 ```
 
-#### Executer le script : 
+If a script doesn't contain a shebang the commands are executed using you shell.
+
+The default extension is *.sh*. But, some shell scripts may not have extension.
+
+
+### 2. Make your script executable:
 
 ```bash
- ./test_shell_bash.sh
- ```
+chmod 755 script.sh
+
+# Or
+chmod +x script.sh
+```
+
+
+### 3. script.sh
+
+```bash
+#!/bin/bash
+
+## By default all variables are global 
+MY_SHELL="bash"
+HALF_WORD="bash"
+SERVER_NAME=$(hostname)   # Cmmand
+MESSAGE="There is no space between the name of the variable and its value"
+
+## Prints
+echo "My interpreter if $MY_SHELLL shell"
+echo "Again, my interpreter if ${MY_SHELLL} shell"
+echo "I'm ${HALF_WORD}ing on my keyboard"
+echo "You are running this script on ${SERVER_NAME}"
+
+## Display the previous execution or exit status of previous commad
+ls *.sh
+echo "$?"
+```
+
+## File operators 
+
+Operator | Meaning
+---------|-----------
+-d FILE  | True if the file is a directory
+-e FILE  | True if the file exists
+-f FILE  | True if the file exists and is a regular file
+-r FILE  | True if the file is readable by you
+-s FILE  | True if the file is not empty
+-w FILE  | True if the file is writable by you
+-x FILE  | True if the file is executable by you
+
+## String operators
+
+Operator           | Meaning
+-------------------|-----------
+-z STRING          | True if string is empty
+-n STRING          | True if string is not empty
+STRING1 = STRING2  | True if strings are equal
+STRING1 != STRING2 | True if strings are not equal
+
+## Arithmetic operators
+
+Operator | Meaning
+---------|-----------
+x -eq y  | True if x is equal to y
+x -ne y  | True if x is not equal to y
+x -lt y  | True if x is less than y
+x -le y  | True if x is less or equal to y
+x -gt y  | True if x is greater than y
+x -ge y  | True if x is greater or equal to y
+
+By default, variables are strings. To manipulate numbers, you have use the commands _let_:
+
+```bash
+let "a = 5"
+let "b = 5"
+let "c = a + b"
+
+echo "$a + $b = $c"
+```
+
+## If statement
+```bash
+if [ condition-to-test-for ]
+then 
+   command 1
+elif [ condition-to-test-for ]
+   command 2
+else 
+   command 3
+fi 
+```
+
+Example:
+```
+#!/bin/csh
+
+X="bash"
+
+if [ "$X" = "bash" ]
+then 
+  echo "you seem to like the bash shell"
+fi
+```
+
+## For loop
+
+```
+for VARIABLE_NAME in ITEM_1 ITEM_N
+do
+    command1
+    commnd2
+done
+```
+
+Example: 
+
+``` 
+#!/bin/csh
+
+for COLOR in red green blue
+do 
+    echo "COLOR: $COLOR"
+done
+```
+
+Example:
+
+``` 
+#!/bin/csh
+
+COLORS="red green blue"
+
+for COLOR in $COLORS
+do 
+    echo "COLOR: $COLOR"
+done
+```
+
+## Positional Parameters
+
+Sign  | Meaning | Example: ./test.sh 1 2 3
+------|---------|--------------------------
+$0    | Name of the file            | test.sh
+$1    | First argument              | 1
+${10} | 10th argument               | 
+$@    | What parameters were passed | $$1 \; 2 \; 3$$ ```<!> un param par arg -> for param in "$@" do echo -e " Paramètre : $param" done```
+$#    | Number of arguments         | 3 
+$?    | was last comand successful  | 0 
+$*    | L'ensembles des paramètres sous la forme d'un seul argument | ```for param in "$*": do echo "liste des paramètres en 1 seul argument: $param" done```
+`$$`    | Le PID su shell qui exécute le script | 165165
+$!    | Le PID du dernier processus lancé en arrière-plan
+
+## User input (STDIN)
+
+`read -p "PROMPT" VARIABLE`
+
+## && and ||
+`cm1 && cm1` --> cm2 is executed only if cm1 succeeded
+
+`cm1 || cm2` --> cm2 is executed only if cm1 failed
+
+## Functions 
+
+**Example 1**: count .sh files in my present directory
+
+
+```bash
+function count_files () {
+        if [ -d $1 ]
+        then
+                echo "Files list: $(ls *.sh)"
+                echo "COUNT: $(ls *.sh | wc -l)"
+                return $?
+        else
+                echo "$1 is not a directory"
+        fi
+}
+
+count_files ./
+```
+
+**Example 2**: mv files in an other directory
+```bash
+function mouve () {
+        [ -d $2 ] || mkdir -p $2 || echo "$2 couln't be created"
+        if [ $? -eq 0 ]
+        then
+                echo "$2 is OK"
+                #echo "$(ls $2)"
+        fi
+
+        for FILE in $1/*[[:digit:]]
+        do
+                echo "Copying $FILE to $2"
+                cp -f $FILE $2
+        done
+}
+
+mouve ./test1 ./test1/toto/
+```
+
+**Example 3**: backup file
+
+```bash
+function backup_file () {
+        if [ -f $1 ]
+        then
+                ## .$$ -> PID of the processus of the script
+                BACK="./test1/$(basename $1).$(date +%F).$$"
+                echo "Backing up $1 to $BACK"
+                ## Return the exist status of cp command
+                cp $1 $BACK
+                if [ $? -eq 0 ]
+                then
+                        echo "The file $1 exists"
+                        echo "Backup succeeded!"
+                fi
+        else
+                echo "The file $1 doesn't exist"
+                echo "Backup failed"
+                return 1
+        fi
+}
+
+backup_file sleepy.sh
+backup_file sleepu.sh
+```
+## Wildcards
+- `*`: matches zeros or more characters.
+- `?`: matches exactly one character. 
+- `[]`: A character class, mataches any of the characters included between the brackets
+- `[!]`: Matches any of the characters NOT included between the brackets.
+
+## Case
+
+```
+case "$VAR" in
+    pattern1)
+        # Commands 
+        ;;
+    pattern2)
+        # Commands
+        ;;
+    *) ## Else
+        echo "Nothing matched"
+esac
+```
+
+
+## Read file
+
+```
+LINE_NUM=1
+
+while read LINE
+do 
+    echo "${LINE_NUM} : ${LINE}"
+    ((LINE_NUM++))
+done < /etc/fstab ## File path 
+
+# Or
+
+grep xfs /etc/fstab | while read LINE
+do 
+    echo "xfs: ${LINE}
+done 
+```
+
+## Debug
+
+x: Debugs
+
+e: Exits on error
+
+v: Prints shell input line as they are read 
+
+
+```
+## Method 1
+#!/bin/bash -xe
+X=1
+echo "Debu $X"
+
+## Method 2
+#!/bin/bash
+X=1
+set -x
+echo "Debu $X"
+set +x
+```
+
+##### Verbose
+```
+DEBUG='echo'
+$DEBUG ls 
+
+$DEBUG=true
+$DEBUG && echo "Bebug mode ON
+$DEBUG || echo "Bebug mode OFF
+
+$DEBUG=false
+$DEBUG || echo "Bebug mode OFF
+```
+
+
+## Data manipulation and text transformations with _SED_
+
+Sed = Stream EDitor for filtering and transforming text
+
+A stream is data that travels from :
+- One process to another through a pipe 
+- One file to another as a redirect
+- One device to another
+
+### Enable sed
+`$ type -a sed`
+
+### Replace string
+`sed 's/sear-pattern/replacement-string/flags'
+
+flags | Meaning
+------|---
+i     | case insensitive
+I     | case insensitive
+g     | global replace 
+digit | replace digit occurence
+w     | rediret the change to another file
+-i    | create backup file 
+/:#   | delimiters 
+d     | delete 
+f    | put the instructions in a sed file
+
+## Example 1:  
+```
+echo '# Private' > text.txt
+echo "My name is Celia" >> text.txt
+echo "I'm 26 years old" >> text.txt
+echo >> text.txt
+echo '# Pro' >> text.txt
+echo "I'm a data scientist" >> text.txt
+cat text.txt
+
+sed "s/i'm/i m/iw other_file.txt" text.txt
+
+## Replace only in line 2 
+sed "2s/i'm/i m/i" text.txt
+sed "2 s/i'm/i m/i" text.txt
+
+## Replace only in line 1 to 2
+sed "1,2 s/i'm/i am/i" text.txt
+
+## Replace where the line contains the word old
+sed "/old/ s/i'm/i am/i" text.txt
+
+## Replace only if it's private section
+sed "/# Private/ ,/^$/ s/i'm/i am/i" text.txt
+
+
+cat other_file.txt | sed "s/i'm/i m/i" text.txt 
+
+sed -i.bak "s/i'm/i am/ig" text.txt
+
+echo '/home/jason' | sed 's:/home/jason:/export/ceci:'
+
+sed '/Celia/d' text.txt
+```
+
+Example 2:
+
+```
+echo '#User to run service as.' > config
+echo 'User apache' >> config
+echo >> config 
+echo '#Group to run service as.' >> config
+echo 'Group apache' >> config
+cat config 
+
+## Delete comments & blank lines 
+sed '/^#/d ; /^$/d' config 
+
+echo '/^#/d' > config.sed
+echo '/^$/d'>> config.sed
+echo 's/apache/httpd/i' >> config.sed
+cat config.sed
+sed -f config.sed config
+```
+## Calendar 
+
+cal [ [ month ] year] 
+cal 2 1995
+
+## Lowercase
+echo $X | tr [a-z] [A-Z]
+``
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### Debug : 
 
@@ -119,11 +529,7 @@ v      | verbose
 z      | gnuzip
 f      | file (should come at last)
 
-#### Compter le nombre de fichier dans un répertoire 
 
-`ls | wc -l`
-
-***<!> ls -l ajoute la ligne total …***
 
 ### Nombre de mot par fichier 
 ```bash
@@ -131,33 +537,6 @@ wc -w file.txt
 wc -w * 
 ```
 
-#### Definir une variable
-
-`message="Il n\'a pas d\'espace entre le nom de la variable et sa valeur"`
-
-#### Affichage 
-
-```bash
-echo $message
-echo "Le message contient: $message" # Il faut utiliser les doubles quotes
-```
-
-```bash
-message_exec=`pwd`
-echo "Les back quotes `` demandent à bash d\'executer ce qui se trouve a l'interieur de la variable : $message_exec"
-```
-
-#### Opérations mathematiques 
-
-En bash, les bariables sont des chaînes de carcatères. Pour manipuler des nombres, il faut utiliser des commandes (let...).
-
-```bash
-let "a = 5"
-let "b = 5"
-let "c = a + b"
-
-echo "$a + $b = $c"
-```
 #### Variables d'environement/Globales 
 
 Les variables d'environnement peuvent être utilisées dans n'importe quel programme/script.
