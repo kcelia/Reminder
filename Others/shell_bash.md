@@ -185,7 +185,7 @@ fi
 ```
 
 Example:
-```
+```bash
 #!/bin/csh
 
 X="bash"
@@ -198,7 +198,8 @@ fi
 
 ## For loop
 
-```
+**Syntax**
+```bash
 for VARIABLE_NAME in ITEM_1 ITEM_N
 do
     command1
@@ -206,9 +207,9 @@ do
 done
 ```
 
-Example: 
+**Example 1:**
 
-``` 
+```bash
 #!/bin/csh
 
 for COLOR in red green blue
@@ -217,9 +218,9 @@ do
 done
 ```
 
-Example:
+**Example 2:**
 
-``` 
+```bash
 #!/bin/csh
 
 COLORS="red green blue"
@@ -227,6 +228,16 @@ COLORS="red green blue"
 for COLOR in $COLORS
 do 
     echo "COLOR: $COLOR"
+done
+```
+
+**Example 3:**
+
+```bash
+#!/bin/csh
+for i in `seq 1 10`;
+do
+        echo $i
 done
 ```
 
@@ -327,7 +338,8 @@ backup_file sleepu.sh
 
 ## Case
 
-```
+**Example 1:**
+```bash
 case "$VAR" in
     pattern1)
         # Commands 
@@ -340,10 +352,25 @@ case "$VAR" in
 esac
 ```
 
+**Example 2:**
+```bash
+case $1 in
+    "Chien" | "Chat" | "Souris")
+        echo "C'est un mammifère"
+        ;;
+    "Moineau" | "Pigeon")
+        echo "C'est un oiseau"
+        ;;
+    *)
+        echo "Je ne sais pas ce que c'est"
+        ;;
+esac
+```
+
 
 ## Read file
 
-```
+```bash
 LINE_NUM=1
 
 while read LINE
@@ -362,29 +389,33 @@ done
 
 ## Debug
 
-x: Debugs
+Flags | Meaning 
+------|--------
+x     | Debugs
+e     | Exits on error
+v     | Prints shell input line as they are read 
 
-e: Exits on error
-
-v: Prints shell input line as they are read 
-
-
-```
-## Method 1
+```bash
+##### Method 1
 #!/bin/bash -xe
 X=1
 echo "Debu $X"
 
-## Method 2
+##### Method 2
 #!/bin/bash
 X=1
 set -x
 echo "Debu $X"
 set +x
+
+#### Method 3
+bash -x script.sh
+
+#### Method 4
 ```
 
-##### Verbose
-```
+### Verbose
+```bash
 DEBUG='echo'
 $DEBUG ls 
 
@@ -396,10 +427,9 @@ $DEBUG=false
 $DEBUG || echo "Bebug mode OFF
 ```
 
-
 ## Data manipulation and text transformations with _SED_
 
-Sed = Stream EDitor for filtering and transforming text
+Sed = Stream EDitor for filtering and transforming text.
 
 A stream is data that travels from :
 - One process to another through a pipe 
@@ -410,7 +440,10 @@ A stream is data that travels from :
 `$ type -a sed`
 
 ### Replace string
-`sed 's/sear-pattern/replacement-string/flags'
+
+Syntax:
+
+`sed 's/sear-pattern/replacement-string/flags'`
 
 flags | Meaning
 ------|---
@@ -422,10 +455,11 @@ w     | rediret the change to another file
 -i    | create backup file 
 /:#   | delimiters 
 d     | delete 
-f    | put the instructions in a sed file
+f     | put the instructions in a sed file
 
-## Example 1:  
-```
+**Example 1:** 
+
+```bash
 echo '# Private' > text.txt
 echo "My name is Celia" >> text.txt
 echo "I'm 26 years old" >> text.txt
@@ -433,8 +467,6 @@ echo >> text.txt
 echo '# Pro' >> text.txt
 echo "I'm a data scientist" >> text.txt
 cat text.txt
-
-sed "s/i'm/i m/iw other_file.txt" text.txt
 
 ## Replace only in line 2 
 sed "2s/i'm/i m/i" text.txt
@@ -449,22 +481,26 @@ sed "/old/ s/i'm/i am/i" text.txt
 ## Replace only if it's private section
 sed "/# Private/ ,/^$/ s/i'm/i am/i" text.txt
 
-
+## Amend and send the stream in another file
 cat other_file.txt | sed "s/i'm/i m/i" text.txt 
+sed "s/i'm/i m/iw other_file.txt" text.txt
 
+## Create backup file
 sed -i.bak "s/i'm/i am/ig" text.txt
 
+# Find and replace
 echo '/home/jason' | sed 's:/home/jason:/export/ceci:'
 
+## Delete
 sed '/Celia/d' text.txt
 ```
 
-Example 2:
+**Example 2:**
 
-```
+```bash
 echo '#User to run service as.' > config
 echo 'User apache' >> config
-echo >> config 
+echo >> config ## Ampty line
 echo '#Group to run service as.' >> config
 echo 'Group apache' >> config
 cat config 
@@ -472,20 +508,24 @@ cat config
 ## Delete comments & blank lines 
 sed '/^#/d ; /^$/d' config 
 
+## Save the commands in a sed file
 echo '/^#/d' > config.sed
 echo '/^$/d'>> config.sed
 echo 's/apache/httpd/i' >> config.sed
 cat config.sed
 sed -f config.sed config
-```
-## Calendar 
-
-cal [ [ month ] year] 
-cal 2 1995
 
 ## Lowercase
 echo $X | tr [a-z] [A-Z]
-``
+
+## Calendar
+cal [ [ month ] year] 
+cal 2 1995
+```
+
+
+
+
 
 
 
@@ -636,49 +676,6 @@ fi
 
 Inverser un test : `if [ ! -e fichier ] # -e si le fichier existe`
 
-#### Case
-
-```bash
-case $1 in
-        "Chien" | "Chat" | "Souris")
-                echo "C'est un mammifère"
-                ;;
-        "Moineau" | "Pigeon")
-                echo "C'est un oiseau"
-                ;;
-        *)
-                echo "Je ne sais pas ce que c'est"
-                ;;
-esac
-```
-
-### Boucles
-
-For :
-```bash 
-for fichier in $tableau 
-# for fichier in `ls`
-# for name in $(ls ${dir_input}.txt)
-do
-        echo "Fichier trouvé : $fichier"
-done
-```
-While :
-```bash 
-while [ -z $reponse ] || [ $reponse != 'oui' ]
-do
-        read -p 'Dites oui : ' reponse
-done
-
-```
-Séquence:
-
-```bash
-for i in `seq 1 10`;
-do
-        echo $i
-done
-```
 
 ### Grep
 
