@@ -445,7 +445,22 @@ set +x
 #### Method 3
 bash -x script.sh
 
-#### Method 4
+#### Method 4: Prints file name : number line : line code
+#!/bin/bash -xe
+PS4='+ $BASH_SOURCE : $LINENO :' 
+TEST_VAR="test"
+echo "$TEST"
+
+
+#### Method 4: Prints file name : number line : line code
+#!/bin/bash -xe
+PS4='+ ${BASH_SOURCE} : ${LINENO}: ${FUNCNAME[0]} ()'
+
+debug()  {
+    echo "Executing: $@"
+    $@
+}
+debug ls 
 ```
 
 ### Verbose
