@@ -162,3 +162,11 @@ git status
    Nothing to commit
    
 ```
+## Create a folder via graphical interface
+
+`Create_file > my_folder/.gitkeep > Create_file`
+
+*.gitkeep* is not a feature of Git. To add an empty directories in Git, people have created the convention of putting files called *.gitkeep* in these directories. 
+
+The file could be called anything. Git assigns no special significance to this name.
+Adding a .gitignore file to the empty directories is possible, but some people see this as confusing since the goal is to keep the empty directories, not ignore them.
