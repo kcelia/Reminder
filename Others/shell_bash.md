@@ -20,8 +20,6 @@ csh (C Shell) | Un shell utilisant une syntaxe proche du langage C
 tcsh (Tenex C Shell) | Amélioration du C Shell.
 zsh (Z Shell) | Shell assez récent reprenant les meilleures idées de bash, ksh et tcsh
 
-> `.bashrc` est le fichier de configuration du bash que linux utilise par défaut.
-
 
 ## Vim
 
@@ -128,6 +126,23 @@ echo "You are running this script on ${SERVER_NAME}"
 ## Display the previous execution or exit status of previous commad
 ls *.sh
 echo "$?"
+
+## All the txt files that have 2 characters
+ls ??.txt
+
+## List of files that end with digit
+ls *[[:digit:]]
+
+## Lowercase
+echo $X | tr [a-z] [A-Z]
+
+## Calendar
+cal [ [ month ] year] 
+cal 2 1995
+
+## Number of words per file
+wc -w file.txt
+wc -w * 
 ```
 
 ## File operators 
@@ -144,12 +159,12 @@ Operator | Meaning
 
 ## String operators
 
-Operator           | Meaning
--------------------|-----------
--z STRING          | True if string is empty
--n STRING          | True if string is not empty
-STRING1 = STRING2  | True if strings are equal
-STRING1 != STRING2 | True if strings are not equal
+Operator            | Meaning
+--------------------|-----------
+-z STRING           | True if string is empty
+-n STRING           | True if string is not empty
+STRING1 == STRING2  | True if strings are equal
+STRING1 != STRING2  | True if strings are not equal
 
 ## Arithmetic operators
 
@@ -173,6 +188,9 @@ echo "$a + $b = $c"
 ```
 
 ## If statement
+
+Syntax:
+
 ```bash
 if [ condition-to-test-for ]
 then 
@@ -184,16 +202,21 @@ else
 fi 
 ```
 
-Example:
-```bash
-#!/bin/csh
+**Example 1:**
 
+```bash
 X="bash"
 
 if [ "$X" = "bash" ]
 then 
   echo "you seem to like the bash shell"
 fi
+```
+**Example 2:**
+
+```bash
+# If the file doesn't exist, then...
+if [ ! -e fichier ] 
 ```
 
 ## For loop
@@ -386,6 +409,19 @@ do
     echo "xfs: ${LINE}
 done 
 ```
+## Array
+
+
+```bash
+tableau=(1 2 1)
+
+echo "{tableau[2]} = ${tableau[2]}"
+
+tableau[5]=727 
+
+# Displying all the array 
+echo ${tableau[*]} 
+```
 
 ## Debug
 
@@ -427,7 +463,111 @@ $DEBUG=false
 $DEBUG || echo "Bebug mode OFF
 ```
 
+
+## Unzip: 
+
+Syntax:
+
+`tar -xvzf /path/to/yourfile.tgz`
+
+Options | Descriptions 
+--------|----------
+x       | extract
+v       | verbose
+z       | gnuzip
+f       | file (should come at last)
+
+## Téléchargement 
+`wget` ou `curl`
+
+## Variables d'environement/Globales 
+
+Les variables d'environnement peuvent être utilisées dans n'importe quel programme/script.
+
+```bash 
+$ env
+
+ORBIT_SOCKETDIR=/tmp/orbit-mateo21
+GLADE_PIXMAP_PATH=:/usr/share/glade3/pixmaps
+TERM=xterm
+# Indicates which shell is used (sh, bash, ksh...)
+SHELL=/bin/bash 
+GTK_MODULES=canberra-gtk-module
+USER=celia
+PATH=/home/celia/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin: /usr/bin:/sbin:/bin:/usr/games
+# Une liste des répertoires qui contiennent des exécutables sans "./"
+GDM_XSERVER_LOCATION=local 
+# Le dossier dans lequel vous vous trouvez 
+PWD=/home/celia 
+# L'éditeur de texte par défaut
+EDITOR=nano 
+SHLVL=1
+# La position de votre dossier home 
+HOME=/home/celia
+# Le dossier dans lequel vous vous trouviez auparavant
+OLDPWD=/home/celia 
+
+[ ... ]
+```
+
+
+## Bashrc
+
+`/etc/bash.bashrc` est le fichier de configuration personnalisable du bash que linux utilise par défaut. Il est lu au démarrage de votre terminal.
+
+***shell BASH*** $\to$ ***.bashrc*** situé dans le dossier /home/$USER/.bashrc. 
+
+***shell CSH*** $\to$ ***.cshrc*** situé dans le dossier /home/$USER/.cshrc. 
+
+S'il n'est pas lu, vérifier que le fichier soit exécutable, et vérifier aussi la présence de **.bash_profile** qui doit contenir :
+
+```bash
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi
+```
+### Amend Bashrc
+
+```bash
+## Access bashrc 
+vim ~/.bashrc
+
+## After any changes, reload .bashrc
+source ~/.bashrc
+
+## Alias
+alias agu='sudo apt-get update'
+alias agg='sudo apt-get upgrade'
+alias agd='sudo apt-get dist-upgrade'
+alias maj='agu && agg && agd'
+```
+
+### Définir une nouvelle variable d'environnement dans le .bashrc
+
+`export`
+
+### Exécuter depuis n'importe quel répertoire sans "./"
+
+Le PATH est une variable système qui indique où sont les programmes exécutables sur l'ordinateur. 
+
+```bash
+echo $PATH # lister de ces répertoires « spéciaux ».4
+```
+
+Ajouter le script à l'un de ces répertoires spéciaux puis l'exécuter sans le './'.
+
+```bash
+test_shell_bash.sh # Sans le './'
+```
+
+
 ## Data manipulation and text transformations with _SED_
+
+### 1. Sed
 
 Sed = Stream EDitor for filtering and transforming text.
 
@@ -514,188 +654,29 @@ echo '/^$/d'>> config.sed
 echo 's/apache/httpd/i' >> config.sed
 cat config.sed
 sed -f config.sed config
-
-## Lowercase
-echo $X | tr [a-z] [A-Z]
-
-## Calendar
-cal [ [ month ] year] 
-cal 2 1995
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### Debug : 
-
-```bash
-bash -x test_shell_bash.sh
-```
-
-#### Téléchargement 
-`wget` ou `curl`
-
-#### Unzip: 
-
-```bash
-tar -xvzf /path/to/yourfile.tgz
-```
-
-Option |  Description 
--------|  ----------
-x      | extract
-v      | verbose
-z      | gnuzip
-f      | file (should come at last)
-
-
-
-### Nombre de mot par fichier 
-```bash
-wc -w file.txt
-wc -w * 
-```
-
-#### Variables d'environement/Globales 
-
-Les variables d'environnement peuvent être utilisées dans n'importe quel programme/script.
-
-```bash 
-$ env
-
-ORBIT_SOCKETDIR=/tmp/orbit-mateo21
-GLADE_PIXMAP_PATH=:/usr/share/glade3/pixmaps
-TERM=xterm
-SHELL=/bin/bash # Indique quel type de shell est en cours d'utilisation (sh, bash, ksh…)
-GTK_MODULES=canberra-gtk-module
-USER=celia
-PATH=/home/celia/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin: /usr/bin:/sbin:/bin:/usr/games
-GDM_XSERVER_LOCATION=local # Une liste des répertoires qui contiennent des exécutables sans "./"
-PWD=/home/celia # Le dossier dans lequel vous vous trouvez 
-EDITOR=nano # L'éditeur de texte par défaut
-SHLVL=1
-HOME=/home/celia # La position de votre dossier home 
-OLDPWD=/home/celia # Le dossier dans lequel vous vous trouviez auparavant
-
-[ ... ]
-```
-
-#### Définir une nouvelle variable d'environnement 
-
-```bash
-export #dans le .bashrc.
-```
-
-#### Exécuter depuis n'importe quel répertoire sans "./"
-
-Le PATH est une variable système qui indique où sont les programmes exécutables sur l'ordinateur. 
-
-```bash
-echo $PATH # lister de ces répertoires « spéciaux ».4
-```
-
-Ajouter le script à l'un de ces répertoires spéciaux puis l'exécuter sans le './'.
-
-```bash
-test_shell_bash.sh # Sans le './'
-```
-
-### Les tableaux 
-
-```bash
-tableau=(1 2 1)
-echo "{tableau[2]} = ${tableau[2]}" # Il faut entourer la variable d'accolades
-tableau[5]=727 # La numérotation n'a pas besoin d'être continue
-echo ${tableau[*]} #Afficher l'ensemble du contenu du tableau 
-```
-
-### Les conditions 
-
-```bash
-read x 
-# ./file.sh 5
-# x=$1
-if [ $x -gt 0 ] # [ test ] et non [test] 
-                # -ge GreaterorEqual
-then 
-        echo "Nombre positif" # Après deux tablulations"
-elif [ $x -lt 0 ] # le LowerorEqual
-then 
-        echo "Nombre negatif" 
-else
-        echo "Nombre égale à 0"
-fi
-```
-
-```bash
-
-echo "Fichier $0, Nombre de paramètres $#"
-
-if [ $1 != $2 ] 
-then
-        echo "Les 2 paramètres sont identiques !" 
-elif [ $1 == $2 ]  
-then 
-        echo "Les 2 paramètres sont différents !"
-        # " « eq » : Vérifie si les nombres sont égaux"
-        # " « == » : Compare deux chaînes de caractères"
-elif [ -z $1 ]
-then
-        echo "Vérifie si la chaîne est vide"
-elif [ -n $1 ]
-then 
-        echo "Vérifie si la chaîne est non vide"
-
-fi
-```
-
-`&&` : signifie « et »
-
-`||` : signifie « ou »
-
-Inverser un test : `if [ ! -e fichier ] # -e si le fichier existe`
-
-
-### Grep
+### 2. Grep
 
 Chercher un mot dans un fichier.
+
 `grep -c $mot $file` retourne `1` si le fichier contient le mot. Sinon, 0.
 
-### Awk
+### 3. Awk
 
 **awk** est une commande très puissante, qui permet une recherche de chaînes et l'exécution d'actions sur les lignes sélectionnées, de récuperer de l'information, générer des rapports, transformer des données entre autres. 
 
 Un programme awk possède la structure suivante: **Critère de sélection d'une chaîne {action}**. Quand il n'y a pas de critère c'est que l'action s'applique à toutes les lignes du fichier. 
 
+Syntaxe : 
 
-> Syntaxe : `awk [-F] [-v var=valeur] -f fichier-config fichier`
+`awk [-F] [-v var=valeur] -f fichier-config fichier`
 
-L'argument | description | exemple
----|---| ---
--F | suivi du séparateur de champ | **-F:** (":" comme séparateur de champ)
--f | suivi du nom du fichier de configuration de awk | 
--v | définit une variable, qui sera utilisée par la suite dans le programme | ***var***  
+Argument | Description | Exemple
+---------|-------------|---------
+-F       | suivi du séparateur de champ | **-F:** (":" comme séparateur de champ)
+-f       | suivi du nom du fichier de configuration de awk      | 
+-v       | définit une variable, qui sera utilisée par la suite dans le programme | ***var***  
 
 #### Variable **awk**
 
@@ -768,7 +749,7 @@ echo `awk -F":" '{print $NF}' /etc/passwd`
 
 Il n'y a pas de critères, donc l'action s'applique à toutes les lignes du fichier /etc/passwd. L'action consiste à afficher le dernier de champ du fichier.
 
-### Critères de sélection
+### Critères de séléction
 
 Un critère peut être une expression régulière, une expression ayant une valeur chaîne de caractères, une expression arithmétique, une combinaison des expressions précédentes. 
 
@@ -814,7 +795,6 @@ L'exemple suivant vérifie que dans le fichier le numéro de téléphone domicil
     
     ' adresse 
 
-            
 
 >
     awk 'BEGIN { print "test de l'absence de mot de passe";                     
@@ -869,68 +849,22 @@ Quand l'une des variables de champ est modifée, $0 est modifié. ATTENTION le s
     ' /etc/group 
 
 
-
-## Bashrc
-Le shell (bash ou autre) est personnalisable via un fichier de configuration, lu à chaque ouverture de console par l'utilisateur $USER.
-
-***shell BASH*** ==> ***.bashrc*** situé dans le dossier /home/$USER/.bashrc. 
-
-***shell CSH***  ==> ***.cshrc*** situé dans le dossier /home/$USER/.cshrc. 
-
-S'il n'est pas lu, vérifier que le fichier soit exécutable, et vérifier aussi la présence de **.bash_profile** qui doit contenir :
+## Désactiver le proxy http/https:
 
 ```bash
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-        . "$HOME/.bashrc"
-    fi
-fi
-```
-Accéder au bashrc : `vim ~/.bashrc`
+unset http_proxy
+unset https_proxy
 
-Après modification du fichier **.bashrc**, il faut relancer bash ou recharger le fichier :
-`source ~/.bashrc`
+## Or
 
-### Alias
+export http_proxy=''
+export https_proxy=''
 
-```bash 
-alias nom_de_votre_alias='commande de votre alias'
-```
+## Check with 
 
-Exemple: 
-```bash 
-alias agu='sudo apt-get update'
-alias agg='sudo apt-get upgrade'
-alias agd='sudo apt-get dist-upgrade'
-alias miseàjour='agu && agg && agd'
-```
-
-
-## Environnement bash
-Le fichier /etc/bash.bashrc est lu au démarrage de votre terminal.
-
-Modifiez le fichier /etc/bash.bashrc
-```
-export http_proxy=http://"proxy_ip":"port_number"
-```
-où "proxy_ip" et "port_number" seront adaptés à votre situation
-
-## Pour désactiver le proxy http/https:
+printenv
+## Or 
+printenv https_proxy
 
 ```
-$ unset http_proxy
-$ unset https_proxy
-```
-ou
-
-```
-$ export http_proxy=''
-$ export https_proxy=''
-```
-vérifier avec 
-
-`$ printenv` ou `$ printenv https_proxy`
-
 More [proxy_terminal](https://doc.ubuntu-fr.org/proxy_terminal)
