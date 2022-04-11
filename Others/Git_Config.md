@@ -42,9 +42,14 @@ git remote -v        // Connaitre l'URL
 
     ```  
     git init         // Init le versionning
-    git clone URL    // Cloner un dépôt existant: ou Créer un nouveau dépôt
+    git clone URL    // Cloner un dépôt publique existant: ou Créer un nouveau dépôt
+    git clone https://myusername:mygithubpassword@github.com/myusername/project.git  // Cloner un dépôt privé
     ```
-    
+  If you have a special character in your password, replace it with values from this website : 
+  https://support.brightcove.com/special-characters-usernames-and-passwords 
+  
+  example: p@ssword --> p%40ssword
+  
 1. Add:
 
     ```
