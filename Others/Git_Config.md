@@ -1,3 +1,13 @@
+# Les modèles de gestion
+1. Un serveur central:
+- Contrôle toute la base de code du logiciel.
+- Les developpeurs recupèrent une version à la fois.
+- Exemple: cvs, svn
+2. Modèle distribué:
+- Tous les acteurs du projet on une copie de la base de code.
+- Pas besoin d'être connecté au serveur pour travailler.
+- Example: git, mercurial
+
 # Git (Logiciel de gestion de versions):
 
 * Un logiciel de contrôle de **version distribué** or **décentralisée**. Il n'est pas nécessaire de disposer des accès à un serveur maître pour l'utiliser. Chacun des utilisateurs possèdent une copie des sources et de l'historique en local.
@@ -15,6 +25,24 @@ Installer git ⇒ Installe deux paquages:
 * Crée un espace de stockage centralisé où les utilisateurs peuvent stocker et accéder à leurs projets.
 * Fournit une interface graphique.
 * L'entreprise concurrent est GitLab.
+
+### Gists
+
+* Permet de partager un morceau de code.
+* 
+### Adding new collaborators
+
+`Setting > Collaborators`.
+
+### Accès aux dépôts Github 
+
+Il existe 2 modes de communications sécurisés avec un server:
+
+1. SSH 
+2. HTTPS:
+   - Moins sécurisé que le SSH
+   - Accès via Login/PassWord or Login/Token
+         + Le token est généré aléatoirement 
 
 # GitLab (Service):
 
@@ -42,7 +70,7 @@ git remote -v        # Connaitre l'URL
 
 # Basic commands 
 
-1. Init:
+## Init:
 
 - Depuis la console, se placer dans le dossier souhaité.
 - `git init` transforme votre _dossier classique_ en un _repository git_ en y ajoutant un _.git_.
@@ -62,7 +90,7 @@ git remote -v        # Connaitre l'URL
   
   Example: p@ssword --> p%40ssword
   
-1. Add and Reset:
+## Add and Reset:
 - Zone index.
 - Add pour Indexer une modification.
  ```
@@ -74,9 +102,20 @@ git remote -v        # Connaitre l'URL
 - Reset pour désindexter une modification.
 ```
  git reset fic1      
- ```
+
+git add file.txt        # Sans le commit 
+git reset HEAD file.txt # Retour à la version précédente 
+
+git add file.txt
+git commit -m "commit"
+git reset HEAD~1        # Revient à la version t-1
+
+git reset --hard HEAD~1
+git status
+   Nothing to commit
+```
  
-2. Tag:
+## Tag:
 - Permet de naviguer facilement et identifier clairement des versions bien précises
 - Le tag master se positionne toujours sur le dernier commit
 - Les custom tags restent attacher au commit lors de leur création
@@ -91,7 +130,7 @@ git tag --delete version1
 git tag # Lister les tags
 ```
 
-3. Commit: 
+## Commit: 
 - Zone dépôt local (le commit est local).
 - SHA-1: Idenfiant unique de 40 caractères
 - Une fois que les modifications sont dans la *Zone d'Index*, il faut les enregistrer dans le dépôt local via `git commit`.
@@ -115,35 +154,38 @@ git checkout master # Revenir à la branche master
 git log
 ```
 
-6. Push:
-
- ```
- git push origin master_                             // Les envoyer sur le serveur
- git branch --set-upstream-to=origin/master master_
- git push
- ```
-
-1. Pull:
-
-    `git pull   // Récupérer du serveur`
-
-1. Affichage:
+## Push:
 
 ```
-git status      # Etat du repertoire
+git push --tags    # Push all the tags
+git push origin V1 # Push the tag V1
 
-git log         # List des commits
-git log -n 2    # Lister les 2 derniers commits
-git log --stat  # Résumer plus court des commits    
+git push origin master 
+git branch --set-upstream-to=origin/master master_
+git push
+ ```
 
-git show SHA-1  # Afficher les modifications d'un commit particulier
-git show mastet  # utiliser le tag au lieu du SHA-1
+## Pull:
+
+`git pull   # Récupérer du serveur`
+
+## Affichage:
+
+```
+git status        # Etat du repertoire
+
+git log           # List des commits
+git log -n 2      # Lister les 2 derniers commits
+git log --stat    # Résumer plus court des commits    
+
+git show SHA-1    # Afficher les modifications d'un commit particulier
+git show mastet   # utiliser le tag au lieu du SHA-1
             
-git diff --cached # Visualiser les modifications avant le commit
+git diff --cached  # Visualiser les modifications avant le commit
 git diff           # Visualiser les modifications après le commit
 ```
 
-## Branch 
+## Branch:
 
 Une branche est un ensemble de commits.
 ```
@@ -161,7 +203,7 @@ Une branche est un ensemble de commits.
    * my_branch
 ```
 
-## Merge 
+## Merge:
 
 ```
 // il va souvent vous arriver de vouloir ajouter  dans une branche A les mises à jour que vous avez faites dans une autre branche B. Pour cela, on se place dans la branche A
@@ -188,39 +230,7 @@ Ligne bleu            // Version dans une autre branche
    git commit -m "fix conflict"
 ```
 
-## Git Checkout 
-
-```
-ls
-   File.txt
-vim File.txt
-
-git status
-   Modified File.txt
-
-git checkout File.txt
-
-git status
-   Nothing to commit
-```   
-
-```Bash
-git add file.txt
-// Sans le commit 
-git reset HEAD file.txt
-// Retour à la version précédente 
-
-git add file.txt
-git commit -m "commit"
-git reset HEAD~1 // Revient à la version t-1
-
-// CASE:
-git reset --hard HEAD~1
-git status
-   Nothing to commit
-   
-```
-## Create a folder via graphical interface
+## Create a folder via graphical interface:
 
 `Create_file > my_folder/.gitkeep > Create_file`
 
