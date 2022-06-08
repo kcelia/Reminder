@@ -22,7 +22,7 @@ Installer git ⇒ Installe deux paquages:
 
 # Bitbucket
 
-*  Crée par l'enreprise altassian
+*  Crée par l'enreprise Altassian.
 
 
 ## Configuration Git:
@@ -62,37 +62,58 @@ git remote -v        # Connaitre l'URL
   
   Example: p@ssword --> p%40ssword
   
-1. Add:
+1. Add and Reset:
 - Zone index.
-- Indexer une modification.
-    ```
-    git add fic1 fic2 
-    git add --all      # Recommader à `git add folder/*`
-    git add .          # Tout
-    git add *.html        
-    ```
-    
-2. Reset 
-- Zone index
-
+- Add pour Indexer une modification.
+ ```
+ git add fic1 fic2 
+ git add --all      # Recommader à `git add folder/*`
+ git add .          # Tout
+ git add *.html        
+ ```
+- Reset pour désindexter une modification.
 ```
  git reset fic1      
  ```
-
-3. Commit 
-- Zone dépôt local.
-- Une fois que les modifications sont dans la *Zone d'Index*, il faut les enregistrer dans le dépôt local via `git commit`.
-- Le commit est local.
-- Commiter tous les fichiers listés dans _git status_ dans les colonnes.
+ 
+2. Tag:
+- Permet de naviguer facilement et identifier clairement des versions bien précises
+- Le tag master se positionne toujours sur le dernier commit
+- Les custom tags restent attacher au commit lors de leur création
 
 ```
-git commit -m  "Message" # -m: commentaires 
+git log 
+git checkount SHA-1
+git tag version1 -m "V1"
+
+git tag --delete version1
+
+git tag # Lister les tags
+```
+
+3. Commit: 
+- Zone dépôt local (le commit est local).
+- SHA-1: Idenfiant unique de 40 caractères
+- Une fois que les modifications sont dans la *Zone d'Index*, il faut les enregistrer dans le dépôt local via `git commit`.
+- Informations sur l'auteur, date de création, commentaire décrivant le commit _-m_
+- Liste SHA-1 de ses parents
+
+```
+git commit -m  "Message" # Commiter tous les fichiers listés dans _git status_
 git commit fic1 fic2     # Quels fichiers doivent êtres commités
  ```
- 
-4. Diff
-- Visualiser les modifications avant le commit `git diff --cached`
-- Visualiser les modifications après le commit `git diff`
+
+Comment naviger dans l'historique des commits ?
+
+```
+git log            # Lister tous les commits
+git checkout SHA-1 # Deplacer le head -> master sur le commit souhaité
+
+git log            # N'afficher plus les commits effectués après le SHA-1 selectionné
+
+git checkout master # Revenir à la branche master
+git log
+```
 
 6. Push:
 
@@ -108,16 +129,23 @@ git commit fic1 fic2     # Quels fichiers doivent êtres commités
 
 1. Affichage:
 
-    ```
-    git status      // Etat du repertoire
-    git log -n 2    // Lister les 2 derniers commits
-    git log --stat  // Résumer plus court des commits
-    git diff        // Affiche un diff etre le (working directory) et l’index (staging area) ou dans le repository. 
-                      // Dès qu’on fait _git add_ sur un fichier modifié, il n’apparait plus dans le diff
-    ```
+```
+git status      # Etat du repertoire
+
+git log         # List des commits
+git log -n 2    # Lister les 2 derniers commits
+git log --stat  # Résumer plus court des commits    
+
+git show SHA-1  # Afficher les modifications d'un commit particulier
+git show mastet  # utiliser le tag au lieu du SHA-1
+            
+git diff --cached # Visualiser les modifications avant le commit
+git diff           # Visualiser les modifications après le commit
+```
 
 ## Branch 
 
+Une branche est un ensemble de commits.
 ```
    git checkout -b my_branch  // Création de la branche et on se met dessus
    // ou 
