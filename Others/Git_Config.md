@@ -48,7 +48,9 @@ git remote -v        # Connaitre l'URL
 - `git init` transforme votre _dossier classique_ en un _repository git_ en y ajoutant un _.git_.
 - _.git_ contient:
    * Historique
-   * Zone d'index
+   * Zone d'index 
+         + Indexer une modification ⇒ `git add` 
+         + Désindexer une modification ⇒ `git reset`
    * Autres informations pour la gestion
 
     ```  
@@ -60,32 +62,42 @@ git remote -v        # Connaitre l'URL
   
   Example: p@ssword --> p%40ssword
   
+## Zone index
+
 1. Add:
 
+- Indexer une modification
     ```
     git add fic1 fic2 
-    git add --all      // Recommader à : git add folder/*
+    git add --all      # Recommader à : git add folder/*
+    git add .          # Tout
     git add *.html        
     ```
+    
+2. Reset 
+    ```
+    git reset fic1      
+    ```
+## Dépôt local
 
 1. Commit 
 
-    ```
-      git commit -m         // Commit est local
-                            // m: commentaires 
-                            // Commiter tous les fichiers listés dans _git status_ dans les colonnes 
-                            // «Changes to be committed» et «Changed but not updated» (vert ou rouge)
+- Une fois que les modifications sont dans la *Zone d'Index*, il faut les enregistrer dans le dépôt local via `git commit`.
+- Le commit est local.
+- Commiter tous les fichiers listés dans _git status_ dans les colonnes 
 
-      git commit fic1 fic2  // Pour indiquer lors du commit quels fichiers précis doivent être «commités»
-    ```
+```
+git commit -m  "Message" # -m: commentaires 
+git commit fic1 fic2     # Pour indiquer lors du commit quels fichiers précis doivent être commités
+ ```
 
 1. Push:
 
-    ```
-    git push origin master_                             // Les envoyer sur le serveur
-    git branch --set-upstream-to=origin/master master_
-    git push
-    ```
+ ```
+ git push origin master_                             // Les envoyer sur le serveur
+ git branch --set-upstream-to=origin/master master_
+ git push
+ ```
 
 1. Pull:
 
