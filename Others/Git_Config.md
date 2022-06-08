@@ -36,23 +36,29 @@ git config --global color.branch auto
 git config --global user.name "kcelia"
 git config --global use.email "kherfallah_celia@hotmail.fr
 git help config
-git config --list    // Savoir ce qui a été configuré
-git remote -v        // Connaitre l'URL
+git config --list    # Savoir ce qui a été configuré
+git remote -v        # Connaitre l'URL
 ```
 
-# Steps
+# Basic commands 
 
-1. Init (Depuis la console, se placer dans le dossier souhaité): 
+1. Init:
+
+- Depuis la console, se placer dans le dossier souhaité.
+- `git init` transforme votre _dossier classique_ en un _repository git_ en y ajoutant un _.git_.
+- _.git_ contient:
+   * Historique
+   * Zone d'index
+   * Autres informations pour la gestion
 
     ```  
-    git init         // Init le versionning
-    git clone URL    // Cloner un dépôt publique existant: ou Créer un nouveau dépôt
-    git clone https://myusername:mygithubpassword@github.com/myusername/project.git  // Cloner un dépôt privé
+    git init                                                                         # Init le versionning
+    git clone URL                                                                    # Cloner un dépôt publique existant: ou Créer un nouveau dépôt
+    git clone https://myusername:mygithubpassword@github.com/myusername/project.git  # Cloner un dépôt privé
     ```
-  If you have a special character in your password, replace it with values from this website : 
-  https://support.brightcove.com/special-characters-usernames-and-passwords 
+  If you have a special character in your password, replace it with values from this website : https://support.brightcove.com/special-characters-usernames-and-passwords 
   
-  example: p@ssword --> p%40ssword
+  Example: p@ssword --> p%40ssword
   
 1. Add:
 
