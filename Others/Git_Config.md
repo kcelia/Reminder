@@ -1,9 +1,11 @@
 # Git (Logiciel de gestion de versions):
 
-* Un logiciel de contrôle de version distribué, qui est chargé de suivre les modifications apportées au conten (code source).
-* Local.
+* Un logiciel de contrôle de **version distribué** or **décentralisée**. Il n'est pas nécessaire de disposer des accès à un serveur maître pour l'utiliser. Chacun des utilisateurs possèdent une copie des sources et de l'historique en local.
+* Permet d'avoir un historique des modifications du code source.
+* Permet de travailler plus facilement en équipe.
 * Outil de ligne de commande.	
-* Installer git ⇒ Installe deux paquages : 
+
+Installer git ⇒ Installe deux paquages: 
     * git-core (interface graphique)
     * gitk (facultatif)
 
@@ -24,6 +26,8 @@
 
 
 ## Configuration Git:
+
+`sudo apt install git-all`
 
 ```
 git config --global color.diff auto
