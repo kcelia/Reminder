@@ -56,42 +56,45 @@ git remote -v        # Connaitre l'URL
     ```  
     git init                                                                         # Init le versionning
     git clone URL                                                                    # Cloner un dépôt publique existant: ou Créer un nouveau dépôt
-    git clone https://myusername:mygithubpassword@github.com/myusername/project.git  # Cloner un dépôt privé
+    git clone https://username:githubmdp@github.com/username/project.git  # Cloner un dépôt privé
     ```
   If you have a special character in your password, replace it with values from this website : https://support.brightcove.com/special-characters-usernames-and-passwords 
   
   Example: p@ssword --> p%40ssword
   
-## Zone index
-
 1. Add:
-
-- Indexer une modification
+- Zone index.
+- Indexer une modification.
     ```
     git add fic1 fic2 
-    git add --all      # Recommader à : git add folder/*
+    git add --all      # Recommader à `git add folder/*`
     git add .          # Tout
     git add *.html        
     ```
     
 2. Reset 
-    ```
-    git reset fic1      
-    ```
-## Dépôt local
+- Zone index
 
-1. Commit 
+```
+ git reset fic1      
+ ```
 
+3. Commit 
+- Zone dépôt local.
 - Une fois que les modifications sont dans la *Zone d'Index*, il faut les enregistrer dans le dépôt local via `git commit`.
 - Le commit est local.
-- Commiter tous les fichiers listés dans _git status_ dans les colonnes 
+- Commiter tous les fichiers listés dans _git status_ dans les colonnes.
 
 ```
 git commit -m  "Message" # -m: commentaires 
-git commit fic1 fic2     # Pour indiquer lors du commit quels fichiers précis doivent être commités
+git commit fic1 fic2     # Quels fichiers doivent êtres commités
  ```
+ 
+4. Diff
+- Visualiser les modifications avant le commit `git diff --cached`
+- Visualiser les modifications après le commit `git diff`
 
-1. Push:
+6. Push:
 
  ```
  git push origin master_                             // Les envoyer sur le serveur
