@@ -83,7 +83,7 @@ git remote -v        # Connaitre l'URL
 
 ```  
 git init                                                              # Init le versionning
-git clone URL                                                         # Cloner un dépôt publique existant: ou Créer un nouveau dépôt
+git clone URL                                                         # Cloner un dépôt publique existant ou créer un nouveau dépôt
 git clone https://username:githubmdp@github.com/username/project.git  # Cloner un dépôt privé
 ```
 
@@ -210,23 +210,6 @@ git blame -L 10,20 hello.html
 git blame -L 10.+4 hello.html
 ```
 
-## Branch
-
-Une branche est un ensemble de commits.
-```
-   git checkout -b my_branch  // Création de la branche et on se met dessus
-   // ou 
-   git branch my_branch       // Création de la branche
-   git branch 
-   * master                     // Branche intiale sur laquelle on se trouve
-     my_branch
-   
-   git checkout my_branch     // Se déplacer sur la branche
-   Switched to branch 'my_branch'
-   git branch 
-     master     
-   * my_branch
-```
 
 ## Merge
 
@@ -278,10 +261,22 @@ git push
 ```
 ## Branch
 
+- Une branche est un ensemble de commits.
+
+```
+git checkout -b my_branch  # Création de la branche et on se met dessus
+git branch my_branch       # Création de la branche
+git branch                 # Lister les branches
+* master                   # Branche intiale sur laquelle on se trouve
+  my_branch
+
+git checkout my_branch     # Se déplacer sur la branche
+
+git switch - # revenir sur la dernière branche courante
+```
+
 ```
 git branch BRANCH_A_MERGE
-git branch                                    # Lister les branches
-
 git checkout BRANCH_A_MERGE
 
 git add file.txt
@@ -307,6 +302,7 @@ git push
 
 1. Methode 1:
 ```
+git checkout master
 git merge BRANCH_A_MERGE # Fix the conflict manually
 git add file.txt
 git commit -m "merge branch BRANCH_A_MERGE with master branc"
