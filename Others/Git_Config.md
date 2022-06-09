@@ -1,5 +1,5 @@
 # Les modèles de gestion
-1. Un serveur central:
+1. Un serveur central
 - Contrôle toute la base de code du logiciel.
 - Les developpeurs recupèrent une version à la fois.
 - Exemple: cvs, svn
@@ -8,7 +8,7 @@
 - Pas besoin d'être connecté au serveur pour travailler.
 - Example: git, mercurial
 
-# Git (Logiciel de gestion de versions):
+# Git (Logiciel de gestion de versions)
 
 * Un logiciel de contrôle de **version distribué** or **décentralisée**. Il n'est pas nécessaire de disposer des accès à un serveur maître pour l'utiliser. Chacun des utilisateurs possèdent une copie des sources et de l'historique en local.
 * Permet d'avoir un historique des modifications du code source.
@@ -19,17 +19,25 @@ Installer git ⇒ Installe deux paquages:
     * git-core (interface graphique)
     * gitk (facultatif)
 
-# GitHub (Service):
+# GitHub (Service)
 
 * Un service qui héberge sur un site Web des dépôts Git.
 * Crée un espace de stockage centralisé où les utilisateurs peuvent stocker et accéder à leurs projets.
 * Fournit une interface graphique.
 * L'entreprise concurrent est GitLab.
 
+### GitLab (Service)
+
+* Même chose que Github, mais propose d'héberger le code dans son propre serveur.
+
+### Bitbucket
+
+*  Crée par l'enreprise Altassian.
+
 ### Gists
 
 * Permet de partager un morceau de code.
-* 
+
 ### Adding new collaborators
 
 `Setting > Collaborators`.
@@ -44,33 +52,25 @@ Il existe 2 modes de communications sécurisés avec un server:
    - Accès via Login/PassWord or Login/Token
          + Le token est généré aléatoirement 
 
-# GitLab (Service):
-
-* Même chose que Github, mais propose d'héberger le code dans son propre serveur.
-
-# Bitbucket
-
-*  Crée par l'enreprise Altassian.
-
-
-## Configuration Git:
-
-`sudo apt install git-all`
+## Configuration Git
 
 ```
+sudo apt install git-all
+
+git help config
+
 git config --global color.diff auto
 git config --global color.status auto
 git config --global color.branch auto
 git config --global user.name "kcelia"
 git config --global use.email "kherfallah_celia@hotmail.fr
-git help config
-git config --list    # Savoir ce qui a été configuré
+git config --list    # What has been done so far
 git remote -v        # Connaitre l'URL
 ```
 
 # Basic commands 
 
-## Init:
+## Init
 
 - Depuis la console, se placer dans le dossier souhaité.
 - `git init` transforme votre _dossier classique_ en un _repository git_ en y ajoutant un _.git_.
@@ -81,16 +81,15 @@ git remote -v        # Connaitre l'URL
          + Désindexer une modification ⇒ `git reset`
    * Autres informations pour la gestion
 
-    ```  
-    git init                                                                         # Init le versionning
-    git clone URL                                                                    # Cloner un dépôt publique existant: ou Créer un nouveau dépôt
-    git clone https://username:githubmdp@github.com/username/project.git  # Cloner un dépôt privé
-    ```
-  If you have a special character in your password, replace it with values from this website : https://support.brightcove.com/special-characters-usernames-and-passwords 
+```  
+git init                                                              # Init le versionning
+git clone URL                                                         # Cloner un dépôt publique existant: ou Créer un nouveau dépôt
+git clone https://username:githubmdp@github.com/username/project.git  # Cloner un dépôt privé
+```
+
+If you have a special character in your password, replace it with values from this website : https://support.brightcove.com/special-characters-usernames-and-passwords. Example: p@ssword --> p%40ssword
   
-  Example: p@ssword --> p%40ssword
-  
-## Add and Reset:
+## Add and Reset
 - Zone index.
 - Add pour Indexer une modification.
  ```
@@ -100,6 +99,7 @@ git remote -v        # Connaitre l'URL
  git add *.html        
  ```
 - Reset pour désindexter une modification.
+
 ```
  git reset fic1      
 
@@ -115,7 +115,7 @@ git status
    Nothing to commit
 ```
  
-## Tag:
+## Tag
 - Permet de naviguer facilement et identifier clairement des versions bien précises
 - Le tag master se positionne toujours sur le dernier commit
 - Les custom tags restent attacher au commit lors de leur création
@@ -130,7 +130,7 @@ git tag --delete version1
 git tag # Lister les tags
 ```
 
-## Commit: 
+## Commit
 - Zone dépôt local (le commit est local).
 - SHA-1: Idenfiant unique de 40 caractères
 - Une fois que les modifications sont dans la *Zone d'Index*, il faut les enregistrer dans le dépôt local via `git commit`.
@@ -142,7 +142,7 @@ git commit -m  "Message" # Commiter tous les fichiers listés dans _git status_
 git commit fic1 fic2     # Quels fichiers doivent êtres commités
  ```
 
-Comment naviger dans l'historique des commits ?
+**Comment naviger dans l'historique des commits ?**
 
 ```
 git log            # Lister tous les commits
@@ -154,7 +154,7 @@ git checkout master # Revenir à la branche master
 git log
 ```
 
-## Push:
+## Push
 
 ```
 git push --tags    # Push all the tags
@@ -165,7 +165,7 @@ git branch --set-upstream-to=origin/master master_
 git push
  ```
 
-## Pull:
+## Pull
 
 `git pull   # Récupérer du serveur`
 
@@ -189,12 +189,13 @@ git commit -m "Update"
 git push
 ```
 
-## Affichage:
+## Affichage
 
 ```
 git status        # Etat du repertoire
 
 git log            # List des commits
+git log V2         # List des commits de la branche V2
 git log -n 2       # Lister les 2 derniers commits
 git log --stat     # Résumer plus court des commits    
 
@@ -209,7 +210,7 @@ git blame -L 10,20 hello.html
 git blame -L 10.+4 hello.html
 ```
 
-## Branch:
+## Branch
 
 Une branche est un ensemble de commits.
 ```
@@ -227,31 +228,139 @@ Une branche est un ensemble de commits.
    * my_branch
 ```
 
-## Merge:
+## Merge
+
+- Resoudre des conflits lors de la fusion de branches
 
 ```
-// il va souvent vous arriver de vouloir ajouter  dans une branche A les mises à jour que vous avez faites dans une autre branche B. Pour cela, on se place dans la branche A
+<<<<<<<<<<< HEAD       # Balise -> La branche master
+Ligne rouge            # Version dans la branche actuelle
+------------           # Séparation avec une ligne
+Ligne bleu             # Version dans une autre branche 
+>>>>>>>>>>> my_branch  # Balise fermante 
+```
 
-// Résolution du conflit en supprimant des lignes...
+- Scenario: Conflict entre 2 commits avec Stash
+```
+git stash save "Saving the changes in stash because we have a conflict" 
 
-<<<<<<<<<<< HEAD      // Balise -> La branche master
-Ligne rouge           // Version dans la branche actuelle
-------------          // Séparation avec une ligne
-Ligne bleu            // Version dans une autre branche 
->>>>>>>>>>> my_branch // Balise fermante 
+git pull 
 
-   git add . 
-   git commit            // Sans -m, on peut prendre le message par défaut de merge
+git stash pop  # Auto-merging CONFLICT
+               # You need to solve the merge manually 
+    
+git add file.txt
+git commit -m "Solving conflict"
+git push
+```
 
-// Scénario: Des motifications ont été apportées à la branche my_branch
-  
-   git branch master     // On se place sur la branche master
-   git merch my_branch   // Commit se fait automatiquement 
-   
-// Conflict --> A regler manuellement 
-   
-   git add .
-   git commit -m "fix conflict"
+- Scenario: Conflict entre 2 commits avec Merge
+
+Le soucis avec solution, pollue l'historique.
+
+```
+git pull # Then, update your file manually
+git add file.twt
+git commit -m "merge the changes" # Sans -m, on prend le message par défaut de merge
+git push 
+
+git merge --abort # Undo, the previous pull
+```
+
+- Scenario: Conflict entre 2 commits avec pull --rebase
+
+Pour ne pas polluer l'historique, deplacer le commit
+```
+git add file.txt
+git commit -m "Updating"
+git pull --rebase
+git push
+```
+## Branch
+
+```
+git branch BRANCH_A_MERGE
+git branch                                    # Lister les branches
+
+git checkout BRANCH_A_MERGE
+
+git add file.txt
+git commit -m"commit 1"
+
+git push --set-upstream origin BRANCH_A_MERGE  # Créer un lien entre notre branche et le dépôt distant
+
+git add file.txt
+git commit -m"commit 2"
+
+git push                                       # Once the link is established, we can use the pull command
+
+git pull                                       # Récupérer la branch
+git branch -a
+git checkout  BRANCH_A_MERGE
+
+git add file.txt
+git commit -m"commit 3"
+git push 
+```
+
+### Merge Branches
+
+1. Methode 1:
+```
+git merge BRANCH_A_MERGE # Fix the conflict manually
+git add file.txt
+git commit -m "merge branch BRANCH_A_MERGE with master branc"
+```
+- Merging using rebase
+
+```
+git merge BRANCH_A_MERGE # Fix the conflict manually
+git add file.txt
+git commit -m "merge branch BRANCH_A_MERGE with master branc"
+```
+
+1. Methode 2:
+
+```
+git checkout SHA-1 # SHA-1 du commit souhaité 
+git checkout -b BRANCH2
+
+git add file.txt
+git commit -m "commit1"
+
+git rebase master # Edit the conflicts manually
+git add file.txt # Indiquer à git que le conflit a été réglé manuellement
+git rebase --continue
+
+git checkout master
+git merge BRANCH2
+```
+
+### Delete branch
+
+```
+git branch BRANCH_A_MERGE 
+git checkout BRANCH_A_MERGE
+
+git add fichier.txt
+git commit -m "commit"
+git push --set-upstream origin BRANCH_A_MERGE  
+
+git checkout master
+git branch -d BRANCH_A_MERGE               # Delete la branche en local
+git branch -a
+git push origin --delete BRANCH_A_MERGE    # Delete la branch en remote
+git branch -a
+```
+
+## Cherry-pick
+
+- Mettre le commit de la branche BRANCH_A_MERGE dans la branche master
+```
+git log BRANCH_A_MERGE
+git cherry-pick SHA-1
+git log                    # Logs of master branch
+git push
 ```
 
 ## Create a folder via graphical interface:
