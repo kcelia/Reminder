@@ -169,20 +169,44 @@ git push
 
 `git pull   # Récupérer du serveur`
 
+## Stash 
+- Isoler des modifications
+
+```
+git checkout V1
+
+git stack save " isolate thse modifications" 
+
+git stash list     # Display all the index
+git stash show 0   # Get more details about index 0
+
+git checkout V0
+
+git checkout V1
+git stash pop 0    # Bring back the modifications
+git add .
+git commit -m "Update"
+git push
+```
+
 ## Affichage:
 
 ```
 git status        # Etat du repertoire
 
-git log           # List des commits
-git log -n 2      # Lister les 2 derniers commits
-git log --stat    # Résumer plus court des commits    
+git log            # List des commits
+git log -n 2       # Lister les 2 derniers commits
+git log --stat     # Résumer plus court des commits    
 
-git show SHA-1    # Afficher les modifications d'un commit particulier
-git show mastet   # utiliser le tag au lieu du SHA-1
+git show SHA-1     # Afficher les modifications d'un commit particulier
+git show mastet    # utiliser le tag au lieu du SHA-1
             
 git diff --cached  # Visualiser les modifications avant le commit
 git diff           # Visualiser les modifications après le commit
+
+git blame hello.html           # Display more details
+git blame -L 10,20 hello.html
+git blame -L 10.+4 hello.html
 ```
 
 ## Branch:
