@@ -23,12 +23,16 @@ zsh    | Z Shell            | Fairly new shell with the best ideas of bash, ksh 
 
 **Vim** is an enhanced version of **Vi**.
 
+vim has 2 main mode: 
+- **I**nsert mode: `ESC + i` you type text 
+- Command: undo, redo, find and replace, quit, etc.
+
+
 ```bash
 vimtuto fr       ## Open tutorial in french
 
 ESC + :q!        ## Exit without saving
 ESC + :wq        ## Exit with saving
-ESC + :x 	     ## Exit and save, only if there have been changes
 
 dd               ## Delete an entire line  
 d4w              ## Delete 4 words  
@@ -880,6 +884,8 @@ More [proxy_terminal](https://doc.ubuntu-fr.org/proxy_terminal)
 
 ## Usefull command lines 
 
+### update-alternatives
+
 Use update-alternatives to set which version to use by default and also switch between them very easily.  
 
 ```
@@ -888,7 +894,45 @@ celia@celia:~$ ls /usr/bin/pip3*
 
 celia@celia~$ sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 200
 
-
 celia@celia:~$ update-alternatives --list pip
 /home/celia/.local/bin/pip3.8
 ```
+
+### apt command
+
+**apt** est un **outil en ligne de commande** qui permet de gérer des paquets en provenance de **dépôts APT**.
+
+Les outils:
+
+1 - Outils avec interface graphique : software-center, GNOME, Synaptic, GtkOrphan, Muon, Apturl, Gdebi...
+
+2 - Outils en ligne de commande : 
+
+Nom 	                       |    Description
+-----------------------------|------------------------------------------------------------
+apt 	                       | Gestion des paquets (pour un utilisateur final)
+apt-get, apt-cache, apt-file | Gestion des paquets (pour un script)
+aptitude 	                 | Gestion des paquets - interface semi-graphique
+dpkg 	                       | Gestion des paquets hors dépôts
+deborphan 	                 | Trouver les paquets non utilisés, appelés orphelins
+dselect (param DPKG) 	     | Gestion des paquets - interface à dpkg
+wajig 	                    | Outil d’administration simplifié pour apt, dpkg et dselect 
+
+#### Difference entre apt et apt-get:
+- apt-get est le premier front-end
+- apt est plus simple
+- apt corrige certaines lacunes d'apt-get
+
+*Syntaxe :* `apt [méthode] [paramètres]` 
+
+```
+sudo apt update && sudo apt upgrade
+sudo apt search vim                  
+sudo apt install vim -y
+sudo apt remove vim -y
+
+# apt-cache search     -->  Rechercher un package
+# dpkg –get-selections --> Répertorier tous les packages installés sur le système
+
+```
+
