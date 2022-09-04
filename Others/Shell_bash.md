@@ -23,16 +23,12 @@ zsh    | Z Shell            | Fairly new shell with the best ideas of bash, ksh 
 
 **Vim** is an enhanced version of **Vi**.
 
-vim has 2 main mode: 
-- **I**nsert mode: `ESC + i` you type text 
-- Command: undo, redo, find and replace, quit, etc.
-
-
 ```bash
 vimtuto fr       ## Open tutorial in french
 
 ESC + :q!        ## Exit without saving
 ESC + :wq        ## Exit with saving
+ESC + :x 	     ## Exit and save, only if there have been changes
 
 dd               ## Delete an entire line  
 d4w              ## Delete 4 words  
