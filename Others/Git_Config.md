@@ -1,6 +1,7 @@
 # Les modèles de gestion
+
 Serveur central                                   | Modèle distribué
--------------------------------------------- -----|------------------------------------------------------------
+--------------------------------------------------|------------------------------------------------------------
 Contrôle toute la base de code du logiciel.       | Tous les acteurs du projet on une copie de la base de code.
 Les developpeurs recupèrent une version à la fois | Pas besoin d'être connecté au serveur pour travailler.
 Exemple: cvs, svn                                 | Example: git, mercurial
