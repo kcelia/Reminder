@@ -881,3 +881,18 @@ printenv https_proxy
 
 ```
 More [proxy_terminal](https://doc.ubuntu-fr.org/proxy_terminal)
+
+## Usefull command lines 
+
+Use update-alternatives to set which version to use by default and also switch between them very easily.  
+
+```
+celia@celia:~$ ls /usr/bin/pip3*
+/usr/bin/pip3  /usr/bin/pip3.10
+
+celia@celia~$ sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 200
+
+
+celia@celia:~$ update-alternatives --list pip
+/home/celia/.local/bin/pip3.8
+```
