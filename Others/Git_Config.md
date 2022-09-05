@@ -407,6 +407,34 @@ git checkout SHA-1
 git switch -c develop      # Créer une branche
 git switch -               # revenir sur la dernière branche courante
 ```
+- Demo 1:
+
+```
+git init
+touch bug.txt
+echo kfjhkfjhdkhfdh >> bug.txt 
+git add bug.txt 
+git commit -m "adding new file"
+git status 
+touch f1.txt f2.txt
+echo 1212 >> f1.txt 
+echo 2548 >> f2.txt 
+git status            # Adding 2 new files
+
+git checkout -b quickfix
+git add *
+git status
+git commit -m "changes added to new branch"
+
+celia@celia-zama:~/Desktop/celia$ git checkout master
+Switched to branch 'master'
+celia@celia-zama:~/Desktop/celia$ ls
+bug.txt
+
+celia@celia-zama:~/Desktop/celia$ git checkout quickfix ; ls
+Switched to branch 'quickfix'
+bug.txt  f1.txt  f2.txt 
+```
 
 ```
 git branch BRANCH_A_MERGE
