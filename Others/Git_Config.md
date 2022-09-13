@@ -84,6 +84,9 @@ git clone https://username:githubmdp@github.com/username/project.git  # Cloner u
 If you have a special character in your password ⇒ : https://support.brightcove.com/special-characters-usernames-and-passwords. 
 
 Example: p@ssword --> p%40ssword
+
+## Git filesysteme management (untracked, staged, committed)
+
   
 ## Add 
 
@@ -393,20 +396,38 @@ git push
 ## Branch
 
 - Une branche est un ensemble de commits.
+- Changes are isolated is each branch
 
+#### List of all branches
 ```
-git checkout -b my_branch  # Création de la branche et on se met dessus
-git branch my_branch       # Création de la branche
-git checkout my_branch     # Se déplacer sur la branche
-
 git branch                 # Lister les branches
 * master                   # Branche intiale sur laquelle on se trouve
   my_branch
+```
 
-git checkout SHA-1
+#### Create new branch
+```
+git branch my_branch       # Création de la branche
+git checkout -b my_branch  # Création de la branche et on se met dessus
 git switch -c develop      # Créer une branche
+
+git branch -m b1 b2        # Rename a branch
+git branch -b2             # Rename the current branch
+
+git branch -d my_branch    # Delete a branch, but we cannot delete the current branch
+git branch -D my_branch    # Force the branch to be deleted, even if we have unmerged commits
+
+
+```
+#### Switch branch
+```
+git checkout my_branch     # Se déplacer sur la branche
+git checkout SHA-1         # Se déplacer sur un SHA-1
+git switch my_branch       # Se déplacer sur la branche
+
 git switch -               # revenir sur la dernière branche courante
 ```
+
 - Demo 1:
 
 ```
