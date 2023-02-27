@@ -57,7 +57,7 @@ git config --global color.diff auto
 git config --global color.status auto
 git config --global color.branch auto
 git config --global user.name "kcelia"
-git config --global use.email "kherfallah_celia@hotmail.fr
+git config --global use.email "kherfallah_celia@hotmail.fr"
 git config --global core.editor "vim"
 git config --list    # What has been done so far
 git remote -v        # Connaitre l'URL
